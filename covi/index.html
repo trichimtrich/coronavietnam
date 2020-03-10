@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <style>
+        .legend {
+            color: white;
+            text-align: left;
+            line-height: 18px;
+        }
+
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+
+        .github-corner:hover .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+
+        @keyframes octocat-wave {
+
+            0%,
+            100% {
+                transform: rotate(0)
+            }
+
+            20%,
+            60% {
+                transform: rotate(-25deg)
+            }
+
+            40%,
+            80% {
+                transform: rotate(10deg)
+            }
+        }
+
+        @media (max-width:500px) {
+            .github-corner:hover .octo-arm {
+                animation: none
+            }
+
+            .github-corner .octo-arm {
+                animation: octocat-wave 560ms ease-in-out
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mapid" style="width: 100%; height: 100%"></div>
+    
+
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://elfalem.github.io/Leaflet.curve/src/leaflet.curve.js"></script>
+    <script src="./theme.js?1"></script>
+    <script src="./logic.js?1"></script>
+
+    <script>
+
+        async function Main() {
+            var theme = themes.CartoDB_DarkMatter;
+
+            var myMap = CreateMap(theme);
+            var cases = await LoadData();
+            RenderDataToMap(cases, myMap, theme);
+        }
+
+        Main();
+
+    </script>
+
+</body>
+
+</html>
