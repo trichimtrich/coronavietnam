@@ -66,10 +66,7 @@ function RenderDataToMap(cases, myMap, theme) {
 
     // cases schedule -> locations
     for (const [key, ca] of Object.entries(cases)) {
-        var locRoot, locLeaf;
-
         ca.edge = Array();
-        ca.arrLocs = Array();
         ca.rootLocs = Array();
         ca.leafLocs = Array();
 
@@ -99,7 +96,6 @@ function RenderDataToMap(cases, myMap, theme) {
             }
 
             var wrapLoc = locations[locName]; // == loc in [lat, lng]
-            ca.arrLocs.push(locName);
 
             if (!("link" in wrapLoc)) {
                 wrapLoc.link = Array();
@@ -108,144 +104,139 @@ function RenderDataToMap(cases, myMap, theme) {
             var linkType;
             if (loc.last) {
                 linkType = ca.caseType; // new - old
-                ca.rootLocs.push([loc.lat, loc.lng]);
+                ca.rootLocs.push(locName);
             } else {
                 linkType = "indirect"; // indirect
-                ca.leafLocs.push([loc.lat, loc.lng]);
+                ca.leafLocs.push(locName);
             }
 
             wrapLoc.link.push([key, linkType]);
         };
 
         // if has at least 1 rootLocs
-        for (var i = 0; i < ca.rootLocs.length; i++) {
-            for (var j = 0; j < ca.leafLocs.length; j++) {
-                var locRoot = ca.rootLocs[i],
-                    locLeaf = ca.leafLocs[j];
+        ca.rootLocs.forEach(rootName => {
+            ca.leafLocs.forEach(leafName => {
+                var locRoot = locations[rootName];
+                    locLeaf = locations[leafName];
 
                 // calc Bézier curve between root -> leaf
-                var offsetX = locRoot[1] - locLeaf[1],
-                    offsetY = locRoot[0] - locLeaf[0];
+                var offsetX = locRoot.lng - locLeaf.lng,
+                    offsetY = locRoot.lat - locLeaf.lat;
                 var r = Math.sqrt(Math.pow(offsetX, 2) + Math.pow(offsetY, 2)),
                     theta = Math.atan2(offsetY, offsetX);
                 var thetaOffset = (3.14 / 10);
                 var r2 = (r / 2) / (Math.cos(thetaOffset)),
                     theta2 = theta + thetaOffset;
 
-                var midpointX = (r2 * Math.cos(theta2)) + locLeaf[1],
-                    midpointY = (r2 * Math.sin(theta2)) + locLeaf[0];
+                var midpointX = (r2 * Math.cos(theta2)) + locLeaf.lng,
+                    midpointY = (r2 * Math.sin(theta2)) + locLeaf.lat;
                 var midpointLatLng = [midpointY, midpointX];
 
-                // generate line between root -> leaf
-                var line = L.curve(["M", locRoot, "Q", midpointLatLng, locLeaf], {
-                    weight: 2,
-                    color: theme.color.line,
-                    //color: myColor,
-                    animate: {
-                        duration: 1000,
+                // generate connection between root -> leaf
+                var line = L.curve(
+                    [
+                        "M", [locRoot.lat, locRoot.lng], 
+                        "Q", midpointLatLng, 
+                        [locLeaf.lat, locLeaf.lng]
+                    ], 
+                    {
+                        weight: 2,
+                        color: theme.color.line,
+                        animate: { duration: 1000 }
                     }
-                });
+                );
+
                 ca.edge.push(line);
-            }
-        }
+            });
+        });
     }
 
     for (const [_, loc] of Object.entries(locations)) {
         var color;
 
         var isNew = false;
-        var linkDirect = Array(),
-            linkIndirect = Array();
+        var noDirect = Array(),
+            noIndirect = Array();
+
         loc.link.forEach(([caseNo, linkType]) => {
             if (linkType == "new") {
                 isNew = true;
             }
 
             if (linkType == "indirect") {
-                if (linkIndirect.indexOf(caseNo) < 0) {
-                    linkIndirect.push(caseNo);
+                if (!noIndirect.includes(caseNo)) {
+                    noIndirect.push(caseNo);
                 }
             } else {
-                if (linkDirect.indexOf(caseNo) < 0) {
-                    linkDirect.push(caseNo);
+                if (!noDirect.includes(caseNo)) {
+                    noDirect.push(caseNo);
                 }
             }
         });
 
-        var desc = `Location: <a href="https://www.google.com/maps/@${loc.lat},${loc.lng},17z/" target="_blank">${loc.desc}</a><br>`;
-        if (linkDirect.length != 0) {
+        var desc;
+        if ("url" in loc) {
+            desc = `Location: <a href="${loc.url}" target="_blank">${loc.desc}</a><br>`;
+        } else {
+            desc = `Location: <a href="https://www.google.com/maps/@${loc.lat},${loc.lng},17z/" target="_blank">${loc.desc}</a><br>`;
+        }
+        
+        var noRelated = noIndirect.slice();
+        if (noDirect.length > 0) {
             if (isNew) {
                 color = theme.color.directNew;
             } else {
                 color = theme.color.directOld;
             }
 
-            var descDirect = "";
-            var descCase = "";
-            var descAge = "";
-            var descGender = "";
-            var descConfirm, descFrom, descCiti, descStayed, descVisited;
-            linkDirect.forEach(caseNo => {
-                ca = cases[caseNo];
-                descCase += `<a href="#">#${caseNo}</a> `;
-                descAge += `${ca.age} `;
-                descGender += `${ca.gender} `;
-                descConfirm = ca.confirmDate;
-                descFrom = ca.from;
-                descCiti = ca.citizenship;
-                descStayed = ca.stayed;
-                descVisited = ca.visited;
+            // TODO: redesign the popup layout
+            var descCase = noDirect.map(no => `<a href="#">#${no}</a>`).join(" ");
+            var descAge = noDirect.map(no => cases[no].age).join(" ");
+            var descGender = noDirect.map(no => cases[no].gender).join(" ");
+            var descConfirmDate = cases[noDirect[0]].confirmDate;
+            var descFrom = cases[noDirect[0]].from;
+            var descCitizenship = cases[noDirect[0]].citizenship;
+            var descStayed = cases[noDirect[0]].stayed;
+            var descVisited = cases[noDirect[0]].visited;
 
-                if (ca.relatedCaseNo.length != 0) {
-                    ca.relatedCaseNo.forEach(conNo => {
-                        descDirect += `<a href="#">#${conNo}</a> `;
-                    });
-                }
-            });
-            if (descDirect != "") {
-                descDirect = `Direct connection: ${descDirect}<br>`;
-            }
-            desc += `Ca số: ${descCase}<br>
-Confirmed on: ${descConfirm}<br>
-${descDirect}
-Age: ${descAge}<br>
-Gender: ${descGender}<br>
-From: ${descFrom}<br>
-Citizenship: ${descCiti}<br>
-Visited: ${descVisited}<br>
-Stayed: ${descStayed}<br>`;
+            // merge related cases together (by location + cases related)
+            noDirect.forEach(no => noRelated = noRelated.concat(cases[no].relatedCaseNo));
+            
+            
+            desc += `
+                Ca số: ${descCase}<br>
+                Tuổi: ${descAge}<br>
+                Giới tính: ${descGender}<br>
+                Ngày phát hiện: ${descConfirmDate}<br>
+                Vùng: ${descFrom}<br>
+                Quốc tịch: ${descCitizenship}<br>
+                Nơi đã đi: ${descVisited}<br>
+                Nơi ở: ${descStayed}<br>
+            `;
+
         } else {
             color = theme.color.indirect;
         }
 
-        if (linkIndirect.length != 0) {
-            var descIncase = "";
-            linkIndirect.forEach(caseNo => {
-                ca = cases[caseNo];
-                descIncase += `<a href="#">#${caseNo}</a> `;
-            })
-            desc += `Related To Case: ${descIncase}<br>`;
-        }
+        noRelated = [...(new Set(noRelated))]; // unique
+        var descRelated = noRelated.map(no => `<a href="#">#${no}</a>`).join(" ");
+        desc += `${(descRelated?"Ca liên quan: ":"") + descRelated}`;
 
+        // create marker with "color"
         var marker = L.circleMarker([loc.lat, loc.lng], {
             stroke: false,
             fill: true,
             fillColor: color,
             fillOpacity: theme.opacity.enable,
         }).addTo(myMap);
-
         loc.marker = marker;
-
-        if (!("link" in loc)) {
-            loc.link = Array();
-        }
 
         var popup = L.popup();
         popup.setContent(desc);
         marker.bindPopup(popup);
 
         marker.on("mouseup", function () {
-            isMarkerArr = markerArr.indexOf(this) != -1;
+            isMarkerArr = markerArr.includes(this);
         })
 
         marker.on("popupopen", () => {
@@ -273,7 +264,7 @@ Stayed: ${descStayed}<br>`;
                 });
 
                 // enable all related nodes
-                ca.arrLocs.forEach(locName => {
+                Array.prototype.concat(ca.rootLocs, ca.leafLocs).forEach(locName => {
                     loc3 = locations[locName];
                     loc3.marker.setStyle({
                         fillOpacity: theme.opacity.enable
