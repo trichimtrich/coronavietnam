@@ -11,21 +11,18 @@
     "reference": ["http://www.google.com"],
     "nodes": {
         "nha-17": {
-            "lat": 21.0488112,
-            "lng": 105.8399281,
+            "url": "https://www.google.com/maps/place/15+Tr%C3%BAc+B%E1%BA%A1ch,+Ba+%C4%90%C3%ACnh,+H%C3%A0+N%E1%BB%99i,+Vietnam/@21.0496465,105.8391087,17z/data=!4m5!3m4!1s0x3135abae084cb55f:0x7edc00b82da0eb07!8m2!3d21.0488305!4d105.8399134",
             "desc": "15 - 17 Trúc Bạch",
             "last": true
         },
 
         "san-bay-noi-bai": {
-            "lat": 21.2187199,
-            "lng": 105.8019769,
+            "url": "https://www.google.com/maps/place/S%C3%A2n+bay+n%E1%BB%99i+b%C3%A0i/@21.2180967,105.7887342,17z/data=!3m1!4b1!4m5!3m4!1s0x3135036c6bf15007:0x522c01665408ae36!8m2!3d21.2180917!4d105.7909229",
             "desc": "Sân bay quốc tế Nội Bài"
         },
 
         "bv-hong-ngoc": {
-            "lat": 21.0427307,
-            "lng": 105.8441962,
+            "url": "https://www.google.com/maps/place/H%E1%BB%93ng+Ng%E1%BB%8Dc+General+Hospital/@21.0424849,105.8419472,17z/data=!3m1!4b1!4m5!3m4!1s0x3135abba7ba53e11:0x587dbd43c0113ca9!8m2!3d21.0424799!4d105.8441359",
             "desc": "Bệnh viện Hồng Ngọc"
         }
     }
