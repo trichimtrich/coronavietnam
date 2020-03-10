@@ -6,25 +6,33 @@ Bản đồ xem `Cô Vi` đang ở những chỗ nào.
 
 Code cho vui, data chưa chính thức. Cần mấy bạn commit data dùm 😘.
 
-## Format
+- Gửi issue để mình parse vô nè
+- Hoặc pull request
 
-- Add case vào thử mục `cases`. Ví dụ `./cases/noXX.json`
+## Format case
 
-- Sau đó add thêm cái `noXX` vào `./list.json`
+1. Add case mới vào thử mục `cases`. Ví dụ case số `noXX` => `./cases/noXX.json`
 
-- Structure của `noXX.json` như sau
+2. Sau đó add thêm cái `noXX` vào `./list.json`
+
+3. Structure của `noXX.json` như sau, ví dụ
 
 ```
 {
-    "caseType": <"old" hoặc "new">,
+    "caseType": "old",
     "age": 99,
-    "gender": "femail",
-    "from": "Ha Noi",
-    "stayed": "15 - 17 Trúc Bạch",
+    "gender": "female",
+    "from": "Da nang",
+    "stayed": "199 Nguyen Van Linh",
     "visited": "London, Italy, France",
     "citizenship": "Vietnam",
     "relatedCaseNo": ["noYY", "noZZ"],
-    "confirmDate": "05 March 2020",
+    "confirmDate": "10 March 2020",
+    "credit": "superman, batman",
+    "reference": [
+        "https://link1.com",
+        "https://link2.com
+    ],
     "nodes": {
         "nha-17": {
             "lat": 21.0488112,
@@ -40,6 +48,18 @@ Code cho vui, data chưa chính thức. Cần mấy bạn commit data dùm 😘.
     }
 }
 ```
+
+Trong đó
+
+- Các trường có data format
+    - `caseType` là string `old` hoặc `new`
+    - `relatedCaseNo` là array, và value là keyname của case khác, như `noYY`, `noZZ`. Nếu không có thì để rỗng
+    - `nodes` là dict
+        - key của location, nên dùng lại key (của các case khác) nếu trùng vị trí.
+        - phải có trường `lat` + `lng` hoặc `url` (của google map)
+        - `last` là địa điểm cuối cùng, hoặc rất nguy hiểm liên quan tới case. Có ít nhất 1 địa điểm có trường `last` là true
+
+- Các trường còn lại thì chỉ dùng để hiện thông tin, không có logic nên không có format
 
 ## License
 

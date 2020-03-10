@@ -8,6 +8,7 @@
     "citizenship": "English",
     "relatedCaseNo": ["no17"],
     "confirmDate": "08 March 2020",
+    "reference": ["http://www.google.com"],
     "nodes": {
         "san-bay-noi-bai": {
             "lat": 21.2187199,

@@ -8,6 +8,7 @@
     "citizenship": "Vietnam",
     "relatedCaseNo": [],
     "confirmDate": "05 March 2020",
+    "reference": ["http://www.google.com"],
     "nodes": {
         "nha-17": {
             "lat": 21.0488112,
