@@ -199,10 +199,17 @@ function RenderDataToMap(cases, myMap, theme) {
             var descStayed = cases[noDirect[0]].stayed;
             var descVisited = cases[noDirect[0]].visited;
 
+            var noRefs = Array();
+
             // merge related cases together (by location + cases related)
-            noDirect.forEach(no => noRelated = noRelated.concat(cases[no].relatedCaseNo));
-            
-            
+            noDirect.forEach(no => {
+                noRelated = noRelated.concat(cases[no].relatedCaseNo);
+                noRefs = noRefs.concat(cases[no].reference);
+            });
+
+            noRefs = [...(new Set(noRefs))];
+            var descRef = noRefs.map((ref, idx) => `<a href="${ref}" target="_blank">${idx}</a>`).join(" - ");
+
             desc += `
                 Ca số: ${descCase}<br>
                 Tuổi: ${descAge}<br>
@@ -212,6 +219,7 @@ function RenderDataToMap(cases, myMap, theme) {
                 Quốc tịch: ${descCitizenship}<br>
                 Nơi đã đi: ${descVisited}<br>
                 Nơi ở: ${descStayed}<br>
+                Nguồn: ${descRef}<br>
             `;
 
         } else {
@@ -221,6 +229,7 @@ function RenderDataToMap(cases, myMap, theme) {
         noRelated = [...(new Set(noRelated))]; // unique
         var descRelated = noRelated.map(no => `<a href="#">#${no}</a>`).join(" ");
         desc += `${(descRelated?"Ca liên quan: ":"") + descRelated}`;
+
 
         // create marker with "color"
         var marker = L.circleMarker([loc.lat, loc.lng], {
