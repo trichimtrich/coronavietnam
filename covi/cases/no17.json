@@ -1,0 +1,31 @@
+{
+    "caseType": "old",
+    "age": 26,
+    "gender": "female",
+    "from": "Ha Noi",
+    "stayed": "15 - 17 Trúc Bạch",
+    "visited": "London, Italy, France",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": [],
+    "confirmDate": "05 March 2020",
+    "nodes": {
+        "nha-17": {
+            "lat": 21.0488112,
+            "lng": 105.8399281,
+            "desc": "15 - 17 Trúc Bạch",
+            "last": true
+        },
+
+        "san-bay-noi-bai": {
+            "lat": 21.2187199,
+            "lng": 105.8019769,
+            "desc": "Sân bay quốc tế Nội Bài"
+        },
+
+        "bv-hong-ngoc": {
+            "lat": 21.0427307,
+            "lng": 105.8441962,
+            "desc": "Bệnh viện Hồng Ngọc"
+        }
+    }
+}

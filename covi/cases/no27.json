@@ -1,0 +1,33 @@
+{
+    "caseType": "old",
+    "age": 69,
+    "gender": "female",
+    "from": "London",
+    "stayed": "khu nghỉ dưỡng Topas",
+    "visited": "London",
+    "citizenship": "English",
+    "relatedCaseNo": ["no17"],
+    "confirmDate": "08 March 2020",
+    "nodes": {
+        "san-bay-noi-bai": {
+            "lat": 21.2187199,
+            "lng": 105.8019769,
+            "desc": "Sân bay quốc tế Nội Bài"
+        },
+
+        "ga-lao-cai": {
+            "url": "https://www.google.com/maps/place/Ga+L%C3%A0o+Cai/@22.4922372,103.9761104,17z/data=!3m1!4b1!4m5!3m4!1s0x36cd138dfcdf4cf1:0x6d2b3d4507c4a109!8m2!3d22.4922323!4d103.9782991",
+            "desc": "Ga Lào Cai"
+        },
+
+        "muong-thanh-lao-cai": {
+            "url": "https://www.google.com/maps/place/Muong+Thanh+Grand+Lao+Cai+Hotel/@22.5025084,103.9633191,17z/data=!3m1!4b1!4m8!3m7!1s0x36cd139f1d2474e3:0xbf4fddf168cf8581!5m2!4m1!1i2!8m2!3d22.5025035!4d103.9655078",
+            "desc": "Muong Thanh Grand Lao Cai Hotel"
+        },
+        "topas-sa-pa": {
+            "url": "https://www.google.com/maps/place/Topas+Ecolodge/@22.2762119,103.9648353,17z/data=!3m1!4b1!4m8!3m7!1s0x36cd3923da55922b:0x89e2e13d87f8c475!5m2!4m1!1i2!8m2!3d22.276207!4d103.967024",
+            "desc": "Topas Ecolodge",
+            "last": true
+        }
+    }
+}
