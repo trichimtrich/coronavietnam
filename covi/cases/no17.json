@@ -8,7 +8,6 @@
     "citizenship": "Vietnam",
     "relatedCaseNo": [],
     "confirmDate": "05 March 2020",
-    "reference": ["http://www.google.com"],
     "nodes": {
         "nha-17": {
             "url": "https://www.google.com/maps/place/15+Tr%C3%BAc+B%E1%BA%A1ch,+Ba+%C4%90%C3%ACnh,+H%C3%A0+N%E1%BB%99i,+Vietnam/@21.0496465,105.8391087,17z/data=!4m5!3m4!1s0x3135abae084cb55f:0x7edc00b82da0eb07!8m2!3d21.0488305!4d105.8399134",
@@ -25,5 +24,9 @@
             "url": "https://www.google.com/maps/place/H%E1%BB%93ng+Ng%E1%BB%8Dc+General+Hospital/@21.0424849,105.8419472,17z/data=!3m1!4b1!4m5!3m4!1s0x3135abba7ba53e11:0x587dbd43c0113ca9!8m2!3d21.0424799!4d105.8441359",
             "desc": "Bệnh viện Hồng Ngọc"
         }
-    }
+    },
+    "reference": [
+        "http://www.google.com"
+    ],
+    "customHTML": ""
 }

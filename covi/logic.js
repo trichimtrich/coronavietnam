@@ -202,25 +202,26 @@ function RenderDataToMap(cases, myMap, theme) {
             }
 
             // TODO: redesign the popup layout
-            var descCase = noDirect.map(no => `<a href="#">#${no}</a>`).join(" ");
-            var descAge = noDirect.map(no => cases[no].age).join(" ");
+            var descCase = noDirect.map(no => `<a href="#">#${no}</a>`).join(", ");
+            var descAge = noDirect.map(no => cases[no].age).join(", ");
             var descGender = noDirect.map(no => cases[no].gender).join(" ");
             var descConfirmDate = cases[noDirect[0]].confirmDate;
             var descFrom = cases[noDirect[0]].from;
             var descCitizenship = cases[noDirect[0]].citizenship;
             var descStayed = cases[noDirect[0]].stayed;
             var descVisited = cases[noDirect[0]].visited;
+            var descCustom = cases[noDirect[0]].customHTML;
 
-            var noRefs = Array();
+            // var noRefs = Array();
 
             // merge related cases together (by location + cases related)
             noDirect.forEach(no => {
                 noRelated = noRelated.concat(cases[no].relatedCaseNo);
-                noRefs = noRefs.concat(cases[no].reference);
+                // noRefs = noRefs.concat(cases[no].reference);
             });
 
-            noRefs = [...(new Set(noRefs))];
-            var descRef = noRefs.map((ref, idx) => `<a href="${ref}" target="_blank">${idx}</a>`).join(" - ");
+            //noRefs = [...(new Set(noRefs))];
+            // var descRef = noRefs.map((ref, idx) => `<a href="${ref}" target="_blank">${idx}</a>`).join(" - ");
 
             desc += `
                 Ca số: ${descCase}<br>
@@ -231,9 +232,8 @@ function RenderDataToMap(cases, myMap, theme) {
                 Quốc tịch: ${descCitizenship}<br>
                 Nơi đã đi: ${descVisited}<br>
                 Nơi ở: ${descStayed}<br>
-                Nguồn: ${descRef}<br>
+                ${descCustom}
             `;
-
         } else {
             color = theme.color.indirect;
         }
