@@ -1,0 +1,22 @@
+{
+    "caseType": "discharge",
+    "age": 50,
+    "gender": "male",
+    "from": "Bình Xuyên, Vĩnh Phúc",
+    "stayed": "Bình Xuyên, Vĩnh Phúc",
+    "visited": "N/A",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": [],
+    "confirmDate": "25 February 2020",
+    "nodes": {
+        "binh-xuyen-vinh-phuc-province": {
+            "url": "trict,+Vinh+Phuc+Province,+Vietnam/@21.3293484,105.5953992,12z/data=!3m1!4b1!4m5!3m4!1s0x3134e4eada0987b3:0xc9e5b29ff952d6ce!8m2!3d21.313857!4d105.6764461",
+            "desc": "Bình Xuyên District, Vinh Phuc Province",
+            "last": true
+        }
+    },
+    "reference": [
+        "http://www.google.com"
+    ],
+    "customHTML": ""
+}

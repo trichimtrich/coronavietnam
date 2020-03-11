@@ -31,8 +31,10 @@ function CreateMap(theme) {
         var _div = L.DomUtil.create("div", "info legend");
 
         _div.innerHTML = `
-            <i style="background: ${theme.color.directNew}"></i> Ca dương tính mới<br>
-            <i style="background: ${theme.color.directOld}"></i> Ca dương tính cũ<br>
+            <i style="background: ${theme.color.new}"></i> Ca nhiễm mới<br>
+            <i style="background: ${theme.color.update}"></i> Ca cập nhật info<br>
+            <i style="background: ${theme.color.old}"></i> Ca nhiễm cũ<br>
+            <i style="background: ${theme.color.discharge}"></i> Ca xuất viện<br>
             <i style="background: ${theme.color.indirect}"></i> Địa điểm liên quan<br>
         `;
 
@@ -163,16 +165,18 @@ function RenderDataToMap(cases, myMap, theme) {
         });
     }
 
-    for (const [_, loc] of Object.entries(locations)) {
-        var color;
+    const NODE_STATE = ["new", "update", "old", "discharge", "indirect"];
 
-        var isNew = false;
+    for (const [_, loc] of Object.entries(locations)) {
+        var stateIdx = Infinity;
         var noDirect = Array(),
             noIndirect = Array();
 
         loc.link.forEach(([caseNo, linkType]) => {
-            if (linkType == "new") {
-                isNew = true;
+            // new > update > old > discharge > indirect
+            var idx = NODE_STATE.indexOf(linkType);
+            if (idx < stateIdx) {
+                stateIdx = idx;
             }
 
             if (linkType == "indirect") {
@@ -186,6 +190,8 @@ function RenderDataToMap(cases, myMap, theme) {
             }
         });
 
+        loc.state = NODE_STATE[stateIdx];
+
         var desc;
         if ("url" in loc) {
             desc = `Location: <a href="${loc.url}" target="_blank">${loc.desc}</a><br>`;
@@ -195,12 +201,6 @@ function RenderDataToMap(cases, myMap, theme) {
         
         var noRelated = noIndirect.slice();
         if (noDirect.length > 0) {
-            if (isNew) {
-                color = theme.color.directNew;
-            } else {
-                color = theme.color.directOld;
-            }
-
             // TODO: redesign the popup layout
             var descCase = noDirect.map(no => `<a href="#">#${no}</a>`).join(", ");
             var descAge = noDirect.map(no => cases[no].age).join(", ");
@@ -234,8 +234,6 @@ function RenderDataToMap(cases, myMap, theme) {
                 Nơi ở: ${descStayed}<br>
                 ${descCustom}
             `;
-        } else {
-            color = theme.color.indirect;
         }
 
         noRelated = [...(new Set(noRelated))]; // unique
@@ -247,7 +245,7 @@ function RenderDataToMap(cases, myMap, theme) {
         var marker = L.circleMarker([loc.lat, loc.lng], {
             stroke: false,
             fill: true,
-            fillColor: color,
+            fillColor: theme.color[loc.state],
             fillOpacity: theme.opacity.enable,
         }).addTo(myMap);
         loc.marker = marker;
@@ -329,5 +327,12 @@ function RenderDataToMap(cases, myMap, theme) {
             }
         });
 
+    }
+
+    for (const [_, loc] of Object.entries(locations)) {
+        if (loc.state == "new" || loc.state == "update") {
+            console.log("hihi");
+            loc.marker.bringToFront();
+        }
     }
 }

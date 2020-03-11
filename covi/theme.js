@@ -32,9 +32,13 @@ var tileCartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark
 _themes.CartoDB_DarkMatter = {
     tile: tileCartoDB_DarkMatter,
     color: {
-        directNew: "red",
-        directOld: "orange",
+        new: "red",
+        update: "yellow",
+        old: "orange",
+        discharge: "lightgreen",
+
         indirect: "lightgray",
+        
         line: "lightblue",
     },
     opacity: {
