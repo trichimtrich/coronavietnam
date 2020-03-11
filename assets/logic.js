@@ -148,6 +148,14 @@ function RenderDataToMap(cases, locations, myMap, theme) {
     var isMarkerArr = false;
     var markerArr = Array();
 
+    function _bringLatestToFront() {
+        for (const [_, loc] of Object.entries(locations)) {
+            if (loc.state != "indirect") {
+                loc.marker.bringToFront();
+            }
+        }
+    }
+
     for (const [_, loc] of Object.entries(locations)) {
         var stateIdx = Infinity;
         var noDirect = Array(),
@@ -224,7 +232,10 @@ function RenderDataToMap(cases, locations, myMap, theme) {
 
         // create marker with "color"
         var marker = L.circleMarker([loc.lat, loc.lng], {
-            stroke: false,
+            stroke: true,
+            weight: 1,
+            color: "#ccc",
+
             fill: true,
             fillColor: theme.color[loc.state],
             fillOpacity: theme.opacity.enable,
@@ -275,6 +286,9 @@ function RenderDataToMap(cases, locations, myMap, theme) {
                     loc3.marker.bringToFront();
                     markerArr.push(loc3.marker);
                 });
+
+                _bringLatestToFront();
+                
             });
 
             // enable this node in case no root link ?
@@ -313,10 +327,6 @@ function RenderDataToMap(cases, locations, myMap, theme) {
 
     }
 
-    for (const [_, loc] of Object.entries(locations)) {
-        if (loc.state == "new" || loc.state == "update") {
-            loc.marker.bringToFront();
-        }
-    }
+    _bringLatestToFront();
 
 }
