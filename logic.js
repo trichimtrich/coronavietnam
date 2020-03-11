@@ -32,7 +32,6 @@ function CreateMap(theme) {
 
     }
     legend2.addTo(myMap);
-    legend2.bindTooltip("my tooltip text").openTooltip();
 
     return myMap;
 }
