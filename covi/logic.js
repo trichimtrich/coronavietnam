@@ -1,23 +1,3 @@
-function parseGoogleMap(url) {
-    var data, lat, lng;
-    data = /!3d([-.\d]+)!4d([-.\d]+)/.exec(url);
-    if (data) {
-        lat = parseFloat(data[1]);
-        lng = parseFloat(data[2]);
-    } else {
-        data = /@([-.\d]+),([-.\d]+),/.exec(url);
-        if (data) {
-            lat = parseFloat(data[1]);
-            lng = parseFloat(data[2]);
-        } else {
-            console.log("[Error] Cant parse this url");
-            console.log(url);
-        }
-    }
-    return [lat, lng];
-}
-
-
 function CreateMap(theme) {
     // init map location
     var myMap = L.map("mapid").setView([15.792, 107.403], 6);
@@ -275,11 +255,14 @@ function RenderDataToMap(cases, locations, myMap, theme) {
 
             // all cases link to this node
             markerArr = Array();
-            loc.link.forEach(([caseNo, linkType]) => {
+            loc.link.forEach(([caseNo, linkType], idx) => {
                 var ca = cases[caseNo];
 
                 // show edge between related nodes
                 ca.edge.forEach(line => {
+                    line.setStyle({
+                        color: COLOR[idx]
+                    })
                     line.addTo(myMap);
                 });
 
