@@ -65,8 +65,8 @@ Trong đó
 
 ## Credit
 
-- 🐦 @trichimtrich
-- 🐖 @codenamelxl
+- 🐦 [trichimtrich](https://github.com/trichimtrich)
+- 🐖 [codenamelxl](https://github.com/codenamelxl)
 
 ## License
 
