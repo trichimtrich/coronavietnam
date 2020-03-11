@@ -69,7 +69,8 @@
 
             var myMap = CreateMap(theme);
             var cases = await LoadData();
-            RenderDataToMap(cases, myMap, theme);
+            var locations = ProcessData(cases);
+            RenderDataToMap(cases, locations, myMap, theme);
         }
 
         Main();

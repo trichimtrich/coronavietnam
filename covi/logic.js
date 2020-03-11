@@ -72,13 +72,10 @@ async function LoadData() {
 }
 
 
-function RenderDataToMap(cases, myMap, theme) {
+function ProcessData(cases) {
     var locations = {};
 
-    var isMarkerArr = false;
-    var markerArr = Array();
-
-    // cases schedule -> locations
+    // cases traveling history -> locations
     for (const [key, ca] of Object.entries(cases)) {
         ca.edge = Array();
         ca.rootLocs = Array();
@@ -90,14 +87,14 @@ function RenderDataToMap(cases, myMap, theme) {
                 [loc.lat, loc.lng] = parseGoogleMap(loc.url);
             }
 
-            // duplicate in name
+            // same location in name
             var isDup = false;
             if (locName in locations) {
                 isDup = true;
             } else {
                 for ([tmpName, tmpLoc] of Object.entries(locations)) {
                     if (tmpLoc.lat == loc.lat && tmpLoc.lng == loc.lng) {
-                        // duplicate in lat - lng
+                        // same location in [lat, lng]
                         locName = tmpName;
                         isDup = true;
                         break;
@@ -105,19 +102,16 @@ function RenderDataToMap(cases, myMap, theme) {
                 }
             }
             if (!isDup) {
-                // not duplicate -> add to map
+                // new location -> reset array of linked cases + add to map
+                loc.link = Array();
                 locations[locName] = loc;
             }
 
-            var wrapLoc = locations[locName]; // == loc in [lat, lng]
-
-            if (!("link" in wrapLoc)) {
-                wrapLoc.link = Array();
-            }
+            var wrapLoc = locations[locName];
 
             var linkType;
             if (loc.last) {
-                linkType = ca.caseType; // new - old
+                linkType = ca.caseType; // new - update - old - discharge
                 ca.rootLocs.push(locName);
             } else {
                 linkType = "indirect"; // indirect
@@ -155,7 +149,6 @@ function RenderDataToMap(cases, myMap, theme) {
                     ], 
                     {
                         weight: 2,
-                        color: theme.color.line,
                         animate: { duration: 1000 }
                     }
                 );
@@ -165,7 +158,15 @@ function RenderDataToMap(cases, myMap, theme) {
         });
     }
 
+    return locations;
+}
+
+
+function RenderDataToMap(cases, locations, myMap, theme) {
     const NODE_STATE = ["new", "update", "old", "discharge", "indirect"];
+
+    var isMarkerArr = false;
+    var markerArr = Array();
 
     for (const [_, loc] of Object.entries(locations)) {
         var stateIdx = Infinity;
@@ -331,8 +332,8 @@ function RenderDataToMap(cases, myMap, theme) {
 
     for (const [_, loc] of Object.entries(locations)) {
         if (loc.state == "new" || loc.state == "update") {
-            console.log("hihi");
             loc.marker.bringToFront();
         }
     }
+
 }
