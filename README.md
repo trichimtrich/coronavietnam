@@ -1,6 +1,6 @@
 # covi
 
-👉[Demo](https://trichimtrich.github.io/covi/)
+👉[Live website](https://trichimtrich.github.io/)
 
 Bản đồ xem `Cô Vi` đang ở những chỗ nào.
 
