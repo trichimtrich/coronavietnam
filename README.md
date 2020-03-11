@@ -2,7 +2,7 @@
 
 👉[Live website](https://trichimtrich.github.io/)
 
-Bản đồ xem `Cô Vi` đang ở những chỗ nào.
+Bản đồ xem `Cô Vi` đang ở những chỗ nào trên quê ta.
 
 Code cho vui, data góp nhặt trên mạng. Cần mấy bạn commit data dùm 😘.
 
@@ -67,6 +67,11 @@ Trong đó
 
 - 🐦 [trichimtrich](https://github.com/trichimtrich)
 - 🐖 [codenamelxl](https://github.com/codenamelxl)
+
+## Thanks
+
+- Bản đồ của [Vietmap](https://maps.vietmap.vn/web/)
+- [leafletjs](https://leafletjs.com/) + open source map providers
 
 ## License
 
