@@ -1,0 +1,21 @@
+{
+    "caseType": "old",
+    "age": 27,
+    "gender": "male",
+    "from": "Thai Binh",
+    "stayed": "Trường quân sự Quân đoàn 1, Ninh Bình",
+    "visited": "Daegu - Hàn Quốc",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": [],
+    "confirmDate": "07 March 2020",
+    "nodes": {
+        "san-bay-van-don": {
+            "url": "https://www.google.com/maps/place/Van+Don+International+Airport/@21.1138681,107.4171777,1450m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314b04c525219efb:0x96b19793093fe160!8m2!3d21.1138631!4d107.4193664",
+            "desc": "Cảng hàng không quốc tế Vân Đồn"
+        }
+    },
+    "reference": [
+        "http://baochinhphu.vn/Chong-dich-nhu-chong-giac/Ghi-nhan-them-ca-nhiem-COVID19-tai-Viet-Nam/389298.vgp"
+    ],
+    "customHTML": ""
+}
