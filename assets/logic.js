@@ -33,6 +33,23 @@ function CreateMap(theme) {
     }
     legend2.addTo(myMap);
 
+
+    var btnDetail = L.control({ position: "topleft" });
+    btnDetail.onAdd = function (map) {
+        var _container = L.DomUtil.create("div", "button_controls");
+
+        var _btn = L.DomUtil.create("div", "add_marker_control", _container);
+        _btn.title = "Add a marker";
+        _btn.addEventListener("click", function() {
+            alert(1);
+        });
+
+        return _container;
+    };
+
+
+    btnDetail.addTo(myMap);
+
     return myMap;
 }
 
