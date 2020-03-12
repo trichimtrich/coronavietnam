@@ -1,5 +1,5 @@
 {
-    "caseType": "update",
+    "caseType": "old",
     "age": 66,
     "gender": "male",
     "from": "London",
@@ -11,11 +11,11 @@
     "nodes": {
         "san-bay-noi-bai": {
             "url": "https://www.google.com/maps/place/S%C3%A2n+bay+n%E1%BB%99i+b%C3%A0i/@21.2180967,105.7887342,17z/data=!3m1!4b1!4m5!3m4!1s0x3135036c6bf15007:0x522c01665408ae36!8m2!3d21.2180917!4d105.7909229",
-            "desc": "Sân bay quốc tế Nội Bài"
+            "desc": "Cảng hàng không quốc tế Nội Bài"
         },
         "san-bay-da-nang": {
             "url": "https://www.google.com/maps/place/Da+Nang+International+Airport/@16.0563327,108.1986451,17z/data=!3m1!4b1!4m5!3m4!1s0x314219a273df52d1:0xb203f9fca295071a!8m2!3d16.0563276!4d108.2008338",
-            "desc": "Sân bay Đà Nẵng"
+            "desc": "Cảng hàng không Đà Nẵng"
         },
 
         "khach-san-vanda": {
@@ -24,27 +24,27 @@
             "last": true
         },
         "nha-hang-ca-lua": {
-            "url": "https://www.google.com/maps/place/C%C3%A1+L%E1%BB%ADa/@16.0606679,108.2203303,17z/data=!4m5!3m4!1s0x314219151b22eb57:0x7c3f88e7264646d3!8m2!3d16.057621!4d108.2230368",
+            "url": "https://www.google.com/maps/place/C%C3%A1+L%E1%BB%ADa/@16.0576996,108.2206312,1494m/data=!3m1!1e3!4m8!1m2!2m1!1zbmjDoCBow6BuZyBjw6EgbOG7rWE!3m4!1s0x314219151b22eb57:0x7c3f88e7264646d3!8m2!3d16.057621!4d108.2230368",
             "desc": "Nhà hàng Cá Lửa"
         },
         "bana-golf-club": {
-            "url": "https://www.google.com/maps/place/Ba+Na+Hills+Golf+Club/@16.0174223,108.0469805,17z/data=!3m1!4b1!4m5!3m4!1s0x31421df6e3a730bb:0xd899060c1d60086f!8m2!3d16.0174172!4d108.0491692",
+            "url": "https://www.google.com/maps/place/Ba+Na+Hills+Golf+Club/@16.0174223,108.0469805,1494m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31421df6e3a730bb:0xd899060c1d60086f!8m2!3d16.0174172!4d108.0491692",
             "desc": "Ba Na Hills Golf Club"
         },
         "nha-hang-la-maison-deli": {
-            "url": "https://www.google.com/maps/place/La+Maison+Deli+Caf%C3%A9+%26+Restaurant+Danang/@16.0555666,108.2202364,17z/data=!3m1!4b1!4m5!3m4!1s0x314219cefd9ea9f9:0x649bc9df903217af!8m2!3d16.0555615!4d108.2224251",
+            "url": "https://www.google.com/maps/place/La+Maison+Deli+Caf%C3%A9+%26+Restaurant+Danang/@16.0555666,108.2202364,1494m/data=!3m1!1e3!4m5!3m4!1s0x314219cefd9ea9f9:0x649bc9df903217af!8m2!3d16.0555615!4d108.2224251",
             "desc": "La Maison Deli Café & Restaurant Danang"
         },
         "golf-club-vinpearl-nam-HA": {
-            "url": "https://www.google.com/maps/place/Vinpearl+Resort+%26+Golf+Nam+Hoi+An/@15.7975206,108.4184699,17z/data=!4m18!1m9!3m8!1s0x314274d2d5264765:0x6c1bad257e173771!2sVinpearl+Resort+%26+Golf+Nam+Hoi+An!5m2!4m1!1i2!8m2!3d15.7975154!4d108.4206586!3m7!1s0x314274d2d5264765:0x6c1bad257e173771!5m2!4m1!1i2!8m2!3d15.7975154!4d108.4206586",
+            "url": "https://www.google.com/maps/place/Vinpearl+Golf+Nam+Hoi+An/@15.7828971,108.4033215,8462m/data=!3m1!1e3!4m5!3m4!1s0x31420b62ba51b2b1:0x7e01c8a164c4c0d4!8m2!3d15.790309!4d108.4087925",
             "desc": "Vinpearl Resort & Golf Nam Hoi An"
         },
         "nha-hang-pizza-4P-HVT-DN": {
-            "url": "https://www.google.com/maps/place/Pizza+4P's+Hoang+Van+Thu/@16.0627011,108.2206023,17z/data=!3m1!4b1!4m5!3m4!1s0x314219ccdf0f40a9:0xd24d1244e66dad46!8m2!3d16.062696!4d108.222791",
+            "url": "https://www.google.com/maps/place/Pizza+4P's+Hoang+Van+Thu/@16.0627011,108.2206023,1494m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314219ccdf0f40a9:0xd24d1244e66dad46!8m2!3d16.062696!4d108.222791",
             "desc": "Pizza 4P's Hoang Van Thu"
         },
         "nuong-da-thanh": {
-            "url": "https://www.google.com/maps/place/Nuong+Da+Thanh/@16.0606532,108.2162711,17z/data=!3m1!4b1!4m5!3m4!1s0x314219b5ee9078f3:0x8ed870effae83226!8m2!3d16.0606481!4d108.2184598",
+            "url": "https://www.google.com/maps/place/Nuong+Da+Thanh/@16.0606532,108.2162711,1494m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314219b5ee9078f3:0x8ed870effae83226!8m2!3d16.0606481!4d108.2184598",
             "desc": "Nuong Da Thanh"
         },
         "bamboo-2-bar-DN": {
@@ -61,7 +61,7 @@
         }
     },
     "reference": [
-        "http://www.google.com"
+        "https://vnexpress.net/thoi-su/hai-khach-nhiem-ncov-choi-golf-nhieu-noi-4066520.html"
     ],
     "customHTML": ""
 }
