@@ -1,0 +1,42 @@
+{
+    "caseType": "old",
+    "age": 50,
+    "gender": "female",
+    "from": "London",
+    "stayed": "khách sạn Thái Sơn",
+    "visited": "London",
+    "citizenship": "Irish",
+    "relatedCaseNo": ["no17"],
+    "confirmDate": "08 March 2020",
+    "nodes": {
+        "san-bay-noi-bai": {
+            "url": "https://www.google.com/maps/place/S%C3%A2n+bay+n%E1%BB%99i+b%C3%A0i/@21.2180967,105.7887342,17z/data=!3m1!4b1!4m5!3m4!1s0x3135036c6bf15007:0x522c01665408ae36!8m2!3d21.2180917!4d105.7909229",
+            "desc": "Sân bay quốc tế Nội Bài"
+        },
+        "khach-san-wynham": {
+            "url": "https://www.google.com/maps/place/Wyndham+Legend+Halong+Hotel/@20.9594714,107.0581854,1452m/data=!3m2!1e3!4b1!4m8!3m7!1s0x314a58672e65a445:0x915b6e28bd64ed97!5m2!4m1!1i2!8m2!3d20.9594664!4d107.0603741",
+            "desc": "Wyndham Legend Halong Hotel - 12 Hạ Long, Bãi Cháy, Thành phố Hạ Long, Quảng Ninh"
+        },
+        "cafe-bamboo": {
+            "url": "https://www.google.com/maps/place/Bar+Bamboo/@20.9575136,107.0581326,91m/data=!3m1!1e3!4m8!1m2!2m1!1zQmFtYm9v4oCLIENhZmUsIGjhuqEgbG9uZw!3m4!1s0x0:0xbcfa91a329d59932!8m2!3d20.9574862!4d107.0581852",
+            "desc": "Cafe Bamboo - Hạ Long"
+        },
+        "nha-hang-avocado": {
+            "url": "https://www.google.com/maps/place/Avocado+Restaurant/@20.9519165,107.0421515,1452m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314a599c0eb0326d:0x448fb48702d177c4!8m2!3d20.9519115!4d107.0443402",
+            "desc": "Nhà Hàng Avocado - Hạ Long"
+        },
+        "vinh-ha-long": {
+            "url": "https://www.google.com/maps/place/H%E1%BA%A1+Long+Bay/@20.8437292,107.0095461,92975m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314a5796518cee87:0x55c6b0bcc85478db!8m2!3d20.9100512!4d107.1839024",
+            "desc": "Vịnh Hạ Long"
+        },
+        "khach-san-thai-son": {
+            "url": "https://www.google.com/maps/place/Kh%C3%A1ch+S%E1%BA%A1n+Th%C3%A1i+S%C6%A1n/@20.9539273,107.1006559,1452m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314a57f538e53b9f:0xe6113c12fff715b8!8m2!3d20.9539223!4d107.1028446",
+            "desc": "Khách sạn Thái Sơn",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://vnexpress.net/thoi-su/bon-nguoi-nhiem-ncov-tham-quan-vinh-ha-long-4066220.html"
+    ],
+    "customHTML": ""
+}
