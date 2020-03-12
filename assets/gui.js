@@ -9,7 +9,7 @@ function toggleSidebar() {
     window.sidebar = 0;
     $("#my-sidebar").animate({ "width": (state>0?0:400) }, 400, function () {
         window.sidebar = -state;
-        $(".detail-control").html(`<img src='https://image.flaticon.com/icons/svg/149/${state>0?149021:149402}.svg'>`);
+        $(".detail-control").html(`<img src="https://image.flaticon.com/icons/svg/271/${state>0?271228:271220}.svg">`);
     });
     $("#mapid").animate({ "margin-left": (state>0?0:400) });
 }
@@ -69,8 +69,9 @@ function CreateMap(theme) {
     var btnDetail = L.control({ position: "topleft" });
     btnDetail.onAdd = function (map) {
         var _btn = L.DomUtil.create("div", "detail-control");
+        // var _btn = L.DomUtil.create("div", "leaflet-bar");
         _btn.title = "Click for more detail";
-        _btn.innerHTML = "<img src='https://image.flaticon.com/icons/svg/149/149021.svg'>";
+        _btn.innerHTML = "<img src='https://image.flaticon.com/icons/svg/271/271228.svg'>";
         _btn.addEventListener("click", toggleSidebar);
         return _btn;
     };
