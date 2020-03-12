@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
 
 .legend {
     display: block;
@@ -9,6 +14,7 @@
     line-height: 20px;
 }
 
+
 .legend i {
     width: 18px;
     height: 18px;
@@ -17,9 +23,11 @@
     margin-right: 8px;
 }
 
+
 .github-corner:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out
 }
+
 
 @keyframes octocat-wave {
 
@@ -39,6 +47,7 @@
     }
 }
 
+
 @media (max-width:500px) {
     .github-corner:hover .octo-arm {
         animation: none
@@ -47,4 +56,185 @@
     .github-corner .octo-arm {
         animation: octocat-wave 560ms ease-in-out
     }
+}
+
+
+.detail-control {
+	width: 20px;
+    height: 20px;
+    display: block;
+    padding: 3px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    box-shadow: 0 1px 7px rgba(0, 0, 0, 0.65);
+    text-align: center;
+    background-color: #ffffff;
+    position: relative;
+
+    cursor: pointer;
+}
+
+.detail-control img {
+    width: 16px;
+    height: 16px;
+    right: 5px;
+    bottom: 5px;
+    position: absolute;
+
+    cursor: pointer;
+}
+
+.detail-control:hover {
+	background-color: #f4f4f4;
+}
+
+#my-container {
+    width: 100%;
+    float: right;
+    margin-left: -400px;
+}
+
+#mapid {
+    margin-left: 0;
+    height: 100%;
+}
+
+#my-sidebar {
+    z-index: 1337;
+    width: 0;
+    height: 100%;
+    float: left;
+    position: absolute;
+    background: #f0f0f0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+
+    overflow: hidden;
+    
+}
+
+/* Copy https://css-tricks.com/the-current-state-of-styling-scrollbars/ */
+#my-sidebar:hover {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#my-sidebar::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#my-sidebar::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+#my-sidebar::-webkit-scrollbar-thumb
+{
+	background-color: #333;
+	border: 2px solid #555555;
+}
+
+.case-container {
+    border-top: 5px solid #999999;
+    height: 60px;
+    position: relative;
+}
+
+.case-new { background-color: orangered; }
+.case-old { background-color: darkorange; }
+.case-update { background-color: gold; }
+.case-discharge { background-color: mediumseagreen; }
+
+.one-line {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+.case-no {
+    font-size: 35px;
+    width: 120px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+
+.case-info {
+    font-weight: bold;
+    text-align: right;
+    width: 275px;
+    height: 25px;
+    position: absolute;
+    left: 110px;
+    top: 5px;
+}
+
+
+.case-location {
+    font-size: 14px;
+    text-align: right;
+    width: 275px;
+    height: 25px;
+    position: absolute;
+    left: 110px;
+    top: 35px;
+}
+
+
+.location-container {
+    background-color: #ffffff;
+    border-bottom: 2px solid #E8EAED;
+    border-top: 2px solid #E8EAED;
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
+
+
+.location {
+    width: 400px;
+    height: 60px;
+    position: relative;
+}
+
+
+.location:hover {
+    background-color: rgb(241, 243, 244);
+}
+
+
+.location-icon {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    top: 12px;
+    left: 20px;
+    border-radius: 50%;
+    background-color: rgb(241, 243, 244);
+}
+
+.location-icon img {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    top: 6px;
+    left: 6px;
+}
+
+.location-line {
+    position: absolute;
+    width: 310px;
+    height: 20px;
+    left: 70px;
+    top: 20px;
+}
+
+.location-split {
+    border-bottom: 1px solid #E8EAED;
+    margin: 0 24px;
 }

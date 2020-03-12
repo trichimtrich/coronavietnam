@@ -2,74 +2,53 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-    <link rel="stylesheet" href="./assets/main.css" />
+    <link rel="stylesheet" href="./assets/main.css?1" />
 
     <style>
 
-.add_marker_control {
-	width: 20px;
-    height: 20px;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    display: block;
-    padding: 3px;
-    margin-bottom: 5px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    box-shadow: 0 1px 7px rgba(0, 0, 0, 0.65);
-    cursor: auto;
-    text-align: center;
-    background-color: #ffffff;
-}
-
-.add_marker_control:hover {
-	background-color: #f4f4f4;
-}
-
-
-
-#container {
-    width: 100%;
-    background: red;
-    float: right;
-    margin-left: -200px;
-}
-#content {
-    background: blue;
-    margin-left: 210px;
-}
-#sidebar {
-    width: 200px;
-    height: 100%;
-    float: left;
-    background: green;
-
-}
     </style>
-    
     
 </head>
 
 <body>
-    <div id="container">
-        <div id="content">
-            <div id="mapid" style="width: 100%; height: 100%;"></div>
+    <div id="my-container"><div id="mapid"></div></div>
+    <div id="my-sidebar">
+        <div class="case-container case-new">
+            <div class="case-no">NoXX</div>
+            <div class="case-info">YY tuổi - 👩</div>
+            <div class="case-location">Khu vực chưa rõ</div>
         </div>
-    </div>
-    
-    <div id="sidebar">
-        <h1>sidebar</h1>
-        <ul>
-            <li>link one</li>
-            <li>link two</li>
-        </ul>
+        <div class="location-container">
+            <div class="location">
+                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/1691/1691655.svg"></div>
+                <div class="location-line">Home 1</div>
+            </div>
+            <div class="location-split"></div>
+            <div class="location">
+                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/1691/1691655.svg"></div>
+                <div class="location-line">Home 2</div>
+            </div><div class="location-split"></div>
+            <div class="location">
+                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/1691/1691655.svg"></div>
+                <div class="location-line">Home 3</div>
+            </div><div class="location-split"></div>
+            <div class="location">
+                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/1691/1691655.svg"></div>
+                <div class="location-line">Home 4</div>
+            </div><div class="location-split"></div>
+            <div class="location">
+                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/1691/1691655.svg"></div>
+                <div class="location-line">Home 5</div>
+            </div><div class="location-split"></div>
+        </div>
+
+
     </div>
 
 
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <script src="https://elfalem.github.io/Leaflet.curve/src/leaflet.curve.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <script>
         // my code is ugly, it changes a lot
@@ -82,11 +61,13 @@
         noCacheScript("./assets/theme.js");
         noCacheScript("./assets/logic.js");
         noCacheScript("./assets/misc.js");
+        noCacheScript("./assets/gui.js");
 
 
         // --
         async function Main() {
-            var theme = themes.VietMap;
+            var theme = LoadTheme("CartoDB_DarkMatter");
+
             var myMap = CreateMap(theme);
 
             var cases = await LoadData();
@@ -96,7 +77,10 @@
         }
 
         window.addEventListener("load", function() {
+            window.sidebar = -1;
             Main();
+
+            // $(".detail-control").click();
         });
     </script>
 

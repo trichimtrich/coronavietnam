@@ -1,58 +1,4 @@
-function CreateMap(theme) {
-    // init map location
-    var myMap = L.map("mapid").setView([15.792, 107.403], 6);
-
-    // load map tile
-    theme.tile.addTo(myMap);
-
-    // add legend to bottom right
-    var legend = L.control({ position: "bottomright" });
-    legend.onAdd = function (map) {
-        var _div = L.DomUtil.create("div", "info legend");
-
-        _div.innerHTML = `
-            <i style="background: ${theme.color.new}"></i> Ca nhiễm mới<br>
-            <i style="background: ${theme.color.update}"></i> Ca cập nhật info<br>
-            <i style="background: ${theme.color.old}"></i> Ca nhiễm cũ<br>
-            <i style="background: ${theme.color.discharge}"></i> Ca xuất viện<br>
-            <i style="background: ${theme.color.indirect}"></i> Địa điểm liên quan<br>
-        `;
-
-        return _div;
-    };
-    legend.addTo(myMap);
-
-    // add github icon
-    var legend2 = L.control({ position: "topright" });
-    legend2.onAdd = function (map) {
-        var _div = L.DomUtil.create("div");
-        // Raw copy: http://tholman.com/github-corners/
-        _div.innerHTML = `<a href="https://github.com/trichimtrich/trichimtrich.github.io/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>`;
-        return _div;
-
-    }
-    legend2.addTo(myMap);
-
-
-    var btnDetail = L.control({ position: "topleft" });
-    btnDetail.onAdd = function (map) {
-        var _container = L.DomUtil.create("div", "button_controls");
-
-        var _btn = L.DomUtil.create("div", "add_marker_control", _container);
-        _btn.title = "Add a marker";
-        _btn.addEventListener("click", function() {
-            alert(1);
-        });
-
-        return _container;
-    };
-
-
-    btnDetail.addTo(myMap);
-
-    return myMap;
-}
-
+const NODE_STATE = ["new", "update", "old", "discharge", "indirect"];
 
 async function LoadData() {
     var resp = await fetch(`./list.json`);
@@ -115,7 +61,19 @@ function ProcessData(cases) {
                 ca.leafLocs.push(locName);
             }
 
-            wrapLoc.link.push([key, linkType]);
+            // sort by priority: new > update > old > discharge > indirect
+            var isBiggest = true;
+            for (var i = 0; i < wrapLoc.link.length; i++) {
+                var lvlA = NODE_STATE.indexOf(wrapLoc.link[i][1]);
+                var lvlB = NODE_STATE.indexOf(linkType);
+                if (lvlB <= lvlA) {
+                    wrapLoc.link.splice(i, 0, [key, linkType]);
+                    isBiggest = false;
+                    break;
+                }
+            }
+            if (isBiggest)
+                wrapLoc.link.push([key, linkType]);
         };
 
         // if has at least 1 rootLocs
@@ -158,10 +116,67 @@ function ProcessData(cases) {
     return locations;
 }
 
+function AddCaseToSidebar(cases, locations, no) {
+    var ca = cases[no];
+    const emojiAge = {
+        male: ["👴👨🧑👦👶", 65, 40, 22, 5, 0],
+        female: ["👵👩🧒👧👶", 65, 40, 22, 5, 0]
+    }
+    var emoji;
+    if (ca.gender == "male" || ca.gender == "female") {
+        for (var i = 1; i < emojiAge[ca.gender].length; i++) {
+            if (ca.age >= emojiAge[ca.gender][i]) {
+                emoji = [...emojiAge[ca.gender][0]][i - 1];
+                break;
+            }
+        }
+    } else {
+        emoji = "❌"
+    }
+
+    var htmlCase = `
+        <div class="case-container case-${ca.caseType}" value="${no}">
+            <div class="case-no one-line">Ca ${no.substr(2)}</div>
+            <div class="case-info one-line">${ca.age} tuổi - ${emoji}</div>
+            <div class="case-location one-line">${ca.stayed}</div>
+        </div>
+    `;
+
+    var htmlLocation = "";
+    for (const [locName, loc] of Object.entries(ca.nodes)) {
+        var icon;
+        // Copy https://www.flaticon.com/
+        if (loc.last)
+            icon = "https://image.flaticon.com/icons/svg/1097/1097326.svg";
+        else
+            icon = "https://image.flaticon.com/icons/svg/1497/1497068.svg";
+
+        var desc;
+        if ("url" in loc) {
+            desc = `<a href="${loc.url}" target="_blank">${loc.desc}</a><br>`;
+        } else {
+            desc = `<a href="https://www.google.com/maps/@${loc.lat},${loc.lng},17z/" target="_blank">${loc.desc}</a><br>`;
+        }
+
+        htmlLocation += `
+            <div class="location" value="${locName}">
+                <div class="location-icon"><img src="${icon}"></div>
+                <div class="location-line one-line">${desc}</div>
+            </div>
+        `;
+    }
+
+    $("#my-sidebar").append(`
+        ${htmlCase}    
+        <div class="location-container">
+            ${htmlLocation}
+        </div>
+    `);
+
+}
+
 
 function RenderDataToMap(cases, locations, myMap, theme) {
-    const NODE_STATE = ["new", "update", "old", "discharge", "indirect"];
-
     var isMarkerArr = false;
     var markerArr = Array();
 
@@ -281,6 +296,9 @@ function RenderDataToMap(cases, locations, myMap, theme) {
                 });
             }
 
+            // reset sidebar
+            $("#my-sidebar").empty();
+
             // all cases link to this node
             markerArr = Array();
             loc.link.forEach(([caseNo, linkType], idx) => {
@@ -305,7 +323,9 @@ function RenderDataToMap(cases, locations, myMap, theme) {
                 });
 
                 _bringLatestToFront();
-                
+
+                // update sidebar
+                AddCaseToSidebar(cases, locations, caseNo);
             });
 
             // enable this node in case no root link ?
