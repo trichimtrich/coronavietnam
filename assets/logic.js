@@ -19,10 +19,9 @@ function ProcessData(cases) {
     var locations = {};
 
     // cases traveling history -> locations
-    for (const [key, ca] of Object.entries(cases)) {
-        ca.edge = Array();
-        ca.rootLocs = Array();
-        ca.leafLocs = Array();
+    for (const [caseNo, ca] of Object.entries(cases)) {
+        var rootLocNames = Array(),
+            leafLocNames = Array();
 
         for ([locName, loc] of Object.entries(ca.nodes)) {
             // parse google map
@@ -55,10 +54,12 @@ function ProcessData(cases) {
             var linkType;
             if (loc.last) {
                 linkType = ca.caseType; // new - update - old - discharge
-                ca.rootLocs.push(locName);
+                // newer case -> top priority
+                rootLocNames.unshift(locName);
             } else {
                 linkType = "indirect"; // indirect
-                ca.leafLocs.push(locName);
+                // newer case -> top priority
+                leafLocNames.unshift(locName);
             }
 
             // sort by priority: new > update > old > discharge > indirect
@@ -67,18 +68,22 @@ function ProcessData(cases) {
                 var lvlA = NODE_STATE.indexOf(wrapLoc.link[i][1]);
                 var lvlB = NODE_STATE.indexOf(linkType);
                 if (lvlB <= lvlA) {
-                    wrapLoc.link.splice(i, 0, [key, linkType]);
+                    wrapLoc.link.splice(i, 0, [caseNo, linkType]);
                     isBiggest = false;
                     break;
                 }
             }
             if (isBiggest)
-                wrapLoc.link.push([key, linkType]);
+                wrapLoc.link.push([caseNo, linkType]);
         };
 
-        // if has at least 1 rootLocs
-        ca.rootLocs.forEach(rootName => {
-            ca.leafLocs.forEach(leafName => {
+        // combine all new location name in priority
+        ca.locNames = Array.prototype.concat(rootLocNames, leafLocNames);
+
+        // if has at least 1 rootLocs, drawing connection
+        ca.edge = Array();
+        rootLocNames.forEach(rootName => {
+            leafLocNames.forEach(leafName => {
                 var locRoot = locations[rootName];
                     locLeaf = locations[leafName];
 
@@ -116,8 +121,10 @@ function ProcessData(cases) {
     return locations;
 }
 
-function AddCaseToSidebar(cases, locations, no) {
-    var ca = cases[no];
+
+function AddCaseToSidebar(cases, locations, caseNo, lName) {
+    var ca = cases[caseNo];
+
     const emojiAge = {
         male: ["👴👨🧑👦👶", 65, 40, 22, 5, 0],
         female: ["👵👩🧒👧👶", 65, 40, 22, 5, 0]
@@ -135,36 +142,25 @@ function AddCaseToSidebar(cases, locations, no) {
     }
 
     var htmlCase = `
-        <div class="case-container case-${ca.caseType}" value="${no}">
-            <div class="case-no one-line">Ca ${no.substr(2)}</div>
+        <div class="case-container case-${ca.caseType}" no="${caseNo}">
+            <div class="case-no one-line">Ca ${caseNo.substr(2)}</div>
             <div class="case-info one-line">${ca.age} tuổi - ${emoji}</div>
             <div class="case-location one-line">${ca.stayed}</div>
         </div>
     `;
 
     var htmlLocation = "";
-    for (const [locName, loc] of Object.entries(ca.nodes)) {
-        var icon;
+    ca.locNames.forEach(locName => {
+        loc = locations[locName];
+
         // Copy https://www.flaticon.com/
-        if (loc.last)
-            icon = "https://image.flaticon.com/icons/svg/1097/1097326.svg";
-        else
-            icon = "https://image.flaticon.com/icons/svg/1497/1497068.svg";
-
-        var desc;
-        if ("url" in loc) {
-            desc = `<a href="${loc.url}" target="_blank">${loc.desc}</a><br>`;
-        } else {
-            desc = `<a href="https://www.google.com/maps/@${loc.lat},${loc.lng},17z/" target="_blank">${loc.desc}</a><br>`;
-        }
-
         htmlLocation += `
-            <div class="location" value="${locName}">
-                <div class="location-icon"><img src="${icon}"></div>
-                <div class="location-line one-line">${desc}</div>
+            <div class="location ${lName==locName?"picked":""}" loc="${locName}">
+                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/${loc.last?"1097/1097326":"1497/1497068"}.svg"></div>
+                <div class="location-line one-line">${loc.desc}</div>
             </div>
         `;
-    }
+    });
 
     $("#my-sidebar").append(`
         ${htmlCase}    
@@ -176,9 +172,10 @@ function AddCaseToSidebar(cases, locations, no) {
 }
 
 
+var isMarkerArr = false;
+var markerArr = Array();
+
 function RenderDataToMap(cases, locations, myMap, theme) {
-    var isMarkerArr = false;
-    var markerArr = Array();
 
     function _bringLatestToFront() {
         for (const [_, loc] of Object.entries(locations)) {
@@ -188,7 +185,7 @@ function RenderDataToMap(cases, locations, myMap, theme) {
         }
     }
 
-    for (const [_, loc] of Object.entries(locations)) {
+    for (const [lName, loc] of Object.entries(locations)) {
         var stateIdx = Infinity;
         var noDirect = Array(),
             noIndirect = Array();
@@ -213,17 +210,18 @@ function RenderDataToMap(cases, locations, myMap, theme) {
 
         loc.state = NODE_STATE[stateIdx];
 
-        var desc;
         if ("url" in loc) {
-            desc = `Location: <a href="${loc.url}" target="_blank">${loc.desc}</a><br>`;
+            loc.desc = `<a href="${loc.url}" target="_blank">${loc.desc}</a>`;
         } else {
-            desc = `Location: <a href="https://www.google.com/maps/@${loc.lat},${loc.lng},17z/" target="_blank">${loc.desc}</a><br>`;
+            loc.desc = `<a href="https://www.google.com/maps/@${loc.lat},${loc.lng},17z/" target="_blank">${loc.desc}</a>`;
         }
+
+        var popupDesc = `Location: ${loc.desc}<br>`;
         
         var noRelated = noIndirect.slice();
         if (noDirect.length > 0) {
             // TODO: redesign the popup layout
-            var descCase = noDirect.map(no => `<a href="#">#${no}</a>`).join(", ");
+            var descCase = noDirect.map(no => `<a class="a-link-case" href="#" no="${no}" loc="${lName}">#${no}</a>`).join(", ");
             var descAge = noDirect.map(no => cases[no].age).join(", ");
             var descGender = noDirect.map(no => cases[no].gender).join(" ");
             var descConfirmDate = cases[noDirect[0]].confirmDate;
@@ -244,7 +242,7 @@ function RenderDataToMap(cases, locations, myMap, theme) {
             //noRefs = [...(new Set(noRefs))];
             // var descRef = noRefs.map((ref, idx) => `<a href="${ref}" target="_blank">${idx}</a>`).join(" - ");
 
-            desc += `
+            popupDesc += `
                 Ca số: ${descCase}<br>
                 Tuổi: ${descAge}<br>
                 Giới tính: ${descGender}<br>
@@ -258,8 +256,8 @@ function RenderDataToMap(cases, locations, myMap, theme) {
         }
 
         noRelated = [...(new Set(noRelated))]; // unique
-        var descRelated = noRelated.map(no => `<a href="#">#${no}</a>`).join(" ");
-        desc += `${(descRelated?"Ca liên quan: ":"") + descRelated}`;
+        var descRelated = noRelated.map(no => `<a class="a-link-case" href="#" no="${no}" loc="${lName}">#${no}</a>`).join(" ");
+        popupDesc += `${(descRelated?"Ca liên quan: ":"") + descRelated}`;
 
 
         // create marker with "color"
@@ -275,14 +273,17 @@ function RenderDataToMap(cases, locations, myMap, theme) {
         loc.marker = marker;
 
         var popup = L.popup();
-        popup.setContent(desc);
+        popup.setContent(popupDesc);
         marker.bindPopup(popup);
 
         marker.on("mouseup", function () {
             isMarkerArr = markerArr.includes(this);
         })
 
-        marker.on("popupopen", () => {
+        marker.on("popupopen", function () {
+            // highlight in sidebar
+            $(`.location[loc=${lName}]`).addClass("picked");
+
             // popup another node in pool, reset flag, do nothing
             if (isMarkerArr) {
                 isMarkerArr = false;
@@ -290,7 +291,7 @@ function RenderDataToMap(cases, locations, myMap, theme) {
             }
 
             // disable all node
-            for ([__, loc2] of Object.entries(locations)) {
+            for (const [__, loc2] of Object.entries(locations)) {
                 loc2.marker.setStyle({
                     fillOpacity: theme.opacity.disable
                 });
@@ -301,7 +302,7 @@ function RenderDataToMap(cases, locations, myMap, theme) {
 
             // all cases link to this node
             markerArr = Array();
-            loc.link.forEach(([caseNo, linkType], idx) => {
+            loc.link.forEach(([caseNo, ___], idx) => {
                 var ca = cases[caseNo];
 
                 // show edge between related nodes
@@ -313,7 +314,7 @@ function RenderDataToMap(cases, locations, myMap, theme) {
                 });
 
                 // enable all related nodes
-                Array.prototype.concat(ca.rootLocs, ca.leafLocs).forEach(locName => {
+                ca.locNames.forEach(locName => {
                     loc3 = locations[locName];
                     loc3.marker.setStyle({
                         fillOpacity: theme.opacity.enable
@@ -325,7 +326,7 @@ function RenderDataToMap(cases, locations, myMap, theme) {
                 _bringLatestToFront();
 
                 // update sidebar
-                AddCaseToSidebar(cases, locations, caseNo);
+                AddCaseToSidebar(cases, locations, caseNo, lName);
             });
 
             // enable this node in case no root link ?
@@ -333,9 +334,15 @@ function RenderDataToMap(cases, locations, myMap, theme) {
                 fillOpacity: theme.opacity.enable
             });
             loc.marker.bringToFront();
+
+            
+
         });
 
-        marker.on("popupclose", () => {
+        marker.on("popupclose", function () {
+            // highlight in sidebar
+            $(`.location[loc=${lName}]`).removeClass("picked");
+
             // popup another node in pool, do nothing
             if (isMarkerArr) {
                 return;
@@ -366,4 +373,30 @@ function RenderDataToMap(cases, locations, myMap, theme) {
 
     _bringLatestToFront();
 
+}
+
+function SetEvents(cases, location, myMap) {
+    $(document).on("click", ".a-link-case", function() {
+        var caseNo = $(this).attr("no");
+        var locName = $(this).attr("loc");
+
+        if (window.sidebar < 0)
+            toggleSidebar();
+        
+        //$(`.location[loc=${locName}]`).toggleClass("picked");
+    });
+
+
+    $(document).on("click", ".location", function() {
+        var locName = $(this).attr("loc");
+
+        isMarkerArr = true;
+        var marker = location[locName].marker;
+        
+        // optional
+        //myMap.panTo(marker.getLatLng());
+        myMap.flyTo(marker.getLatLng(), 12);
+
+        marker.openPopup();
+    });
 }
