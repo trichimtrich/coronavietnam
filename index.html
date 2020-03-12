@@ -1,6 +1,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <link rel="stylesheet" href="./assets/main.css?1" />
 
@@ -66,7 +67,7 @@
 
         // --
         async function Main() {
-            var theme = LoadTheme("CartoDB_DarkMatter");
+            var theme = LoadTheme("VietMap");
 
             var myMap = CreateMap(theme);
 
@@ -82,7 +83,7 @@
             window.sidebar = -1;
             Main();
 
-            toggleSidebar();
+            // toggleSidebar();
         });
     </script>
 

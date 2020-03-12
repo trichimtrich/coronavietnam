@@ -61,7 +61,8 @@ body {
 
 .detail-control {
     background-color: #fff;
-	border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.65);
 	width: 26px;
 	height: 26px;
 	line-height: 26px;
@@ -73,6 +74,13 @@ body {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     cursor: pointer;
+}
+
+.leaflet-touch .detail-control {
+    border: 2px solid rgba(0,0,0,0.3);
+    box-shadow: none;;
+    width: 30px;
+    height: 30px;
 }
 
 .detail-control img {
@@ -115,6 +123,8 @@ body {
 #my-sidebar:hover {
     overflow-y: scroll;
     overflow-x: hidden;
+
+    scrollbar-width: thin;
 }
 
 #my-sidebar::-webkit-scrollbar-track
