@@ -1,0 +1,26 @@
+{
+    "caseType": "old",
+    "age": 61,
+    "gender": "male",
+    "from": "Ha Noi",
+    "stayed": "Trúc Bạch",
+    "visited": "",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": ["no17"],
+    "confirmDate": "07 March 2020",
+    "nodes": {
+        "san-bay-noi-bai": {
+            "url": "https://www.google.com/maps/place/Noi+Bai+International+Airport/@21.2187199,105.8019822,17z/data=!3m1!4b1!4m5!3m4!1s0x3135021539afc453:0xe6e0faa3520226b4!8m2!3d21.2187149!4d105.8041709",
+            "desc": "Cảng hàng không quốc tế Nội Bài"
+        },
+        "vien-han-lam-khxn": {
+            "url": "https://www.google.com/maps/place/Vietnam+Academy+of+Social+Sciences/@21.03614,105.8131969,1451m/data=!3m2!1e3!4b1!4m5!3m4!1s0x3135ab12f1595819:0x38989781139ed919!8m2!3d21.036135!4d105.8153856",
+            "desc": "Viện Hàn lâm KHXH Việt Nam"
+        }
+    },
+    "reference": [
+        "http://baochinhphu.vn/Chong-dich-nhu-chong-giac/Benh-nhan-thu-21-mac-COVID19/389322.vgp",
+        "https://vnexpress.net/thoi-su/vien-han-lam-khoa-hoc-xa-hoi-viet-nam-dong-cua-5-co-so-4067257.html"
+    ],
+    "customHTML": ""
+}
