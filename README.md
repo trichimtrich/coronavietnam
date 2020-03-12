@@ -53,7 +53,7 @@ Code cho vui, data góp nhặt trên mạng. Cần mấy bạn commit data dùm 
 Trong đó
 
 - Các trường có data format
-    - `caseType` là string trong array `["new", "update", "old", "discharge", "indirect"]`
+    - `caseType` là string trong array `["new", "update", "old", "discharge"]`
     - `relatedCaseNo` là array, và value là keyname của case khác, như `noYY`, `noZZ`. Nếu không có thì để rỗng
     - `nodes` là dict
         - key của location, nên dùng lại key (của các case khác) nếu trùng vị trí.
