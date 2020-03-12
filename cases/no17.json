@@ -7,26 +7,28 @@
     "visited": "London, Italy, France",
     "citizenship": "Vietnam",
     "relatedCaseNo": [],
-    "confirmDate": "05 March 2020",
+    "confirmDate": "06 March 2020",
     "nodes": {
-        "nha-17": {
-            "url": "https://www.google.com/maps/place/15+Tr%C3%BAc+B%E1%BA%A1ch,+Ba+%C4%90%C3%ACnh,+H%C3%A0+N%E1%BB%99i,+Vietnam/@21.0496465,105.8391087,17z/data=!4m5!3m4!1s0x3135abae084cb55f:0x7edc00b82da0eb07!8m2!3d21.0488305!4d105.8399134",
-            "desc": "15 - 17 Trúc Bạch",
+        "nha-125-truc-bach": {
+            "url": "https://www.google.com/maps/place/125+Tr%C3%BAc+B%E1%BA%A1ch,+Ba+%C4%90%C3%ACnh,+H%C3%A0+N%E1%BB%99i,+Vietnam/@21.0451101,105.8416721,21z/data=!4m5!3m4!1s0x3135abb0398f9b59:0x90a8dc59359afe19!8m2!3d21.045082!4d105.841909",
+            "desc": "125 Trúc Bạch, Ba Đình, Hà Nội",
             "last": true
         },
 
         "san-bay-noi-bai": {
-            "url": "https://www.google.com/maps/place/S%C3%A2n+bay+n%E1%BB%99i+b%C3%A0i/@21.2180967,105.7887342,17z/data=!3m1!4b1!4m5!3m4!1s0x3135036c6bf15007:0x522c01665408ae36!8m2!3d21.2180917!4d105.7909229",
-            "desc": "Sân bay quốc tế Nội Bài"
+            "url": "https://www.google.com/maps/place/Noi+Bai+International+Airport/@21.2187199,105.8019822,17z/data=!3m1!4b1!4m5!3m4!1s0x3135021539afc453:0xe6e0faa3520226b4!8m2!3d21.2187149!4d105.8041709",
+            "desc": "Cảng hàng không quốc tế Nội Bài"
         },
 
-        "bv-hong-ngoc": {
+        "bv-hong-ngoc-yen-ninh": {
             "url": "https://www.google.com/maps/place/H%E1%BB%93ng+Ng%E1%BB%8Dc+General+Hospital/@21.0424849,105.8419472,17z/data=!3m1!4b1!4m5!3m4!1s0x3135abba7ba53e11:0x587dbd43c0113ca9!8m2!3d21.0424799!4d105.8441359",
-            "desc": "Bệnh viện Hồng Ngọc"
+            "desc": "Bệnh viện Hồng Ngọc cơ sở Yên Ninh"
         }
     },
     "reference": [
-        "http://www.google.com"
+        "http://baochinhphu.vn/Chong-dich-nhu-chong-giac/NONG-Phat-hien-nguoi-duong-tinh-voi-COVID19-Ha-Noi-hop-khan/389273.vgp",
+        "https://thanhnien.vn/thoi-su/co-66-ho-dan-trong-khu-vuc-cach-ly-chong-covid-19-o-pho-truc-bach-1192394.html"
+
     ],
     "customHTML": ""
 }
