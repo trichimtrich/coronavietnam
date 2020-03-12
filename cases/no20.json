@@ -1,0 +1,17 @@
+{
+    "caseType": "old",
+    "age": 27,
+    "gender": "male",
+    "from": "Ha Noi",
+    "stayed": "113 Trúc Bạch",
+    "visited": "",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": ["no17"],
+    "confirmDate": "07 March 2020",
+    "nodes": {
+    },
+    "reference": [
+        "https://thanhnien.vn/thoi-su/tai-xe-nhiem-covid-19-da-tiep-xuc-voi-nhieu-nguoi-o-ha-noi-ha-nam-va-nghe-an-1192415.html"
+    ],
+    "customHTML": ""
+}
