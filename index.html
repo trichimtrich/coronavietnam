@@ -28,28 +28,44 @@
 }
 
 
-#tab {
-    display: inline-block;
-    width:10%;
-    height:100%;
-    background-color: blue;
-}
 
-#mapcon {
-    width:70%;
-    height:100%;
-    display: inline-block;
-    background-color: red;
+#container {
+    width: 100%;
+    background: red;
+    float: right;
+    margin-left: -200px;
 }
+#content {
+    background: blue;
+    margin-left: 210px;
+}
+#sidebar {
+    width: 200px;
+    height: 100%;
+    float: left;
+    background: green;
 
+}
     </style>
+    
     
 </head>
 
 <body>
-    <div id="tab"></div>
-    <div id="mapcon"><div id="mapid" style="width: 100%; height: 100%;"></div></div>
+    <div id="container">
+        <div id="content">
+            <div id="mapid" style="width: 100%; height: 100%;"></div>
+        </div>
+    </div>
     
+    <div id="sidebar">
+        <h1>sidebar</h1>
+        <ul>
+            <li>link one</li>
+            <li>link two</li>
+        </ul>
+    </div>
+
 
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <script src="https://elfalem.github.io/Leaflet.curve/src/leaflet.curve.js"></script>
