@@ -1,17 +1,22 @@
 {
-    "caseType": "new",
-    "age": 69,
+    "caseType": "old",
+    "age": 58,
     "gender": "female",
     "from": "London",
     "stayed": "khu nghỉ dưỡng Topas",
     "visited": "London",
-    "citizenship": "English",
-    "relatedCaseNo": ["no17"],
-    "confirmDate": "09 March 2020",
+    "citizenship": "English/Mexico",
+    "relatedCaseNo": ["no17","no25"],
+    "confirmDate": "08 March 2020",
     "nodes": {
         "san-bay-noi-bai": {
             "url": "https://www.google.com/maps/place/S%C3%A2n+bay+n%E1%BB%99i+b%C3%A0i/@21.2180967,105.7887342,17z/data=!3m1!4b1!4m5!3m4!1s0x3135036c6bf15007:0x522c01665408ae36!8m2!3d21.2180917!4d105.7909229",
             "desc": "Sân bay quốc tế Nội Bài"
+        },
+
+        "ga-ha-noi": {
+            "url": "https://www.google.com/maps/place/Ga+H%C3%A0+N%E1%BB%99i/@21.0242579,105.8388403,1451m/data=!3m1!1e3!4m12!1m6!3m5!1s0x3135ab9a7934d205:0xe218215e86cdaf10!2sHanoi+Railway+Station!8m2!3d21.0242529!4d105.841029!3m4!1s0x0:0xfcaa48a5fa3ca27f!8m2!3d21.0250612!4d105.8411814",
+            "desc": "Ga Hà Nội"
         },
 
         "ga-lao-cai": {
@@ -30,7 +35,7 @@
         }
     },
     "reference": [
-        "http://www.google.com"
+        "https://thanhnien.vn/thoi-su/hai-du-khach-nguoi-anh-nhiem-covid-19-du-lich-o-sa-pa-da-di-den-nhung-dau-1193048.html"
     ],
     "customHTML": ""
 }
