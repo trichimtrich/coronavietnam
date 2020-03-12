@@ -121,7 +121,8 @@ function ProcessData(cases) {
     return locations;
 }
 
-function AddCaseToSidebar(cases, locations, caseNo) {
+
+function AddCaseToSidebar(cases, locations, caseNo, lName) {
     var ca = cases[caseNo];
 
     const emojiAge = {
@@ -141,7 +142,7 @@ function AddCaseToSidebar(cases, locations, caseNo) {
     }
 
     var htmlCase = `
-        <div class="case-container case-${ca.caseType}" value="${caseNo}">
+        <div class="case-container case-${ca.caseType}" no="${caseNo}">
             <div class="case-no one-line">Ca ${caseNo.substr(2)}</div>
             <div class="case-info one-line">${ca.age} tuổi - ${emoji}</div>
             <div class="case-location one-line">${ca.stayed}</div>
@@ -154,7 +155,7 @@ function AddCaseToSidebar(cases, locations, caseNo) {
 
         // Copy https://www.flaticon.com/
         htmlLocation += `
-            <div class="location" value="${locName}">
+            <div class="location ${lName==locName?"picked":""}" loc="${locName}">
                 <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/${loc.last?"1097/1097326":"1497/1497068"}.svg"></div>
                 <div class="location-line one-line">${loc.desc}</div>
             </div>
@@ -171,9 +172,10 @@ function AddCaseToSidebar(cases, locations, caseNo) {
 }
 
 
+var isMarkerArr = false;
+var markerArr = Array();
+
 function RenderDataToMap(cases, locations, myMap, theme) {
-    var isMarkerArr = false;
-    var markerArr = Array();
 
     function _bringLatestToFront() {
         for (const [_, loc] of Object.entries(locations)) {
@@ -183,7 +185,7 @@ function RenderDataToMap(cases, locations, myMap, theme) {
         }
     }
 
-    for (const [_, loc] of Object.entries(locations)) {
+    for (const [lName, loc] of Object.entries(locations)) {
         var stateIdx = Infinity;
         var noDirect = Array(),
             noIndirect = Array();
@@ -219,7 +221,7 @@ function RenderDataToMap(cases, locations, myMap, theme) {
         var noRelated = noIndirect.slice();
         if (noDirect.length > 0) {
             // TODO: redesign the popup layout
-            var descCase = noDirect.map(no => `<a class="a-link-case" href="#" value="${no}">#${no}</a>`).join(", ");
+            var descCase = noDirect.map(no => `<a class="a-link-case" href="#" no="${no}" loc="${lName}">#${no}</a>`).join(", ");
             var descAge = noDirect.map(no => cases[no].age).join(", ");
             var descGender = noDirect.map(no => cases[no].gender).join(" ");
             var descConfirmDate = cases[noDirect[0]].confirmDate;
@@ -254,7 +256,7 @@ function RenderDataToMap(cases, locations, myMap, theme) {
         }
 
         noRelated = [...(new Set(noRelated))]; // unique
-        var descRelated = noRelated.map(no => `<a class="a-link-case" href="#" value="${no}">#${no}</a>`).join(" ");
+        var descRelated = noRelated.map(no => `<a class="a-link-case" href="#" no="${no}" loc="${lName}">#${no}</a>`).join(" ");
         popupDesc += `${(descRelated?"Ca liên quan: ":"") + descRelated}`;
 
 
@@ -279,7 +281,9 @@ function RenderDataToMap(cases, locations, myMap, theme) {
         })
 
         marker.on("popupopen", function () {
-            
+            // highlight in sidebar
+            $(`.location[loc=${lName}]`).addClass("picked");
+
             // popup another node in pool, reset flag, do nothing
             if (isMarkerArr) {
                 isMarkerArr = false;
@@ -322,7 +326,7 @@ function RenderDataToMap(cases, locations, myMap, theme) {
                 _bringLatestToFront();
 
                 // update sidebar
-                AddCaseToSidebar(cases, locations, caseNo);
+                AddCaseToSidebar(cases, locations, caseNo, lName);
             });
 
             // enable this node in case no root link ?
@@ -330,9 +334,15 @@ function RenderDataToMap(cases, locations, myMap, theme) {
                 fillOpacity: theme.opacity.enable
             });
             loc.marker.bringToFront();
+
+            
+
         });
 
         marker.on("popupclose", function () {
+            // highlight in sidebar
+            $(`.location[loc=${lName}]`).removeClass("picked");
+
             // popup another node in pool, do nothing
             if (isMarkerArr) {
                 return;
@@ -363,4 +373,30 @@ function RenderDataToMap(cases, locations, myMap, theme) {
 
     _bringLatestToFront();
 
+}
+
+function SetEvents(cases, location, myMap) {
+    $(document).on("click", ".a-link-case", function() {
+        var caseNo = $(this).attr("no");
+        var locName = $(this).attr("loc");
+
+        if (window.sidebar < 0)
+            toggleSidebar();
+        
+        //$(`.location[loc=${locName}]`).toggleClass("picked");
+    });
+
+
+    $(document).on("click", ".location", function() {
+        var locName = $(this).attr("loc");
+
+        isMarkerArr = true;
+        var marker = location[locName].marker;
+        
+        // optional
+        //myMap.panTo(marker.getLatLng());
+        myMap.flyTo(marker.getLatLng(), 12);
+
+        marker.openPopup();
+    });
 }

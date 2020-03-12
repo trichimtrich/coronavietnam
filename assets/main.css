@@ -197,11 +197,20 @@ body {
     width: 400px;
     height: 60px;
     position: relative;
+
 }
 
 
 .location:hover {
     background-color: rgb(241, 243, 244);
+}
+
+.location.picked {
+    background-color: orange;
+}
+
+.location.picked:hover {
+    background-color: red;
 }
 
 
