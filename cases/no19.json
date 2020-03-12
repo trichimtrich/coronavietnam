@@ -1,0 +1,17 @@
+{
+    "caseType": "old",
+    "age": 64,
+    "gender": "female",
+    "from": "Ha Noi",
+    "stayed": "Trúc Bạch",
+    "visited": "",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": ["no17"],
+    "confirmDate": "07 March 2020",
+    "nodes": {
+    },
+    "reference": [
+        "https://vnexpress.net/suc-khoe/them-hai-nguoi-duong-tinh-ncov-tai-ha-noi-4065745.html"
+    ],
+    "customHTML": ""
+}
