@@ -1,0 +1,43 @@
+{
+    "caseType": "old",
+    "age": 66,
+    "gender": "female",
+    "from": "London",
+    "stayed": "khách sạn moonlight",
+    "visited": "London",
+    "citizenship": "Irish",
+    "relatedCaseNo": ["no17"],
+    "confirmDate": "08 March 2020",
+    "nodes": {
+        "san-bay-noi-bai": {
+            "url": "https://www.google.com/maps/place/S%C3%A2n+bay+n%E1%BB%99i+b%C3%A0i/@21.2180967,105.7887342,17z/data=!3m1!4b1!4m5!3m4!1s0x3135036c6bf15007:0x522c01665408ae36!8m2!3d21.2180917!4d105.7909229",
+            "desc": "Sân bay quốc tế Nội Bài"
+        },
+        "san-bay-phu-bai": {
+            "url": "https://www.google.com/maps/place/Phu+Bai+Airport/@16.397788,107.6985102,1491m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314198972de36111:0xa74fc2ba5484503c!8m2!3d16.3977829!4d107.7006989",
+            "desc": "Sân bay Phú Bài"
+        },
+        "dao-cat-ba": {
+            "url": "https://www.google.com/maps/place/C%C3%A1t+B%C3%A0+Island/@20.7835337,106.9379519,46506m/data=!3m1!1e3!4m8!1m2!2m1!1zxJHhuqNvIGPDoXQgYsOg!3m4!1s0x314a43536e7a4ca1:0xee3e717611bf8a1d!8m2!3d20.8!4d106.999722",
+            "desc": "Đảo Cát Bà"
+        },
+        "vinh-lan-ha": {
+            "url": "https://www.google.com/maps/place/Lan+Ha+Bay/@20.7349667,107.0248467,11630m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314a45b5d29a9b11:0x4dd4f928dad786a9!8m2!3d20.7237207!4d107.0465615",
+            "desc": "Vịnh Lan Hạ"
+        },
+        "hang-sang": {
+            "url": "https://www.google.com/maps/place/Hang+S%C3%A1ng/@20.7986423,107.0812131,11625m/data=!3m1!1e3!4m8!1m2!2m1!1shang+s%C3%A1ng!3m4!1s0x314a5aa903222435:0x891b60f7a6caad16!8m2!3d20.8005012!4d107.0975858",
+            "desc": "Hang Sáng Tối"
+        },
+        "khach-san-moonlight-hue": {
+            "url": "https://www.google.com/maps/place/Kh%C3%A1ch+s%E1%BA%A1n+Moonlight,+20+Ph%E1%BA%A1m+Ng%C5%A9+L%C3%A3o,+Ph%C3%BA+H%E1%BB%99i,+Th%C3%A0nh+ph%E1%BB%91+Hu%E1%BA%BF,+Th%E1%BB%ABa+Thi%C3%AAn+Hu%E1%BA%BF,+Vietnam/@16.4692913,107.5920163,1491m/data=!3m2!1e3!4b1!4m5!3m4!1s0x3141a13cd1c5d203:0x1990e86b5d1c9e71!8m2!3d16.4692862!4d107.594205",
+            "desc": "Khách sạn Moonlight -  20 Phạm Ngũ Lão, Phú Hội, Thành phố Huế",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://thanhnien.vn/thoi-su/benh-nhan-thu-30-nhiem-covid-19-da-tham-quan-cat-ba-1193016.html",
+        "https://news.zing.vn/lo-trinh-cua-nu-du-khach-nguoi-anh-nhiem-covid-19-truoc-khi-vao-hue-post1056817.html"
+    ],
+    "customHTML": ""
+}
