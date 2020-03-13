@@ -1,5 +1,6 @@
 async function LoadData() {
-    var resp = await fetch(`./list.json`);
+    // always load latest list in no-cache mode
+    var resp = await fetch(`./list.json?t=${Math.random()}`);
     const _cases = await resp.json();
 
     var cases = {};
