@@ -291,7 +291,7 @@ function RenderDataToMap(cases, locations, myMap, theme) {
             }
 
             // disable all node
-            for (const [__, loc2] of Object.entries(locations)) {
+            for (const [_, loc2] of Object.entries(locations)) {
                 loc2.marker.setStyle({
                     fillOpacity: theme.opacity.disable
                 });
@@ -302,7 +302,7 @@ function RenderDataToMap(cases, locations, myMap, theme) {
 
             // all cases link to this node
             markerArr = Array();
-            loc.link.forEach(([caseNo, ___], idx) => {
+            loc.link.forEach(([caseNo, _], idx) => {
                 var ca = cases[caseNo];
 
                 // show edge between related nodes
@@ -340,7 +340,7 @@ function RenderDataToMap(cases, locations, myMap, theme) {
         });
 
         marker.on("popupclose", function () {
-            // highlight in sidebar
+            // un-highlight in sidebar
             $(`.location[loc=${lName}]`).removeClass("picked");
 
             // popup another node in pool, do nothing
@@ -351,16 +351,13 @@ function RenderDataToMap(cases, locations, myMap, theme) {
                 markerArr = Array();
             }
 
-            // all cases link to this node
-            loc.link.forEach(([caseNo, linkType]) => {
-                var ca = cases[caseNo];
-
-                // hide edge between related nodes
+            // disable all lines
+            for (const [_, ca] of Object.entries(cases)) {
                 ca.edge.forEach(line => {
                     line.remove();
-                });
-            });
-
+                })
+            }
+            
             // enable all node
             for ([__, loc2] of Object.entries(locations)) {
                 loc2.marker.setStyle({
@@ -375,28 +372,39 @@ function RenderDataToMap(cases, locations, myMap, theme) {
 
 }
 
-function SetEvents(cases, location, myMap) {
+function JumpToLocation(locations, locName, myMap) {
+    var marker = locations[locName].marker;
+    
+    // optional
+    //myMap.panTo(marker.getLatLng());
+    myMap.flyTo(marker.getLatLng(), 12);
+    marker.openPopup();  
+}
+
+function SetEvents(cases, locations, myMap) {
     $(document).on("click", ".a-link-case", function() {
         var caseNo = $(this).attr("no");
-        var locName = $(this).attr("loc");
+        // var locName = $(this).attr("loc");
 
         if (window.sidebar < 0)
             toggleSidebar();
-        
-        //$(`.location[loc=${locName}]`).toggleClass("picked");
+
+        // we jump to the node of this case
+        var locNames = cases[caseNo].locNames;
+        // check if this case has node on map
+        if (locNames.length > 0) {
+            // zoom to first node
+            JumpToLocation(locations, locNames[0], myMap);
+        }
     });
 
 
     $(document).on("click", ".location", function() {
         var locName = $(this).attr("loc");
+    
+        if (markerArr.length > 0)
+            isMarkerArr = true;
 
-        isMarkerArr = true;
-        var marker = location[locName].marker;
-        
-        // optional
-        //myMap.panTo(marker.getLatLng());
-        myMap.flyTo(marker.getLatLng(), 12);
-
-        marker.openPopup();
+        JumpToLocation(locations, locName, myMap);
     });
 }
