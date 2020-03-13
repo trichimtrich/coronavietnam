@@ -9,6 +9,11 @@
     "relatedCaseNo": ["no17"],
     "confirmDate": "07 March 2020",
     "nodes": {
+        "nha-113-truc-bach": {
+            "url": "https://www.google.com/maps/place/113+Tr%C3%BAc+B%E1%BA%A1ch,+Ba+%C4%90%C3%ACnh,+H%C3%A0+N%E1%BB%99i,+Vietnam/@21.0454933,105.8397508,17z/data=!3m1!4b1!4m5!3m4!1s0x3135abb036b8b709:0xebb949cef7cb0a56!8m2!3d21.0454883!4d105.8419395",
+            "desc": "113 Trúc Bạch, Trúc Bạch, Ba Đình, Hà Nội",
+            "last": true
+        }
     },
     "reference": [
         "https://thanhnien.vn/thoi-su/tai-xe-nhiem-covid-19-da-tiep-xuc-voi-nhieu-nguoi-o-ha-noi-ha-nam-va-nghe-an-1192415.html"
