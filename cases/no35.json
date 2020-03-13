@@ -1,0 +1,52 @@
+{
+    "caseType": "old",
+    "age": 29,
+    "gender": "female",
+    "from": "Da Nang",
+    "stayed": "Hoàng Diệu, Hải Chẩu, Đà Nẵng",
+    "visited": "",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": ["no22","no23"],
+    "confirmDate": "11 March 2020",
+    "nodes": {
+        "dien-may-xanh-NVL-DN": {
+            "url": "https://www.google.com/maps/place/Si%C3%AAu+th%E1%BB%8B+%C4%90i%E1%BB%87n+m%C3%A1y+XANH/@16.0604701,108.2139913,1494m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314219a1eb067add:0xf64f16a89ff2545a!8m2!3d16.060465!4d108.21618",
+            "desc": "Siêu thị Điện Máy Xanh 7 Nguyễn Văn Linh, Hải Châu, Đà Nẵng"
+        },
+        "the-gioi-di-dong-DBP-DN": {
+            "url": "https://www.google.com/maps/place/Trung+T%C3%A2m+Laptop+TGD%C4%90+Ho%C3%A0+Khu%C3%AA,+Thanh+Khu%C3%AA/@16.0656077,108.1915784,373m/data=!3m2!1e3!4b1!4m13!1m7!3m6!1s0x314219aac69b78d5:0x1ab912158e94c975!2zMzI1IMSQaeG7h24gQmnDqm4gUGjhu6csIEjDsmEgS2jDqiwgVGhhbmggS2jDqiwgxJDDoCBO4bq1bmcgNTUwMDAwLCBWaWV0bmFt!3b1!8m2!3d16.0656497!4d108.1921344!3m4!1s0x314219aac67e778b:0x10eedc09036cd032!8m2!3d16.0656064!4d108.1921256",
+            "desc": "Thế giới di động 325 Điện Biên Phủ, Thanh Khê, Đà Nẵng"
+        },
+        "sieu-thi-danavi-mart-le-dinh-ly": {
+            "url": "https://www.google.com/maps/place/172+L%C3%AA+%C4%90%C3%ACnh+L%C3%BD,+H%C3%B2a+Thu%E1%BA%ADn+Nam,+H%E1%BA%A3i+Ch%C3%A2u,+%C4%90%C3%A0+N%E1%BA%B5ng+550000,+Vietnam/@16.0523297,108.2081812,1494m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314219b9c8101a55:0xc9b729d9a6beafd1!8m2!3d16.0523246!4d108.2103699",
+            "desc": "Siêu thị Danavi mart Lê Đình Lý"
+        },
+        "benh-vien-da-nang": {
+            "url": "https://www.google.com/maps/place/Da+Nang+General+Hospital/@16.0666794,108.2088853,2988m/data=!3m1!1e3!4m8!1m2!2m1!1zYuG7h25oIHZp4buHbiDEkcOgIG7hurVuZw!3m4!1s0x3142183647beb45b:0x2b7c055c22c6c77b!8m2!3d16.0724711!4d108.215718",
+            "desc": "Bệnh viện Đà Nẵng, Hải Châu, Đà Nẵng"
+        },
+        "benh-vien-phoi": {
+            "url": "https://www.google.com/maps/place/B%E1%BB%87nh+vi%E1%BB%87n+Ph%E1%BB%95i+%C4%90%C3%A0+N%E1%BA%B5ng/@16.048408,108.1684801,1494m/data=!3m2!1e3!4b1!4m5!3m4!1s0x3142191458efc99f:0xc96420ab440341a!8m2!3d16.0484029!4d108.1706688",
+            "desc": "Bệnh viện Phổi Đà Nẵng, Liên Chiểu, Đà Nẵng"
+        },
+        "vin-mart-hoang-dieu-DN": {
+            "url": "https://www.google.com/maps/place/408+Ho%C3%A0ng+Di%E1%BB%87u,+B%C3%ACnh+Thu%E1%BA%ADn,+H%E1%BA%A3i+Ch%C3%A2u,+%C4%90%C3%A0+N%E1%BA%B5ng+550000,+Vietnam/@16.0549673,108.2169218,132m/data=!3m1!1e3!4m5!3m4!1s0x314219c8f7ab19a9:0x44700a9dae688e54!8m2!3d16.0550326!4d108.2171394",
+            "desc": "Vinmart 408 Hoàng Diệu, Bình Thuận, Hải Châu, Đà Nẵng"
+        },
+        "nha-chong-hoang-dieu-binh-thuan-DN": {
+            "url": "https://www.google.com/maps/place/B%C3%ACnh+Thu%E1%BA%ADn,+H%E1%BA%A3i+Ch%C3%A2u+District,+Da+Nang+550000,+Vietnam/@16.0543493,108.2149873,2988m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314219c8c82f3243:0xcea186de511b4d83!8m2!3d16.055165!4d108.2177347",
+            "desc": "nhà chồng Hoàng Diệu, Bình Thuận, Hải Châu, Đà Nẵng",
+            "last": true
+        },
+        "nha-chong-hoa-tho-dong-DN": {
+            "url": "https://www.google.com/maps/place/H%C3%B2a+Th%E1%BB%8D+%C4%90%C3%B4ng,+C%E1%BA%A9m+L%E1%BB%87+District,+Da+Nang+550000,+Vietnam/@16.0119698,108.1899101,5977m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31421a2e51de51ed:0x41b07afd8e549bd1!8m2!3d16.0122832!4d108.1992015",
+            "desc": "nhà bố mẹ ruột Hòa Thọ Đông, Cẩm Lệ, Đà Nẵng"
+        }
+    },
+    "reference": [
+        "https://danavimart-intimex.business.site/#summary",
+        "https://tuoitre.vn/da-nang-khong-cach-ly-ngay-benh-nhan-covid-19-so-35-vi-chu-quan-2020031115154289.htm",
+        "https://vnexpress.net/thoi-su/benh-nhan-35-tung-du-cuoc-hop-co-40-nguoi-4067684.html"
+    ],
+    "customHTML": ""
+}
