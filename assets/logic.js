@@ -1,5 +1,3 @@
-const NODE_STATE = ["new", "update", "old", "discharge", "indirect"];
-
 async function LoadData() {
     var resp = await fetch(`./list.json`);
     const _cases = await resp.json();
@@ -11,11 +9,12 @@ async function LoadData() {
         cases[caseNo] = await response.json();
     }
 
-    return cases;
+    window.cases = cases;
 }
 
 
-function ProcessData(cases) {
+function ProcessData() {
+    var cases = window.cases;
     var locations = {};
 
     // cases traveling history -> locations
@@ -118,64 +117,15 @@ function ProcessData(cases) {
         });
     }
 
-    return locations;
+    window.locations = locations;
 }
 
 
-function AddCaseToSidebar(cases, locations, caseNo, lName) {
-    var ca = cases[caseNo];
-
-    const emojiAge = {
-        male: ["👴👨🧑👦👶", 65, 40, 22, 5, 0],
-        female: ["👵👩🧒👧👶", 65, 40, 22, 5, 0]
-    }
-    var emoji;
-    if (ca.gender == "male" || ca.gender == "female") {
-        for (var i = 1; i < emojiAge[ca.gender].length; i++) {
-            if (ca.age >= emojiAge[ca.gender][i]) {
-                emoji = [...emojiAge[ca.gender][0]][i - 1];
-                break;
-            }
-        }
-    } else {
-        emoji = "❌"
-    }
-
-    var htmlCase = `
-        <div class="case-container case-${ca.caseType}" no="${caseNo}">
-            <div class="case-no one-line">Ca ${caseNo.substr(2)}</div>
-            <div class="case-info one-line">${ca.age} tuổi - ${emoji}</div>
-            <div class="case-location one-line">${ca.stayed}</div>
-        </div>
-    `;
-
-    var htmlLocation = "";
-    ca.locNames.forEach(locName => {
-        loc = locations[locName];
-
-        // Copy https://www.flaticon.com/
-        htmlLocation += `
-            <div class="location ${lName==locName?"picked":""}" loc="${locName}">
-                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/${loc.last?"1097/1097326":"1497/1497068"}.svg"></div>
-                <div class="location-line one-line">${loc.desc}</div>
-            </div>
-        `;
-    });
-
-    $("#my-sidebar").append(`
-        ${htmlCase}    
-        <div class="location-container">
-            ${htmlLocation}
-        </div>
-    `);
-
-}
-
-
-var isMarkerArr = false;
-var markerArr = Array();
-
-function RenderDataToMap(cases, locations, myMap, theme) {
+function RenderDataToMap() {
+    var cases = window.cases;
+    var locations = window.locations;
+    var myMap = window.myMap;
+    var theme = window.theme;
 
     function _bringLatestToFront() {
         for (const [_, loc] of Object.entries(locations)) {
@@ -277,7 +227,7 @@ function RenderDataToMap(cases, locations, myMap, theme) {
         marker.bindPopup(popup);
 
         marker.on("mouseup", function () {
-            isMarkerArr = markerArr.includes(this);
+            isSamePool = pickedMarker.includes(lName);
         })
 
         marker.on("popupopen", function () {
@@ -285,13 +235,13 @@ function RenderDataToMap(cases, locations, myMap, theme) {
             $(`.location[loc=${lName}]`).addClass("picked");
 
             // popup another node in pool, reset flag, do nothing
-            if (isMarkerArr) {
-                isMarkerArr = false;
+            if (isSamePool) {
+                isSamePool = false;
                 return;
             }
 
             // disable all node
-            for (const [__, loc2] of Object.entries(locations)) {
+            for (const [_, loc2] of Object.entries(locations)) {
                 loc2.marker.setStyle({
                     fillOpacity: theme.opacity.disable
                 });
@@ -301,8 +251,10 @@ function RenderDataToMap(cases, locations, myMap, theme) {
             $("#my-sidebar").empty();
 
             // all cases link to this node
-            markerArr = Array();
-            loc.link.forEach(([caseNo, ___], idx) => {
+            pickedMarker = Array();
+            pickedCases = Array();
+            loc.link.forEach(([caseNo, _], idx) => {
+                pickedCases.push(caseNo);
                 var ca = cases[caseNo];
 
                 // show edge between related nodes
@@ -315,18 +267,19 @@ function RenderDataToMap(cases, locations, myMap, theme) {
 
                 // enable all related nodes
                 ca.locNames.forEach(locName => {
-                    loc3 = locations[locName];
+                    pickedMarker.push(locName);
+                    var loc3 = locations[locName];
+
                     loc3.marker.setStyle({
                         fillOpacity: theme.opacity.enable
                     });
                     loc3.marker.bringToFront();
-                    markerArr.push(loc3.marker);
                 });
 
                 _bringLatestToFront();
 
                 // update sidebar
-                AddCaseToSidebar(cases, locations, caseNo, lName);
+                AddCaseToSidebar(caseNo, lName);
             });
 
             // enable this node in case no root link ?
@@ -340,27 +293,25 @@ function RenderDataToMap(cases, locations, myMap, theme) {
         });
 
         marker.on("popupclose", function () {
-            // highlight in sidebar
+            // un-highlight in sidebar
             $(`.location[loc=${lName}]`).removeClass("picked");
 
             // popup another node in pool, do nothing
-            if (isMarkerArr) {
+            if (isSamePool) {
                 return;
             } else {
                 // reset pool
-                markerArr = Array();
+                pickedMarker = Array();
+                pickedCases = Array();
             }
 
-            // all cases link to this node
-            loc.link.forEach(([caseNo, linkType]) => {
-                var ca = cases[caseNo];
-
-                // hide edge between related nodes
+            // disable all lines
+            for (const [_, ca] of Object.entries(cases)) {
                 ca.edge.forEach(line => {
                     line.remove();
-                });
-            });
-
+                })
+            }
+            
             // enable all node
             for ([__, loc2] of Object.entries(locations)) {
                 loc2.marker.setStyle({
@@ -372,31 +323,51 @@ function RenderDataToMap(cases, locations, myMap, theme) {
     }
 
     _bringLatestToFront();
-
 }
 
-function SetEvents(cases, location, myMap) {
-    $(document).on("click", ".a-link-case", function() {
-        var caseNo = $(this).attr("no");
-        var locName = $(this).attr("loc");
 
+
+function SetObjectEvents(cases, locations, myMap) {
+    var cases = window.cases;
+    var locations = window.locations;
+    var myMap = window.myMap;
+        
+    function _jumpToLocation(locName) {
+        var marker = locations[locName].marker;
+        
+        //myMap.panTo(marker.getLatLng());
+        myMap.flyTo(marker.getLatLng(), 12);
+        marker.openPopup();  
+    }
+
+    function _caseNoClick() {
+        var caseNo = $(this).attr("no");
+
+        if (window.pickedCases.includes(caseNo))
+            window.isSamePool = true;
+        
         if (window.sidebar < 0)
             toggleSidebar();
-        
-        //$(`.location[loc=${locName}]`).toggleClass("picked");
-    });
-
+    
+        // we jump to the node of this case
+        var locNames = cases[caseNo].locNames;
+        // check if this case has node on map
+        if (locNames.length > 0) {
+            // zoom to first node
+            _jumpToLocation(locNames[0]);
+        }
+    }
 
     $(document).on("click", ".location", function() {
         var locName = $(this).attr("loc");
+    
+        if (window.pickedMarker.includes(locName))
+            window.isSamePool = true;
 
-        isMarkerArr = true;
-        var marker = location[locName].marker;
-        
-        // optional
-        //myMap.panTo(marker.getLatLng());
-        myMap.flyTo(marker.getLatLng(), 12);
-
-        marker.openPopup();
+        _jumpToLocation(locName);
     });
+    
+    $(document).on("click", ".a-link-case", _caseNoClick);
+    $(document).on("click", ".case-container", _caseNoClick);
 }
+

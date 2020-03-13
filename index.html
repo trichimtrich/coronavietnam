@@ -2,49 +2,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/2000px-Flag_of_Vietnam.svg.png">
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-    <link rel="stylesheet" href="./assets/main.css?1" />
-
-    <style>
-
-    </style>
-    
+    <link rel="stylesheet" href="./assets/main.css?3" />
 </head>
-
 <body>
-    <div id="my-container"><div id="mapid"></div></div>
-    <div id="my-sidebar">
-        <div class="case-container case-new">
-            <div class="case-no">NoXX</div>
-            <div class="case-info">YY tuổi - 👩</div>
-            <div class="case-location">Khu vực chưa rõ</div>
-        </div>
-        <div class="location-container">
-            <div class="location">
-                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/1691/1691655.svg"></div>
-                <div class="location-line">Home 1</div>
-            </div>
-            <div class="location-split"></div>
-            <div class="location">
-                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/1691/1691655.svg"></div>
-                <div class="location-line">Home 2</div>
-            </div><div class="location-split"></div>
-            <div class="location">
-                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/1691/1691655.svg"></div>
-                <div class="location-line">Home 3</div>
-            </div><div class="location-split"></div>
-            <div class="location">
-                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/1691/1691655.svg"></div>
-                <div class="location-line">Home 4</div>
-            </div><div class="location-split"></div>
-            <div class="location">
-                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/1691/1691655.svg"></div>
-                <div class="location-line">Home 5</div>
-            </div><div class="location-split"></div>
-        </div>
-
-
+    <div id="my-screen">
+        <div id="my-container"><div id="mapid"></div></div>
+        <div id="my-sidebar"></div>
     </div>
+    
 
 
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
@@ -59,31 +27,32 @@
             node.src = `${src}${src.includes("?")?"&":"?"}⌚=${(new Date()).getTime()}`;
             document.body.appendChild(node);
         }
+        noCacheScript("./assets/global.js");
         noCacheScript("./assets/theme.js");
-        noCacheScript("./assets/logic.js");
-        noCacheScript("./assets/misc.js");
         noCacheScript("./assets/gui.js");
+        noCacheScript("./assets/logic.js");
 
 
         // --
         async function Main() {
-            var theme = LoadTheme("VietMap");
+            LoadTheme("VietMap");
+            CreateMap();
 
-            var myMap = CreateMap(theme);
+            await LoadData();
+            ProcessData();
 
-            var cases = await LoadData();
-            var locations = ProcessData(cases);
+            RenderDataToMap();
+            AddCasesToSidebar();
 
-            RenderDataToMap(cases, locations, myMap, theme);
+            SetObjectEvents();
 
-            SetEvents(cases, locations, myMap);
+            if (!isMobile())
+                toggleSidebar();
         }
 
         window.addEventListener("load", function() {
             window.sidebar = -1;
             Main();
-
-            // toggleSidebar();
         });
     </script>
 
