@@ -32,13 +32,17 @@ function CreateMap() {
 
     // init map location
     var myMap = L.map("mapid");
-    // myMap.setView([14.058324, 108.277199], 6);
-    myMap.fitBounds([
-            [23.541811, 101.571622],
-            [8.5056463, 110.4280715] 
-        ]
-    )
 
+    function _resetMapView() {
+        // myMap.setView([14.058324, 108.277199], 6);
+        myMap.fitBounds([
+                [23.541811, 101.571622],
+                [8.5056463, 110.4280715] 
+            ]
+        );
+    }
+    _resetMapView();
+    
     // load map tile
     theme.tile.addTo(myMap);
 
@@ -94,6 +98,7 @@ function CreateMap() {
                 toggleSidebar();
                 
             AddCasesToSidebar();
+            _resetMapView();
         });
         return _btn;
     };
@@ -185,7 +190,4 @@ function AddCasesToSidebar() {
     {
         AddCaseToSidebar(caseNo, false);
     }
-
-    if (!isMobile() && window.sidebar < 0)
-        toggleSidebar();
 }

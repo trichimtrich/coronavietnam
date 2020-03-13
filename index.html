@@ -5,42 +5,14 @@
     <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/2000px-Flag_of_Vietnam.svg.png">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-    <link rel="stylesheet" href="./assets/main.css?2" />
+    <link rel="stylesheet" href="./assets/main.css?3" />
 </head>
 <body>
-    <div id="my-container"><div id="mapid"></div></div>
-    <div id="my-sidebar">
-        <div class="case-container case-new">
-            <div class="case-no">NoXX</div>
-            <div class="case-info">YY tuổi - 👩</div>
-            <div class="case-location">Khu vực chưa rõ</div>
-        </div>
-        <div class="location-container">
-            <div class="location">
-                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/1691/1691655.svg"></div>
-                <div class="location-line">Home 1</div>
-            </div>
-            <div class="location-split"></div>
-            <div class="location">
-                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/1691/1691655.svg"></div>
-                <div class="location-line">Home 2</div>
-            </div><div class="location-split"></div>
-            <div class="location">
-                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/1691/1691655.svg"></div>
-                <div class="location-line">Home 3</div>
-            </div><div class="location-split"></div>
-            <div class="location">
-                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/1691/1691655.svg"></div>
-                <div class="location-line">Home 4</div>
-            </div><div class="location-split"></div>
-            <div class="location">
-                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/1691/1691655.svg"></div>
-                <div class="location-line">Home 5</div>
-            </div><div class="location-split"></div>
-        </div>
-
-
+    <div id="my-screen">
+        <div id="my-container"><div id="mapid"></div></div>
+        <div id="my-sidebar"></div>
     </div>
+    
 
 
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
@@ -73,6 +45,9 @@
             AddCasesToSidebar();
 
             SetObjectEvents();
+
+            if (!isMobile())
+                toggleSidebar();
         }
 
         window.addEventListener("load", function() {
