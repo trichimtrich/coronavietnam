@@ -339,7 +339,7 @@ function SetObjectEvents(cases, locations, myMap) {
     function _jumpToLocation(locName) {
         var marker = locations[locName].marker;
         
-        //myMap.panTo(marker.getLatLng());
+        // myMap.panTo(marker.getLatLng());
         myMap.flyTo(marker.getLatLng(), 12);
         marker.openPopup();  
     }
@@ -350,8 +350,7 @@ function SetObjectEvents(cases, locations, myMap) {
         if (window.pickedCases.includes(caseNo))
             window.isSamePool = true;
         
-        if (window.sidebar < 0)
-            toggleSidebar();
+        OpenSidebar();
     
         // we jump to the node of this case
         var locNames = cases[caseNo].locNames;
@@ -373,5 +372,13 @@ function SetObjectEvents(cases, locations, myMap) {
     
     $(document).on("click", ".a-link-case", _caseNoClick);
     $(document).on("click", ".case-container", _caseNoClick);
+
+    var supportsOrientationChange = "onorientationchange" in window,
+    orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+    $(window).on(orientationEvent, function() {
+        if (isMobile() && screen.width < screen.height && window.sidebar > 0)
+            CloseSidebar();
+    });
+
 }
 

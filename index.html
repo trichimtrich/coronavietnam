@@ -1,19 +1,17 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no" />
     <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/2000px-Flag_of_Vietnam.svg.png">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-    <link rel="stylesheet" href="./assets/main.css?3" />
+    <link rel="stylesheet" href="./assets/main.css?6" />
+
+    <title>COVID-19 map</title>
 </head>
 <body>
-    <div id="my-screen">
-        <div id="my-container"><div id="mapid"></div></div>
-        <div id="my-sidebar"></div>
-    </div>
-    
-
+    <div id="my-sidebar"></div>
+    <div id="mapid"></div>
 
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <script src="https://elfalem.github.io/Leaflet.curve/src/leaflet.curve.js"></script>
@@ -47,7 +45,7 @@
             SetObjectEvents();
 
             if (!isMobile())
-                toggleSidebar();
+                OpenSidebar();
         }
 
         window.addEventListener("load", function() {

@@ -1,14 +1,31 @@
-function toggleSidebar() {
+function OpenSidebar() {
+    if (isMobile() && screen.width < screen.height) {
+        alert("Chuyển sang màn hình ngang để mở sidebar");
+        return;
+    }
+
     if (window.sidebar == 0)
         return;
 
-    var state = window.sidebar;
     window.sidebar = 0;
-    $("#my-sidebar").animate({ "width": (state>0?0:400) }, 400, function () {
-        window.sidebar = -state;
-        $("#sidebar-btn").html(`<img src="https://image.flaticon.com/icons/svg/271/${state>0?271228:271220}.svg">`);
+    $("#my-sidebar").animate({ "width": 400 }, 400, function () {
+        window.sidebar = 1;
+        $("#sidebar-btn").html(`<img src="https://image.flaticon.com/icons/svg/271/271220.svg">`);
     });
-    $("#mapid").animate({ "margin-left": (state>0?0:400) });
+    $("#mapid").animate({ "margin-left": 400 }); 
+}
+
+
+function CloseSidebar() {
+    if (window.sidebar == 0)
+        return;
+
+    window.sidebar = 0;
+    $("#my-sidebar").animate({ "width": 0 }, 400, function () {
+        window.sidebar = -1;
+        $("#sidebar-btn").html(`<img src="https://image.flaticon.com/icons/svg/271/271228.svg">`);
+    });
+    $("#mapid").animate({ "margin-left": 0 }); 
 }
 
 
@@ -82,7 +99,12 @@ function CreateMap() {
         _btn.id = "sidebar-btn";
         _btn.title = "Open or hide sidebar";
         _btn.innerHTML = "<img src='https://image.flaticon.com/icons/svg/271/271228.svg'>";
-        _btn.addEventListener("click", toggleSidebar);
+        _btn.addEventListener("click", function() {
+            if (window.sidebar < 0)
+                OpenSidebar();
+            else if (window.sidebar > 0)
+                CloseSidebar();
+        });
         return _btn;
     };
     btnSidebar.addTo(myMap);
@@ -95,10 +117,8 @@ function CreateMap() {
         _btn.title = "Reset sidebar";
         _btn.innerHTML = "<img src='https://image.flaticon.com/icons/svg/1828/1828727.svg'>";
         _btn.addEventListener("click", function() {
-            if (window.sidebar < 0)
-                toggleSidebar();
-                
             AddCasesToSidebar();
+            OpenSidebar();
             _resetMapView();
         });
         return _btn;

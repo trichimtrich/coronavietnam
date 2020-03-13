@@ -99,16 +99,11 @@ body {
 	background-color: #f4f4f4;
 }
 
-#my-container {
-    width: 100%;
-    float: right;
-    margin-left: -400px;
-}
 
 #mapid {
-    margin-left: 0;
     height: 100%;
 }
+
 
 #my-sidebar {
     z-index: 1337;
@@ -118,18 +113,13 @@ body {
     position: absolute;
     background: #f0f0f0;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-
-    overflow: hidden;
-    
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
 }
 
 /* Copy https://css-tricks.com/the-current-state-of-styling-scrollbars/ */
-#my-sidebar:hover {
-    overflow-y: scroll;
-    overflow-x: hidden;
 
-    scrollbar-width: thin;
-}
 
 #my-sidebar::-webkit-scrollbar-track
 {
