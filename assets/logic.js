@@ -172,8 +172,9 @@ function AddCaseToSidebar(cases, locations, caseNo, lName) {
 }
 
 
-var isMarkerArr = false;
-var markerArr = Array();
+var isSamePool = false;
+var pickedMarker = Array();
+var pickedCases = Array();
 
 function RenderDataToMap(cases, locations, myMap, theme) {
 
@@ -277,7 +278,7 @@ function RenderDataToMap(cases, locations, myMap, theme) {
         marker.bindPopup(popup);
 
         marker.on("mouseup", function () {
-            isMarkerArr = markerArr.includes(this);
+            isSamePool = pickedMarker.includes(lName);
         })
 
         marker.on("popupopen", function () {
@@ -285,8 +286,8 @@ function RenderDataToMap(cases, locations, myMap, theme) {
             $(`.location[loc=${lName}]`).addClass("picked");
 
             // popup another node in pool, reset flag, do nothing
-            if (isMarkerArr) {
-                isMarkerArr = false;
+            if (isSamePool) {
+                isSamePool = false;
                 return;
             }
 
@@ -301,8 +302,10 @@ function RenderDataToMap(cases, locations, myMap, theme) {
             $("#my-sidebar").empty();
 
             // all cases link to this node
-            markerArr = Array();
+            pickedMarker = Array();
+            pickedCases = Array();
             loc.link.forEach(([caseNo, _], idx) => {
+                pickedCases.push(caseNo);
                 var ca = cases[caseNo];
 
                 // show edge between related nodes
@@ -315,12 +318,13 @@ function RenderDataToMap(cases, locations, myMap, theme) {
 
                 // enable all related nodes
                 ca.locNames.forEach(locName => {
-                    loc3 = locations[locName];
+                    pickedMarker.push(locName);
+                    var loc3 = locations[locName];
+
                     loc3.marker.setStyle({
                         fillOpacity: theme.opacity.enable
                     });
                     loc3.marker.bringToFront();
-                    markerArr.push(loc3.marker);
                 });
 
                 _bringLatestToFront();
@@ -344,11 +348,12 @@ function RenderDataToMap(cases, locations, myMap, theme) {
             $(`.location[loc=${lName}]`).removeClass("picked");
 
             // popup another node in pool, do nothing
-            if (isMarkerArr) {
+            if (isSamePool) {
                 return;
             } else {
                 // reset pool
-                markerArr = Array();
+                pickedMarker = Array();
+                pickedCases = Array();
             }
 
             // disable all lines
@@ -381,14 +386,17 @@ function JumpToLocation(locations, locName, myMap) {
     marker.openPopup();  
 }
 
-function SetEvents(cases, locations, myMap) {
-    $(document).on("click", ".a-link-case", function() {
-        var caseNo = $(this).attr("no");
-        // var locName = $(this).attr("loc");
 
+function SetEvents(cases, locations, myMap) {
+    function _caseNoClick() {
+        var caseNo = $(this).attr("no");
+
+        if (pickedCases.includes(caseNo))
+            isSamePool = true;
+        
         if (window.sidebar < 0)
             toggleSidebar();
-
+    
         // we jump to the node of this case
         var locNames = cases[caseNo].locNames;
         // check if this case has node on map
@@ -396,15 +404,18 @@ function SetEvents(cases, locations, myMap) {
             // zoom to first node
             JumpToLocation(locations, locNames[0], myMap);
         }
-    });
+    }
+    $(document).on("click", ".a-link-case", _caseNoClick);
 
 
     $(document).on("click", ".location", function() {
         var locName = $(this).attr("loc");
     
-        if (markerArr.length > 0)
-            isMarkerArr = true;
+        if (pickedMarker.includes(locName))
+            isSamePool = true;
 
         JumpToLocation(locations, locName, myMap);
     });
+
+    $(document).on("click", ".case-container", _caseNoClick);
 }

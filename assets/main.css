@@ -146,9 +146,15 @@ body {
 }
 
 .case-container {
+    cursor: pointer;
     border-top: 5px solid #999999;
     height: 60px;
     position: relative;
+    opacity: 0.9;
+}
+
+.case-container:hover {
+    opacity: 1;
 }
 
 .case-new { background-color: orangered; }
@@ -195,6 +201,7 @@ body {
 
 
 .location-container {
+    cursor: pointer;
     background-color: #ffffff;
     border-bottom: 2px solid #E8EAED;
     border-top: 2px solid #E8EAED;
@@ -216,11 +223,11 @@ body {
 }
 
 .location.picked {
-    background-color: orange;
+    background-color: lightgreen;
 }
 
 .location.picked:hover {
-    background-color: red;
+    background-color: greenyellow;
 }
 
 
