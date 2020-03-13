@@ -18,6 +18,8 @@ async function LoadData() {
 function ProcessData(cases) {
     var locations = {};
 
+    // sort cases 
+
     // cases traveling history -> locations
     for (const [caseNo, ca] of Object.entries(cases)) {
         var rootLocNames = Array(),
@@ -150,23 +152,30 @@ function AddCaseToSidebar(cases, locations, caseNo, lName) {
     `;
 
     var htmlLocation = "";
-    ca.locNames.forEach(locName => {
-        loc = locations[locName];
 
-        // Copy https://www.flaticon.com/
-        htmlLocation += `
-            <div class="location ${lName==locName?"picked":""}" loc="${locName}">
-                <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/${loc.last?"1097/1097326":"1497/1497068"}.svg"></div>
-                <div class="location-line one-line">${loc.desc}</div>
+    if (lName != false) {
+        ca.locNames.forEach(locName => {
+            loc = locations[locName];
+
+            // Copy https://www.flaticon.com/
+            htmlLocation += `
+                <div class="location ${lName==locName?"picked":""}" loc="${locName}">
+                    <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/${loc.last?"1097/1097326":"1497/1497068"}.svg"></div>
+                    <div class="location-line one-line">${loc.desc}</div>
+                </div>
+            `;
+        });
+
+        htmlLocation = `
+            <div class="location-container">
+                ${htmlLocation}
             </div>
         `;
-    });
+    }
 
     $("#my-sidebar").append(`
         ${htmlCase}    
-        <div class="location-container">
-            ${htmlLocation}
-        </div>
+        ${htmlLocation}
     `);
 
 }
@@ -418,4 +427,26 @@ function SetEvents(cases, locations, myMap) {
     });
 
     $(document).on("click", ".case-container", _caseNoClick);
+}
+
+function AddCasesToSidebar(cases, locations) {
+    $("#my-sidebar").empty();
+    for (const [caseNo, ca] of Object.entries(cases).sort(
+                (a, b) => {
+                    var idx1 = NODE_STATE.indexOf(a[1].caseType);
+                    var idx2 = NODE_STATE.indexOf(b[1].caseType);
+                    if (idx1 == idx2) {
+                        var no1 = parseInt(a[0].substr(2));
+                        var no2 = parseInt(b[0].substr(2));
+                        return no2 - no1;
+                    } else
+                        return idx1 - idx2;
+                }
+            )
+        )
+    {
+        AddCaseToSidebar(cases, locations, caseNo, false);
+    }
+
+    toggleSidebar();
 }
