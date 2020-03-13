@@ -29,8 +29,21 @@ function CloseSidebar() {
 }
 
 
-function LoadTheme(name) {
+function LoadTheme() {
+    if (window.theme)
+        window.theme.tile.remove();
+
+    var name;
+    if (window.isDark) {
+        $("#theme-btn").html("<img src='https://image.flaticon.com/icons/svg/405/405894.svg'>");
+        name = "CartoDB_DarkMatter";
+    } else {
+        $("#theme-btn").html("<img src='https://image.flaticon.com/icons/svg/1415/1415431.svg'>");
+        name = "VietMap";
+    }
+
     var theme = window.themes[name];
+
     $("body style").remove();
     $("body").append(`
         <style>
@@ -41,13 +54,32 @@ function LoadTheme(name) {
         </style>
     `);
 
+    // load map tile
+    theme.tile.addTo(window.myMap);
+    
+    $(".legend").html( `
+        <i style="background: ${theme.color.new}"></i> Ca nhiễm mới<br>
+        <i style="background: ${theme.color.update}"></i> Ca cập nhật info<br>
+        <i style="background: ${theme.color.old}"></i> Ca nhiễm cũ<br>
+        <i style="background: ${theme.color.discharge}"></i> Ca xuất viện<br>
+        <i style="background: ${theme.color.indirect}"></i> Địa điểm liên quan<br>
+    `);
+
+
+    // set marker color if available
+    if (window.locations)
+        for (const [_, loc] of Object.entries(locations)) {
+            loc.marker.setStyle({
+                fillColor: theme.color[loc.state],
+                fillOpacity: theme.opacity.enable,
+            });
+        }
+
     window.theme = theme;
 }
 
 
 function CreateMap() {
-    window.theme = theme;
-
     // init map location
     var myMap = L.map("mapid");
 
@@ -60,27 +92,8 @@ function CreateMap() {
         );
     }
     _resetMapView();
+
     
-    // load map tile
-    theme.tile.addTo(myMap);
-
-    // add legend to bottom right
-    var legend = L.control({ position: "bottomright" });
-    legend.onAdd = function () {
-        var _div = L.DomUtil.create("div", "info legend");
-
-        _div.innerHTML = `
-            <i style="background: ${theme.color.new}"></i> Ca nhiễm mới<br>
-            <i style="background: ${theme.color.update}"></i> Ca cập nhật info<br>
-            <i style="background: ${theme.color.old}"></i> Ca nhiễm cũ<br>
-            <i style="background: ${theme.color.discharge}"></i> Ca xuất viện<br>
-            <i style="background: ${theme.color.indirect}"></i> Địa điểm liên quan<br>
-        `;
-
-        return _div;
-    };
-    legend.addTo(myMap);
-
     // add github icon
     var legend2 = L.control({ position: "topright" });
     legend2.onAdd = function () {
@@ -92,6 +105,15 @@ function CreateMap() {
     }
     legend2.addTo(myMap);
 
+    // add legend to bottom right
+    var legend = L.control({ position: "bottomright" });
+    legend.onAdd = function () {
+        var _div = L.DomUtil.create("div", "info legend");
+        return _div;
+    }
+    legend.addTo(myMap);
+
+
     // add button to control sidebar
     var btnSidebar = L.control({ position: "topleft" });
     btnSidebar.onAdd = function () {
@@ -99,7 +121,7 @@ function CreateMap() {
         _btn.id = "sidebar-btn";
         _btn.title = "Open or hide sidebar";
         _btn.innerHTML = "<img src='https://image.flaticon.com/icons/svg/271/271228.svg'>";
-        _btn.addEventListener("click", function() {
+        $(_btn).on("click", function() {
             if (window.sidebar < 0)
                 OpenSidebar();
             else if (window.sidebar > 0)
@@ -109,6 +131,7 @@ function CreateMap() {
     };
     btnSidebar.addTo(myMap);
 
+
     // add button to show all cases
     var btnReset = L.control({ position: "topleft" });
     btnReset.onAdd = function () {
@@ -116,7 +139,7 @@ function CreateMap() {
         _btn.id = "reset-btn";
         _btn.title = "Reset sidebar";
         _btn.innerHTML = "<img src='https://image.flaticon.com/icons/svg/1828/1828727.svg'>";
-        _btn.addEventListener("click", function() {
+        $(_btn).on("click", function() {
             AddCasesToSidebar();
             OpenSidebar();
             _resetMapView();
@@ -125,10 +148,24 @@ function CreateMap() {
     };
     btnReset.addTo(myMap);
 
-    
+        
+    // dark mode button
+    var btnTheme = L.control({ position: "bottomleft" });
+    btnTheme.onAdd = function () {
+        var _btn = L.DomUtil.create("div", "btn-control");
+        _btn.id = "theme-btn";
+        _btn.title = "Dark mode";
+        $(_btn).on("click", function() {
+            window.isDark = ! window.isDark;
+            window.localStorage.setItem("darkmode", window.isDark);
+            LoadTheme();
+        });
+        return _btn;
+    };
+    btnTheme.addTo(myMap);
+
     window.myMap = myMap;
 }
-
 
 
 function AddCaseToSidebar(caseNo, lName) {

@@ -8,6 +8,8 @@ var myMap;
 var cases;
 var locations;
 
+var sidebar;
+var isDark;
 
 var isSamePool = false;
 var pickedMarker = Array();
