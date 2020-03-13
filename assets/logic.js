@@ -35,6 +35,9 @@ function ProcessData() {
             } else {
                 for ([tmpName, tmpLoc] of Object.entries(locations)) {
                     if (tmpLoc.lat == loc.lat && tmpLoc.lng == loc.lng) {
+                        // log this noob note in case data mismatch
+                        console.log(`[Case ${caseNo}] "${locName}" has same location with "${tmpName}"`);
+
                         // same location in [lat, lng]
                         locName = tmpName;
                         isDup = true;
