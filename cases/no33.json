@@ -1,0 +1,58 @@
+{
+    "caseType": "old",
+    "age": 58,
+    "gender": "male",
+    "from": "London",
+    "stayed": "Khách sạn Boutique Hội An",
+    "visited": "London",
+    "citizenship": "English",
+    "relatedCaseNo": ["no17"],
+    "confirmDate": "10 March 2020",
+    "nodes": {
+        "san-bay-noi-bai": {
+            "url": "https://www.google.com/maps/place/S%C3%A2n+bay+n%E1%BB%99i+b%C3%A0i/@21.2180967,105.7887342,17z/data=!3m1!4b1!4m5!3m4!1s0x3135036c6bf15007:0x522c01665408ae36!8m2!3d21.2180917!4d105.7909229",
+            "desc": "Sân bay quốc tế Nội Bài"
+        },
+        "san-bay-da-nang": {
+            "url": "https://www.google.com/maps/place/Da+Nang+International+Airport/@16.0563327,108.1986451,17z/data=!3m1!4b1!4m5!3m4!1s0x314219a273df52d1:0xb203f9fca295071a!8m2!3d16.0563276!4d108.2008338",
+            "desc": "Cảng hàng không Đà Nẵng"
+        },
+        "khach-san-hilton-opera-ha-noi": {
+            "url": "https://www.google.com/maps/place/Hilton+Hanoi+Opera/@21.0232746,105.8557318,1451m/data=!3m2!1e3!4b1!4m8!3m7!1s0x3135abec09e8c48b:0x56aec868a7a3d467!5m2!4m1!1i2!8m2!3d21.0232696!4d105.8579205",
+            "desc": "Khách sạn Hilton Opera Hà Nội"
+        },
+        "nha-hat-lon-ha-noi": {
+            "url": "https://www.google.com/maps/place/Hanoi+Opera+House/@21.024189,105.8556683,1451m/data=!3m2!1e3!4b1!4m5!3m4!1s0x3135abebf87e0011:0x647af200da508d2b!8m2!3d21.024184!4d105.857857",
+            "desc": "Nhà hát lớn Hà Nội"
+        },
+        "chua-mot-cot-ha-noi": {
+            "url": "https://www.google.com/maps/place/One+Pillar+Pagoda/@21.0358615,105.8314297,1451m/data=!3m2!1e3!4b1!4m5!3m4!1s0x3135aba1728475ed:0xdbe7366fe9dfc2ae!8m2!3d21.0358565!4d105.8336184",
+            "desc": "Chùa Một Cột Hà Nội"
+        },
+        "van-mieu-quoc-tu-giam": {
+            "url": "https://www.google.com/maps/place/Temple+Of+Literature/@21.0293696,105.8339746,1451m/data=!3m2!1e3!4b1!4m5!3m4!1s0x3135ab9926e7bd67:0x580e078874d5df1e!8m2!3d21.0293646!4d105.8361633",
+            "desc": "Văn Miếu Quốc Tử Giám Hà Nội"
+        },
+        "khu-tuong-niem-chu-tich-ho-chi-minh": {
+            "url": "https://www.google.com/maps/place/Ao+c%C3%A1+B%C3%A1c+H%E1%BB%93/@21.0365394,105.8311637,725m/data=!3m1!1e3!4m8!1m2!2m1!1zbMSDbmcgYsOhYyBo4buT!3m4!1s0x3135aba14a924cb5:0x87e4f97c2f69aa54!8m2!3d21.0377892!4d105.8333413",
+            "desc": "Khu tưởng niệm Chủ tịch Hồ Chí Minh, Hà Nội"
+        },
+        "trung-tam-roi-nuoc": {
+            "url": "https://www.google.com/maps/place/Four+Seasons+Resort+The+Nam+Hai,+Hoi+An/@15.9292439,108.3154952,17z/data=!3m1!4b1!4m8!3m7!1s0x314211e48700be8d:0xfa3a4e3c2fc05c16!5m2!4m1!1i2!8m2!3d15.9292388!4d108.3176839",
+            "desc": "Trung tâm múa rối nước Bông Sen, Hà Nội"
+        },
+        "vinh-ha-long": {
+            "url": "https://www.google.com/maps/place/H%E1%BA%A1+Long+Bay/@20.8437292,107.0095461,92975m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314a5796518cee87:0x55c6b0bcc85478db!8m2!3d20.9100512!4d107.1839024",
+            "desc": "Vịnh Hạ Long"
+        },
+        "khach-san-boutique-hoi-an": {
+            "url": "https://www.google.com/maps/place/Boutique+Hoi+An+Resort/@15.9030941,108.351569,1495m/data=!3m2!1e3!4b1!4m8!3m7!1s0x31420dfd00000031:0xd029d1f35f8daf7a!5m2!4m1!1i2!8m2!3d15.903089!4d108.3537577",
+            "desc": "Khách sạn Boutique Hội An",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://news.zing.vn/benh-nhan-nhiem-covid-19-thu-33-va-34-da-di-nhung-dau-post1058044.html"
+    ],
+    "customHTML": ""
+}
