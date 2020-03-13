@@ -4,7 +4,7 @@
 
 Bản đồ xem `Cô Vi` đang ở những chỗ nào trên quê ta.
 
-Code cho vui, data góp nhặt trên mạng. Cần mấy bạn commit data dùm 😘.
+Code cho vui, data góp nhặt trên mạng. Cần mấy bạn commit data dùm 😘
 
 - Gửi issue để mình parse vô nè
 - Hoặc pull request theo hướng dẫn
@@ -71,10 +71,19 @@ Trong đó
 ## Thanks
 
 - Bản đồ của [Vietmap](https://maps.vietmap.vn/web/)
-- [leafletjs](https://leafletjs.com/) + open source map providers
+- Bản đồ [OpenStreetMap](https://www.openstreetmap.org/copyright)
+- [leafletjs](https://leafletjs.com/)
 
 ## License
 
 <a href="http://www.wtfpl.net/"><img
        src="http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png"
        width="80" height="15" alt="WTFPL" /></a>
+
+## Disclaimer
+
+Dữ liệu về hành trình di chuyển của các ca dương tính với virus corona được trích xuất và tổng hợp từ các thông tin đăng tải trên mạng Internet của Bộ Y tế, báo chính phủ, cũng như các báo online khác có trong các đường link reference của từng trường hợp nhiễm bệnh.
+
+Vì vậy thông tin ở bản đồ này chỉ mang tính chất tham khảo, **KHÔNG** có giá trị trích dẫn.
+
+Chúng tôi **KHÔNG** chịu trách nhiệm nếu người đọc sử dụng thông tin này với mục đích khác, dưới bất cứ hình thức gì.
