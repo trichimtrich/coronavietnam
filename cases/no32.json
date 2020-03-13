@@ -1,0 +1,27 @@
+{
+    "caseType": "old",
+    "age": 24,
+    "gender": "male",
+    "from": "London",
+    "stayed": "BV Dã chiến Củ Chi",
+    "visited": "London",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": ["no17"],
+    "confirmDate": "10 March 2020",
+    "nodes": {
+        "san-bay-tan-son-nhat": {
+            "url": "https://www.google.com/maps/place/S%C3%A2n+bay+T%C3%A2n+S%C6%A1n+Nh%E1%BA%A5t/@10.8154903,106.6617853,17z/data=!3m1!4b1!4m5!3m4!1s0x31752917efe79857:0x641f8f3953dc6a69!8m2!3d10.815485!4d106.663974",
+            "desc": "Cảng hàng không quốc tế Tân Sơn Nhất"
+        },
+        "bv-da-chien-cu-chi": {
+            "url": "https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+Qu%C3%A2n+s%E1%BB%B1+B%E1%BB%99+T%C6%B0+l%E1%BB%87nh+TPHCM/@11.0670504,106.5186029,763m/data=!3m1!1e3!4m5!3m4!1s0x310b32a45e8baac3:0xddd32dddbc65a6f6!8m2!3d11.06904!4d106.5188315",
+            "desc": "Bệnh viện dã chiến Củ Chi, TPHCM",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://tuoitre.vn/gap-rut-thi-cong-dam-bao-du-dien-cho-benh-vien-da-chien-o-tp-hcm-20200208174446173.htm",
+        "https://moh.gov.vn/hoat-dong-cua-dia-phuong/-/asset_publisher/gHbla8vOQDuS/content/ca-benh-thu-32-mac-covid-19-ang-ieu-tri-tai-tphcm"
+    ],
+    "customHTML": ""
+}
