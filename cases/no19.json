@@ -9,6 +9,11 @@
     "relatedCaseNo": ["no17"],
     "confirmDate": "07 March 2020",
     "nodes": {
+        "nha-125-truc-bach": {
+            "url": "https://www.google.com/maps/place/125+Tr%C3%BAc+B%E1%BA%A1ch,+Ba+%C4%90%C3%ACnh,+H%C3%A0+N%E1%BB%99i,+Vietnam/@21.0451101,105.8416721,21z/data=!4m5!3m4!1s0x3135abb0398f9b59:0x90a8dc59359afe19!8m2!3d21.045082!4d105.841909",
+            "desc": "125 Trúc Bạch, Ba Đình, Hà Nội",
+            "last": true
+        }
     },
     "reference": [
         "https://vnexpress.net/suc-khoe/them-hai-nguoi-duong-tinh-ncov-tai-ha-noi-4065745.html"
