@@ -1,5 +1,3 @@
-const NODE_STATE = ["new", "update", "old", "discharge", "indirect"];
-
 async function LoadData() {
     var resp = await fetch(`./list.json`);
     const _cases = await resp.json();
@@ -11,14 +9,13 @@ async function LoadData() {
         cases[caseNo] = await response.json();
     }
 
-    return cases;
+    window.cases = cases;
 }
 
 
-function ProcessData(cases) {
+function ProcessData() {
+    var cases = window.cases;
     var locations = {};
-
-    // sort cases 
 
     // cases traveling history -> locations
     for (const [caseNo, ca] of Object.entries(cases)) {
@@ -120,72 +117,15 @@ function ProcessData(cases) {
         });
     }
 
-    return locations;
+    window.locations = locations;
 }
 
 
-function AddCaseToSidebar(cases, locations, caseNo, lName) {
-    var ca = cases[caseNo];
-
-    const emojiAge = {
-        male: ["👴👨🧑👦👶", 65, 40, 22, 5, 0],
-        female: ["👵👩🧒👧👶", 65, 40, 22, 5, 0]
-    }
-    var emoji;
-    if (ca.gender == "male" || ca.gender == "female") {
-        for (var i = 1; i < emojiAge[ca.gender].length; i++) {
-            if (ca.age >= emojiAge[ca.gender][i]) {
-                emoji = [...emojiAge[ca.gender][0]][i - 1];
-                break;
-            }
-        }
-    } else {
-        emoji = "❌"
-    }
-
-    var htmlCase = `
-        <div class="case-container case-${ca.caseType}" no="${caseNo}">
-            <div class="case-no one-line">Ca ${caseNo.substr(2)}</div>
-            <div class="case-info one-line">${ca.age} tuổi - ${emoji}</div>
-            <div class="case-location one-line">${ca.stayed}</div>
-        </div>
-    `;
-
-    var htmlLocation = "";
-
-    if (lName != false) {
-        ca.locNames.forEach(locName => {
-            loc = locations[locName];
-
-            // Copy https://www.flaticon.com/
-            htmlLocation += `
-                <div class="location ${lName==locName?"picked":""}" loc="${locName}">
-                    <div class="location-icon"><img src="https://image.flaticon.com/icons/svg/${loc.last?"1097/1097326":"1497/1497068"}.svg"></div>
-                    <div class="location-line one-line">${loc.desc}</div>
-                </div>
-            `;
-        });
-
-        htmlLocation = `
-            <div class="location-container">
-                ${htmlLocation}
-            </div>
-        `;
-    }
-
-    $("#my-sidebar").append(`
-        ${htmlCase}    
-        ${htmlLocation}
-    `);
-
-}
-
-
-var isSamePool = false;
-var pickedMarker = Array();
-var pickedCases = Array();
-
-function RenderDataToMap(cases, locations, myMap, theme) {
+function RenderDataToMap() {
+    var cases = window.cases;
+    var locations = window.locations;
+    var myMap = window.myMap;
+    var theme = window.theme;
 
     function _bringLatestToFront() {
         for (const [_, loc] of Object.entries(locations)) {
@@ -339,7 +279,7 @@ function RenderDataToMap(cases, locations, myMap, theme) {
                 _bringLatestToFront();
 
                 // update sidebar
-                AddCaseToSidebar(cases, locations, caseNo, lName);
+                AddCaseToSidebar(caseNo, lName);
             });
 
             // enable this node in case no root link ?
@@ -383,25 +323,28 @@ function RenderDataToMap(cases, locations, myMap, theme) {
     }
 
     _bringLatestToFront();
-
-}
-
-function JumpToLocation(locations, locName, myMap) {
-    var marker = locations[locName].marker;
-    
-    // optional
-    //myMap.panTo(marker.getLatLng());
-    myMap.flyTo(marker.getLatLng(), 12);
-    marker.openPopup();  
 }
 
 
-function SetEvents(cases, locations, myMap) {
+
+function SetObjectEvents(cases, locations, myMap) {
+    var cases = window.cases;
+    var locations = window.locations;
+    var myMap = window.myMap;
+        
+    function _jumpToLocation(locName) {
+        var marker = locations[locName].marker;
+        
+        //myMap.panTo(marker.getLatLng());
+        myMap.flyTo(marker.getLatLng(), 12);
+        marker.openPopup();  
+    }
+
     function _caseNoClick() {
         var caseNo = $(this).attr("no");
 
-        if (pickedCases.includes(caseNo))
-            isSamePool = true;
+        if (window.pickedCases.includes(caseNo))
+            window.isSamePool = true;
         
         if (window.sidebar < 0)
             toggleSidebar();
@@ -411,42 +354,20 @@ function SetEvents(cases, locations, myMap) {
         // check if this case has node on map
         if (locNames.length > 0) {
             // zoom to first node
-            JumpToLocation(locations, locNames[0], myMap);
+            _jumpToLocation(locNames[0]);
         }
     }
-    $(document).on("click", ".a-link-case", _caseNoClick);
-
 
     $(document).on("click", ".location", function() {
         var locName = $(this).attr("loc");
     
-        if (pickedMarker.includes(locName))
-            isSamePool = true;
+        if (window.pickedMarker.includes(locName))
+            window.isSamePool = true;
 
-        JumpToLocation(locations, locName, myMap);
+        _jumpToLocation(locName);
     });
-
+    
+    $(document).on("click", ".a-link-case", _caseNoClick);
     $(document).on("click", ".case-container", _caseNoClick);
 }
 
-function AddCasesToSidebar(cases, locations) {
-    $("#my-sidebar").empty();
-    for (const [caseNo, ca] of Object.entries(cases).sort(
-                (a, b) => {
-                    var idx1 = NODE_STATE.indexOf(a[1].caseType);
-                    var idx2 = NODE_STATE.indexOf(b[1].caseType);
-                    if (idx1 == idx2) {
-                        var no1 = parseInt(a[0].substr(2));
-                        var no2 = parseInt(b[0].substr(2));
-                        return no2 - no1;
-                    } else
-                        return idx1 - idx2;
-                }
-            )
-        )
-    {
-        AddCaseToSidebar(cases, locations, caseNo, false);
-    }
-
-    toggleSidebar();
-}

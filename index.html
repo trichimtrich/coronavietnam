@@ -5,7 +5,7 @@
     <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/2000px-Flag_of_Vietnam.svg.png">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-    <link rel="stylesheet" href="./assets/main.css?1" />
+    <link rel="stylesheet" href="./assets/main.css?2" />
 </head>
 <body>
     <div id="my-container"><div id="mapid"></div></div>
@@ -55,32 +55,29 @@
             node.src = `${src}${src.includes("?")?"&":"?"}⌚=${(new Date()).getTime()}`;
             document.body.appendChild(node);
         }
+        noCacheScript("./assets/global.js");
         noCacheScript("./assets/theme.js");
-        noCacheScript("./assets/logic.js");
-        noCacheScript("./assets/misc.js");
         noCacheScript("./assets/gui.js");
+        noCacheScript("./assets/logic.js");
 
 
         // --
         async function Main() {
-            var theme = LoadTheme("VietMap");
+            LoadTheme("VietMap");
+            CreateMap();
 
-            var myMap = CreateMap(theme);
+            await LoadData();
+            ProcessData();
 
-            var cases = await LoadData();
-            var locations = ProcessData(cases);
+            RenderDataToMap();
+            AddCasesToSidebar();
 
-            RenderDataToMap(cases, locations, myMap, theme);
-
-            AddCasesToSidebar(cases, locations);
-            SetEvents(cases, locations, myMap);
+            SetObjectEvents();
         }
 
         window.addEventListener("load", function() {
             window.sidebar = -1;
             Main();
-
-            // toggleSidebar();
         });
     </script>
 
