@@ -1,0 +1,26 @@
+{
+    "caseType": "old",
+    "age": 51,
+    "gender": "female",
+    "from": "NewYork, Washinton State, Incheon, Qatar",
+    "stayed": "phường Phú Thủy, Phan Thiết, Bình Thuận",
+    "visited": "",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": [],
+    "confirmDate": "10 March 2020",
+    "nodes": {
+        "san-bay-tan-son-nhat": {
+            "url": "https://www.google.com/maps/place/S%C3%A2n+bay+T%C3%A2n+S%C6%A1n+Nh%E1%BA%A5t/@10.8154903,106.6617853,17z/data=!3m1!4b1!4m5!3m4!1s0x31752917efe79857:0x641f8f3953dc6a69!8m2!3d10.815485!4d106.663974",
+            "desc": "Cảng hàng không quốc tế Tân Sơn Nhất"
+        },
+        "nha-rieng-phu-thuy-phan-thiet": {
+            "url": "https://www.google.com/maps/place/Ph%C3%BA+Th%E1%BB%A7y,+Phan+Thiet,+B%C3%ACnh+Thu%E1%BA%ADn+Province,+Vietnam/@10.9366445,108.1069336,6105m/data=!3m2!1e3!4b1!4m5!3m4!1s0x3176831260aa3539:0x1afdedf18b57a931!8m2!3d10.9383013!4d108.1113804",
+            "desc": "Nhà riêng Phường Phú Thủy, Tp Phan Thiết, Bình Thuận",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://tuoitre.vn/binh-thuan-hop-khan-lien-quan-den-benh-nhan-thu-34-tu-my-ve-20200310205134162.htm"
+    ],
+    "customHTML": ""
+}
