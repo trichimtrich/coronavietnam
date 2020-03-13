@@ -14,7 +14,8 @@ function toggleSidebar() {
 
 function LoadTheme(name) {
     var theme = window.themes[name];
-    document.body.append(`
+    $("body style").remove();
+    $("body").append(`
         <style>
             .case-new { background-color: ${theme.color.new}; }
             .case-old { background-color: ${theme.color.old}; }
