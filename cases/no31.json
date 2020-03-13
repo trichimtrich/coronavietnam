@@ -1,0 +1,43 @@
+{
+    "caseType": "old",
+    "age": 49,
+    "gender": "male",
+    "from": "London",
+    "stayed": "The Nam Hai",
+    "visited": "London",
+    "citizenship": "English",
+    "relatedCaseNo": ["no17"],
+    "confirmDate": "09 March 2020",
+    "nodes": {
+        "san-bay-noi-bai": {
+            "url": "https://www.google.com/maps/place/S%C3%A2n+bay+n%E1%BB%99i+b%C3%A0i/@21.2180967,105.7887342,17z/data=!3m1!4b1!4m5!3m4!1s0x3135036c6bf15007:0x522c01665408ae36!8m2!3d21.2180917!4d105.7909229",
+            "desc": "Sân bay quốc tế Nội Bài"
+        },
+        "san-bay-da-nang": {
+            "url": "https://www.google.com/maps/place/Da+Nang+International+Airport/@16.0563327,108.1986451,17z/data=!3m1!4b1!4m5!3m4!1s0x314219a273df52d1:0xb203f9fca295071a!8m2!3d16.0563276!4d108.2008338",
+            "desc": "Cảng hàng không Đà Nẵng"
+        },
+        "khach-san-sofitel-legend-metropole": {
+            "url": "https://www.google.com/maps/place/Sofitel+Legend+Metropole+Hanoi/@21.0254175,105.8541863,17z/data=!3m1!4b1!4m8!3m7!1s0x3135abeb98f8b54d:0x90d6982234a65f25!5m2!4m1!1i2!8m2!3d21.0254125!4d105.856375",
+            "desc": "Khách sạn Sofitel Legend Metropole Hà Nội"
+        },
+        "cua-hang-ngoc-trai-phuong-dai-yen": {
+            "url": "https://www.google.com/maps/place/%C4%90%E1%BA%A1i+Y%C3%AAn,+H%E1%BA%A1+Long,+Qu%E1%BA%A3ng+Ninh,+Vietnam/@20.9790672,106.9190356,14.75z/data=!4m5!3m4!1s0x314af551f4806ccf:0xe194e7972d7b2284!8m2!3d20.9828115!4d106.9240554",
+            "desc": "Cửa hàng ngọc trai Phường Đại Yên"
+        },
+        "vinh-ha-long": {
+            "url": "https://www.google.com/maps/place/H%E1%BA%A1+Long+Bay/@20.8437292,107.0095461,92975m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314a5796518cee87:0x55c6b0bcc85478db!8m2!3d20.9100512!4d107.1839024",
+            "desc": "Vịnh Hạ Long"
+        },
+        "the-nam-hai": {
+            "url": "https://www.google.com/maps/place/Four+Seasons+Resort+The+Nam+Hai,+Hoi+An/@15.9292439,108.3154952,17z/data=!3m1!4b1!4m8!3m7!1s0x314211e48700be8d:0xfa3a4e3c2fc05c16!5m2!4m1!1i2!8m2!3d15.9292388!4d108.3176839",
+            "desc": "Four Seasons Resort The Nam Hai, Hoi An",
+            "last": true
+        }
+    },
+    "reference": [
+        "http://toquoc.vn/lo-trinh-cua-benh-nhan-thu-31-nhiem-covid-19-tai-viet-nam-102020103112039677.htm",
+        "https://thanhnien.vn/thoi-su/cong-bo-lo-trinh-tai-ha-long-cua-2-nguoi-nhiem-covid-19-thu-31-va-33-1193964.html"
+    ],
+    "customHTML": ""
+}
