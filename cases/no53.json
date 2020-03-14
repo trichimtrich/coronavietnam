@@ -1,0 +1,31 @@
+
+{
+    "caseType": "new",
+    "age": 53,
+    "gender": "male",
+    "from": "Czech",
+    "stayed": "Quận 1, TPHCM",
+    "visited": "Czech, Doha",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": [],
+    "confirmDate": "14 March 2020",
+    "nodes": {
+        "san-bay-tan-son-nhat": {
+            "url": "https://www.google.com/maps/place/S%C3%A2n+bay+T%C3%A2n+S%C6%A1n+Nh%E1%BA%A5t/@10.8154903,106.6617853,17z/data=!3m1!4b1!4m5!3m4!1s0x31752917efe79857:0x641f8f3953dc6a69!8m2!3d10.815485!4d106.663974",
+            "desc": "Cảng hàng không quốc tế Tân Sơn Nhất"
+        },
+        "co-so-luu-tru-quan-1-tphcm": {
+            "url": "https://www.google.com/maps/place/District+1,+Ho+Chi+Minh+City,+Vietnam/@10.7751766,106.6808529,12217m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31752f38f9ed887b:0x14aded5703768989!8m2!3d10.7756587!4d106.7004238",
+            "desc": "Cơ sở lưu trú tại quận 1"
+        },
+        "benh-vien-nhiet-doi-tphcm": {
+            "url": "https://www.google.com/maps/place/B%E1%BB%87nh+vi%E1%BB%87n+B%E1%BB%87nh+Nhi%E1%BB%87t+%C4%91%E1%BB%9Bi/@10.7529035,106.6763209,1527m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31752f0186de2bb7:0x1392b898bea9c54!8m2!3d10.7529035!4d106.6785096",
+            "desc": "Bệnh viện bệnh nhiệt đới TPHCM",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://vnexpress.net/suc-khoe/them-4-nguoi-nhiem-ncov-tai-ha-noi-quang-ninh-tp-hcm-4069299.html"
+    ],
+    "customHTML": ""
+}
