@@ -1,0 +1,30 @@
+{
+    "caseType": "old",
+    "age": 25,
+    "gender": "male",
+    "from": "Hà Nội",
+    "stayed": "165 Cầu Giấy, Dịch Vọng, Cầu Giấy, Hà Nội",
+    "visited": "",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": ["no31", "no33"],
+    "confirmDate": "12 March 2020",
+    "nodes": {
+        "ngo-165-cau-giay-dich-vong": {
+            "url": "https://www.google.com/maps/place/165+%C4%90%C6%B0%E1%BB%9Dng+C%E1%BA%A7u+Gi%E1%BA%A5y,+Quan+Hoa,+C%E1%BA%A7u+Gi%E1%BA%A5y,+H%C3%A0+N%E1%BB%99i,+Vietnam/@21.032967,105.7961083,1451m/data=!3m2!1e3!4b1!4m5!3m4!1s0x3135ab4721c01a09:0x5806afc80809ffab!8m2!3d21.032962!4d105.798297",
+            "desc": "Ngõ 165 Cầu Giấy, Dịch Vọng, Cầu Giấy, Hà Nội"
+        },
+        "ngo-60-duong-khue-my-dinh": {
+            "url": "https://www.google.com/maps/place/60+D%C6%B0%C6%A1ng+Khu%C3%AA,+M%E1%BB%B9+%C4%90%C3%ACnh,+C%E1%BA%A7u+Gi%E1%BA%A5y,+H%C3%A0+N%E1%BB%99i,+Vietnam/@21.034461,105.7696315,1451m/data=!3m2!1e3!4b1!4m5!3m4!1s0x313454b712a9575b:0x59af41dbff7ffec0!8m2!3d21.034456!4d105.7718202",
+            "desc": "Ngõ 60 Dương Khuê, Mỹ Đình, Từ Liêm, Hà Nội"
+        },
+        "benh-vien-xanh-pon": {
+            "url": "https://www.google.com/maps/place/Saint+Paul+Hospital/@21.0313773,105.8329816,1451m/data=!3m2!1e3!4b1!4m5!3m4!1s0x3135ab98b25209b9:0x1a348af47b4a4622!8m2!3d21.0313723!4d105.8351703",
+            "desc": "Bệnh viện Xanh Pôn, Hà Nội",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://vnexpress.net/thoi-su/benh-nhan-39-tiep-xuc-gan-20-nguoi-4068130.html"
+    ],
+    "customHTML": ""
+}
