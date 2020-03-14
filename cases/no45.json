@@ -1,0 +1,32 @@
+{
+    "caseType": "old",
+    "age": 25,
+    "gender": "male",
+    "from": "TPHCM",
+    "stayed": "87 Bành Văn Trân, Tân Bình, TPHCM",
+    "visited": "",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": ["no34"],
+    "confirmDate": "13 March 2020",
+    "nodes": {
+        "87-banh-van-tran-tan-binh": {
+            "url": "https://www.google.com/maps/place/87+B%C3%A0nh+V%C4%83n+Tr%C3%A2n,+Ph%C6%B0%E1%BB%9Dng+7,+T%C3%A2n+B%C3%ACnh,+H%E1%BB%93+Ch%C3%AD+Minh,+Vietnam/@10.7882042,106.6573224,1527m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31752ecc79084477:0xc73faf62e1a5115d!8m2!3d10.7882005!4d106.65887",
+            "desc": "87 Bành Văn Trân, Tân Bình, TPHCM"
+        },
+        "nha-tho-sao-mai-tan-binh": {
+            "url": "https://www.google.com/maps/place/Nh%C3%A0+Th%E1%BB%9D+Sao+Mai+(T%C3%A2n+B%C3%ACnh)/@10.7870382,106.6560223,1527m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31752ecbf15604cf:0x9f9cdb890b4598be!8m2!3d10.7870329!4d106.658211",
+            "desc": "Nhà thờ Sao Mai, Tân Bình, TPHCM"
+        },
+        "bv-da-chien-cu-chi": {
+            "url": "https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+Qu%C3%A2n+s%E1%BB%B1+B%E1%BB%99+T%C6%B0+l%E1%BB%87nh+TPHCM/@11.0670504,106.5186029,763m/data=!3m1!1e3!4m5!3m4!1s0x310b32a45e8baac3:0xddd32dddbc65a6f6!8m2!3d11.06904!4d106.5188315",
+            "desc": "Bệnh viện dã chiến Củ Chi, TPHCM",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://vnexpress.net/thoi-su/cach-ly-135-nguoi-tiep-xuc-benh-nhan-ncov-o-tp-hcm-4069000.html",
+        "https://vnexpress.net/suc-khoe/nam-thanh-nien-o-tp-hcm-nhiem-ncov-4068927.html",
+        "https://thanhnien.vn/video/thoi-su/con-hem-nha-benh-nhan-thu-45-nhiem-covid-19-bat-ngo-nhung-khong-so-hai-146755.html"
+    ],
+    "customHTML": ""
+}
