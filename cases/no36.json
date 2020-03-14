@@ -6,12 +6,12 @@
     "stayed": "phường Phú Thủy, Phan Thiết, Bình Thuận",
     "visited": "",
     "citizenship": "Vietnam",
-    "relatedCaseNo": [],
+    "relatedCaseNo": ["no34"],
     "confirmDate": "11 March 2020",
     "nodes": {
         "nha-rieng-phu-thuy-phan-thiet": {
             "url": "https://www.google.com/maps/place/Ph%C3%BA+Th%E1%BB%A7y,+Phan+Thiet,+B%C3%ACnh+Thu%E1%BA%ADn+Province,+Vietnam/@10.9366445,108.1069336,6105m/data=!3m2!1e3!4b1!4m5!3m4!1s0x3176831260aa3539:0x1afdedf18b57a931!8m2!3d10.9383013!4d108.1113804",
-            "desc": "Nhà riêng Phường Phú Thủy, Tp Phan Thiết, Bình Thuận",
+            "desc": "Nhà riêng Phường Phú Thủy, Tp Phan Thiết, Bình Thuận"
         },
         "benh-vien-da-khoa-binh-thuan": {
             "url": "https://www.google.com/maps/place/General+Hospital+in+Binh+Thuan+Province/@10.9405052,108.0867063,1526m/data=!3m2!1e3!4b1!4m5!3m4!1s0x317682e479fd66bf:0x61b47249e21af607!8m2!3d10.9404999!4d108.088895",
