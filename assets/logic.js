@@ -246,9 +246,7 @@ function RenderDataToMap() {
 
             // disable all node
             for (const [_, loc2] of Object.entries(locations)) {
-                loc2.marker.setStyle({
-                    fillOpacity: theme.opacity.disable
-                });
+                loc2.marker.setStyle({ fillOpacity: theme.opacity.disable });
             }
 
             // reset sidebar
@@ -274,9 +272,7 @@ function RenderDataToMap() {
                     pickedMarker.push(locName);
                     var loc3 = locations[locName];
 
-                    loc3.marker.setStyle({
-                        fillOpacity: theme.opacity.enable
-                    });
+                    loc3.marker.setStyle({ fillOpacity: theme.opacity.enable });
                     loc3.marker.bringToFront();
                 });
 
@@ -285,14 +281,6 @@ function RenderDataToMap() {
                 // update sidebar
                 AddCaseToSidebar(caseNo, lName);
             });
-
-            // enable this node in case no root link ?
-            loc.marker.setStyle({
-                fillOpacity: theme.opacity.enable
-            });
-            loc.marker.bringToFront();
-
-            
 
         });
 
@@ -318,9 +306,7 @@ function RenderDataToMap() {
             
             // enable all node
             for ([__, loc2] of Object.entries(locations)) {
-                loc2.marker.setStyle({
-                    fillOpacity: theme.opacity.enable
-                });
+                loc2.marker.setStyle({ fillOpacity: theme.opacity.enable });
             }
         });
 
