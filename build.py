@@ -7,5 +7,4 @@ for no in l:
     data[no] = d
 
 json.dump(data, open("data.json", "w", encoding="utf8"))
-open("assets/global.js", "a").write("isProduction = true;\n")
 

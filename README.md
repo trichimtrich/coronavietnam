@@ -1,5 +1,7 @@
 # covi
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/56e24015-aee8-4a18-82a4-aec14654cf87/deploy-status)](https://app.netlify.com/sites/coronavietnam/deploys)
+
 👉[Live website](https://coronavietnam.netlify.com/)
 
 Bản đồ xem `Cô Vi` đang ở những chỗ nào trên quê ta.
