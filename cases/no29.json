@@ -1,0 +1,26 @@
+{
+    "caseType": "old",
+    "age": 29,
+    "gender": "",
+    "from": "London",
+    "stayed": "khách sạn Thái Sơn",
+    "visited": "London",
+    "citizenship": "English",
+    "relatedCaseNo": ["no17"],
+    "confirmDate": "08 March 2020",
+    "nodes": {
+        "san-bay-noi-bai": {
+            "url": "https://www.google.com/maps/place/S%C3%A2n+bay+n%E1%BB%99i+b%C3%A0i/@21.2180967,105.7887342,17z/data=!3m1!4b1!4m5!3m4!1s0x3135036c6bf15007:0x522c01665408ae36!8m2!3d21.2180917!4d105.7909229",
+            "desc": "Sân bay quốc tế Nội Bài"
+        },
+        "khach-san-thai-son": {
+            "url": "https://www.google.com/maps/place/Kh%C3%A1ch+S%E1%BA%A1n+Th%C3%A1i+S%C6%A1n/@20.9539273,107.1006559,1452m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314a57f538e53b9f:0xe6113c12fff715b8!8m2!3d20.9539223!4d107.1028446",
+            "desc": "Khách sạn Thái Sơn",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://vnexpress.net/thoi-su/bon-nguoi-nhiem-ncov-tham-quan-vinh-ha-long-4066220.html"
+    ],
+    "customHTML": ""
+}
