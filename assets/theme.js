@@ -2,7 +2,7 @@ var _themes = {};
 
 // MapboxStreets
 var tileMapboxStreets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a> | dev <a href="https://github.com/trichimtrich/trichimtrich.github.io">trichimtrich</a>',
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a> | dev <a href="https://github.com/trichimtrich/coronavietnam">trichimtrich</a>',
     maxZoom: 18,
     id: 'mapbox/streets-v11',
     tileSize: 512,
@@ -27,7 +27,7 @@ _themes.MapboxStreets = {
 
 // CartoDB_DarkMatter
 var tileCartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a> | dev <a href="https://github.com/trichimtrich/trichimtrich.github.io">trichimtrich</a>',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a> | dev <a href="https://github.com/trichimtrich/coronavietnam">trichimtrich</a>',
     subdomains: 'abcd',
     maxZoom: 19
 });
@@ -49,7 +49,7 @@ _themes.CartoDB_DarkMatter = {
 
 // CartoDB_Positron
 var tileCartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a> | dev <a href="https://github.com/trichimtrich/trichimtrich.github.io">trichimtrich</a>',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a> | dev <a href="https://github.com/trichimtrich/coronavietnam">trichimtrich</a>',
     subdomains: 'abcd',
     maxZoom: 19
 });
@@ -71,7 +71,7 @@ _themes.CartoDB_Positron = {
 // An trom cua VietMap, hihi ^^
 // https://maps.vietmap.vn/web/tile-mapapi/#tilemap
 var tileVietMap = L.tileLayer('https://maps.vietmap.vn/tm6/{z}/{x}/{y}@2x.png?apikey={token}', {
-    attribution: '&copy; <a href="https://maps.vietmap.vn/copyright">Vietmap</a> contributors | dev <a href="https://github.com/trichimtrich/trichimtrich.github.io">trichimtrich</a>',
+    attribution: '&copy; <a href="https://maps.vietmap.vn/copyright">Vietmap</a> contributors | dev <a href="https://github.com/trichimtrich/coronavietnam">trichimtrich</a>',
     subdomains: 'abcd',
     maxZoom: 19,
     token: 'f50f96fd875c023e6fd8acac6d9a7e0d15699071d3259542'

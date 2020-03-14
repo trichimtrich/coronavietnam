@@ -1,6 +1,6 @@
 # covi
 
-👉[Live website](https://trichimtrich.github.io/)
+👉[Live website](https://coronavietnam.netlify.com/)
 
 Bản đồ xem `Cô Vi` đang ở những chỗ nào trên quê ta.
 
