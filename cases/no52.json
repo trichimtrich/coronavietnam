@@ -1,0 +1,32 @@
+{
+    "caseType": "new",
+    "age": 24,
+    "gender": "female",
+    "from": "London",
+    "stayed": "Khu 4B, phường Hồng Hải, Hạ Long",
+    "visited": "",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": [],
+    "confirmDate": "14 March 2020",
+    "nodes": {
+        "san-bay-noi-bai": {
+            "url": "https://www.google.com/maps/place/S%C3%A2n+bay+n%E1%BB%99i+b%C3%A0i/@21.2180967,105.7887342,17z/data=!3m1!4b1!4m5!3m4!1s0x3135036c6bf15007:0x522c01665408ae36!8m2!3d21.2180917!4d105.7909229",
+            "desc": "Sân bay quốc tế Nội Bài"
+        },
+        "khu-4b-hong-hai-ha-long": {
+            "url": "https://www.google.com/maps/place/Hồng+Hải,+Hạ+Long,+Quảng+Ninh,+Vietnam/@20.9490477,107.098283,5807m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314a578b10a67bfd:0x66f12936ae3cd1f4!8m2!3d20.9499748!4d107.1041465",
+            "desc": "Nhà riêng khu 4B, Hồng Hải, Hạ Long"
+        },
+        "benh-vien-da-chien-cs2-quang-ninh": {
+            "url": "https://www.google.com/maps/place/Tuberculosis+and+Lung+Hospital+in+Quang+Ninh/@20.9790165,107.0877448,1451m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314af7fd377256ff:0x58b1b8690082e7bb!8m2!3d20.9790115!4d107.0899335",
+            "desc": "Bệnh viện dã chiến cơ sở 2 Quảng Ninh",
+            "last": true
+        }
+
+    },
+    "reference": [
+        "https://vnexpress.net/suc-khoe/them-4-nguoi-nhiem-ncov-tai-ha-noi-quang-ninh-tp-hcm-4069299.html",
+        "https://www.evn.com.vn/d6/news/PC-Quang-Ninh-dam-bao-dien-cho-2-benh-vien-da-chien-va-14-khu-cach-ly-6-12-25082.aspx"
+    ],
+    "customHTML": ""
+}
