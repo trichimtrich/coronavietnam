@@ -113,6 +113,22 @@ function CreateMap() {
     }
     legend.addTo(myMap);
 
+    // add button to show all cases
+    var btnReset = L.control({ position: "topleft" });
+    btnReset.onAdd = function () {
+        var _btn = L.DomUtil.create("div", "btn-control");
+        _btn.id = "reset-btn";
+        _btn.title = "Reset sidebar";
+        _btn.innerHTML = "<img src='https://image.flaticon.com/icons/svg/1828/1828727.svg'>";
+        $(_btn).on("click", function() {
+            AddCasesToSidebar();
+            OpenSidebar();
+            _resetMapView();
+        });
+        return _btn;
+    };
+    btnReset.addTo(myMap);
+
 
     // add button to control sidebar
     var btnSidebar = L.control({ position: "topleft" });
@@ -130,23 +146,6 @@ function CreateMap() {
         return _btn;
     };
     btnSidebar.addTo(myMap);
-
-
-    // add button to show all cases
-    var btnReset = L.control({ position: "topleft" });
-    btnReset.onAdd = function () {
-        var _btn = L.DomUtil.create("div", "btn-control");
-        _btn.id = "reset-btn";
-        _btn.title = "Reset sidebar";
-        _btn.innerHTML = "<img src='https://image.flaticon.com/icons/svg/1828/1828727.svg'>";
-        $(_btn).on("click", function() {
-            AddCasesToSidebar();
-            OpenSidebar();
-            _resetMapView();
-        });
-        return _btn;
-    };
-    btnReset.addTo(myMap);
 
         
     // dark mode button
