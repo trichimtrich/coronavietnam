@@ -1,0 +1,34 @@
+{
+    "caseType": "old",
+    "age": 30,
+    "gender": "female",
+    "from": "Ha Noi",
+    "stayed": "12/250 Khương Trung, Thanh Xuân, Hà Nội",
+    "visited": "London",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": [],
+    "confirmDate": "13 March 2020",
+    "nodes": {
+        "12-250-khuong-trung": {
+            "url": "https://www.google.com/maps/place/12+Ng%C3%B5+250+-+Kh%C6%B0%C6%A1ng+Trung,+Kh%C6%B0%C6%A1ng+Trung,+Thanh+Xu%C3%A2n,+H%C3%A0+N%E1%BB%99i,+Vietnam/@20.9929595,105.8144715,1451m/data=!3m2!1e3!4b1!4m5!3m4!1s0x3135ac9203665081:0x14fe87a85b4e8d17!8m2!3d20.9929545!4d105.8166602",
+            "desc": "12/250 Khương Trung, Thanh Xuân, Hà Nội"
+        },
+        "doan-tiep-vien-200-nguyen-son": {
+            "url": "https://www.google.com/maps/place/%C4%90o%C3%A0n+Ti%E1%BA%BFp+vi%C3%AAn+VNA+ph%C3%ADa+b%E1%BA%AFc/@21.0440429,105.8800805,1451m/data=!3m2!1e3!4b1!4m5!3m4!1s0x3135a96cc3742b03:0xd3af3feaecebdf50!8m2!3d21.0440379!4d105.8822692",
+            "desc": "Đoàn tiếp viên VNA phía Bắc"
+        },
+        "trung-tam-y-te-hang-khong-nguyen-son": {
+            "url": "https://www.google.com/maps/place/Aviation+Medical+Centre/@21.0398529,105.8773726,1451m/data=!3m2!1e3!4b1!4m5!3m4!1s0x3135a97cd95e5185:0x5d47b5630ae389ee!8m2!3d21.0398479!4d105.8795613",
+            "desc": "Trung tâm y tế Hàng Không"
+        },
+        "benh-vien-nhiet-doi-kinh-chung": {
+            "url": "https://www.google.com/maps/place/B%E1%BB%87nh+Vi%E1%BB%87n+B%E1%BB%87nh+nhi%E1%BB%87t+%C4%91%E1%BB%9Bi+Trung+%C6%B0%C6%A1ng+c%C6%A1+s%E1%BB%9F+Kim+Chung/@21.0930009,105.7690303,13798m/data=!3m1!1e3!4m8!1m2!2m1!1zYuG7h25oIG5oaeG7h3QgxJHhu5tpIGPGoSBz4bufIDI!3m4!1s0x0:0xbe4ff9d01a1e2e16!8m2!3d21.1314922!4d105.7743931",
+            "desc": "Bệnh viện nhiệt đới Kin Chung, Hà Nội",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://vnexpress.net/suc-khoe/them-hai-nguoi-duong-tinh-ncov-tai-ha-noi-4065745.html"
+    ],
+    "customHTML": ""
+}
