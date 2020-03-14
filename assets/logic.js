@@ -11,7 +11,8 @@ async function LoadData() {
 
         for (var i = 0; i < _cases.length; i++) {
             var caseNo = _cases[i];
-            var response = await fetch(`./cases/${caseNo}.json`);
+            console.log(caseNo);
+            var response = await fetch(`./cases/${caseNo}.json?t=${Math.random()}`);
             cases[caseNo] = await response.json();
         }
     }
