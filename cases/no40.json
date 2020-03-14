@@ -1,0 +1,26 @@
+{
+    "caseType": "old",
+    "age": 2,
+    "gender": "female",
+    "from": "Bình Thuận",
+    "stayed": "TP Phan Thiết, Bình Thuận",
+    "visited": "",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": ["no34"],
+    "confirmDate": "12 March 2020",
+    "nodes": {
+        "phan-thiet": {
+            "url": "https://www.google.com/maps/place/Phan+Thiet,+B%C3%ACnh+Thu%E1%BA%ADn+Province,+Vietnam/@10.8976653,108.0338761,97692m/data=!3m2!1e3!4b1!4m5!3m4!1s0x3176830f876e16e5:0x2a82c373d3a16cc8!8m2!3d10.9804603!4d108.2614775",
+            "desc": "Tp Phan Thiết, Bình Thuận"
+        },
+        "benh-vien-da-khoa-binh-thuan": {
+            "url": "https://www.google.com/maps/place/General+Hospital+in+Binh+Thuan+Province/@10.9405052,108.0867063,1526m/data=!3m2!1e3!4b1!4m5!3m4!1s0x317682e479fd66bf:0x61b47249e21af607!8m2!3d10.9404999!4d108.088895",
+            "desc": "Bệnh viện đa khoa tỉnh Bình Thuận",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://vnexpress.net/suc-khoe/them-5-nguoi-o-binh-thuan-duong-tinh-ncov-4068206.html"
+    ],
+    "customHTML": ""
+}
