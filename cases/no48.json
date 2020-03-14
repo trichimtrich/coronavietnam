@@ -1,0 +1,23 @@
+{
+    "caseType": "new",
+    "age": 31,
+    "gender": "male",
+    "from": "TPHCM",
+    "stayed": "Chung cư Hòa Bình, quận 10, TPHCM",
+    "visited": "",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": ["no34"],
+    "confirmDate": "14 March 2020",
+    "nodes": {
+        "chung-cu-hoa-binh-quan-10-tan-binh": {
+            "url": "https://www.google.com/maps/place/H%C3%B2a+B%C3%ACnh,+Ph%C6%B0%E1%BB%9Dng+14,+Qu%E1%BA%ADn+10,+H%E1%BB%93+Ch%C3%AD+Minh,+Vietnam/@10.7667193,106.6592377,1527m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31752ee9006ed7e7:0xec23f2dba714e54c!8m2!3d10.766714!4d106.6614264",
+            "desc": "Chung cư Hòa Bình, Phường 14, quận 10, TPHCM",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://vnexpress.net/suc-khoe/them-mot-nguoi-o-tp-hcm-nhiem-ncov-4060854.html",
+        "https://video.vnexpress.net/tin-tuc/thoi-su/phong-toa-chung-cu-benh-nhan-48-sinh-song-4069262.html"  
+    ],
+    "customHTML": ""
+}
