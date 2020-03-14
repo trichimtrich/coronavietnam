@@ -12,7 +12,7 @@ async function LoadData() {
         for (var i = 0; i < _cases.length; i++) {
             var caseNo = _cases[i];
             console.log(caseNo);
-            var response = await fetch(`./cases/${caseNo}.json?t=${Math.random()}`);
+            var response = await fetch(`./cases/${caseNo}.json`);
             cases[caseNo] = await response.json();
         }
     }
@@ -257,7 +257,7 @@ function RenderDataToMap() {
             }
 
             // reset sidebar
-            $("#my-sidebar").empty();
+            CleanSidebar();
 
             // all cases link to this node
             pickedMarker = Array();

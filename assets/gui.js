@@ -114,12 +114,13 @@ function CreateMap() {
     legend.addTo(myMap);
 
     // add button to show all cases
-    var btnReset = L.control({ position: "topleft" });
+    var btnReset = L.control({ position: "bottomleft" });
     btnReset.onAdd = function () {
-        var _btn = L.DomUtil.create("div", "btn-control");
+        var _btn = L.DomUtil.create("div", "btn-control btn-control-bottom");
         _btn.id = "reset-btn";
-        _btn.title = "Reset sidebar";
-        _btn.innerHTML = "<img src='https://image.flaticon.com/icons/svg/1828/1828727.svg'>";
+        _btn.title = "Hiện danh sách các ca dương tính với corona";
+        // _btn.innerHTML = "";
+        _btn.innerHTML = "<img src='https://image.flaticon.com/icons/svg/1097/1097326.svg'> Danh sách ca nhiễm";
         $(_btn).on("click", function() {
             AddCasesToSidebar();
             OpenSidebar();
@@ -129,13 +130,29 @@ function CreateMap() {
     };
     btnReset.addTo(myMap);
 
+       
+    // dark mode button
+    var btnTheme = L.control({ position: "topleft" });
+    btnTheme.onAdd = function () {
+        var _btn = L.DomUtil.create("div", "btn-control");
+        _btn.id = "theme-btn";
+        _btn.title = "Bật/Tắt giao diện Dark-mode";
+        $(_btn).on("click", function() {
+            window.isDark = ! window.isDark;
+            window.localStorage.setItem("darkmode", window.isDark);
+            LoadTheme();
+        });
+        return _btn;
+    };
+    btnTheme.addTo(myMap);
+
 
     // add button to control sidebar
     var btnSidebar = L.control({ position: "topleft" });
     btnSidebar.onAdd = function () {
         var _btn = L.DomUtil.create("div", "btn-control");
         _btn.id = "sidebar-btn";
-        _btn.title = "Open or hide sidebar";
+        _btn.title = "Bật/Tắt thanh khung thông tin";
         _btn.innerHTML = "<img src='https://image.flaticon.com/icons/svg/271/271228.svg'>";
         $(_btn).on("click", function() {
             if (window.sidebar < 0)
@@ -147,21 +164,6 @@ function CreateMap() {
     };
     btnSidebar.addTo(myMap);
 
-        
-    // dark mode button
-    var btnTheme = L.control({ position: "bottomleft" });
-    btnTheme.onAdd = function () {
-        var _btn = L.DomUtil.create("div", "btn-control");
-        _btn.id = "theme-btn";
-        _btn.title = "Dark mode";
-        $(_btn).on("click", function() {
-            window.isDark = ! window.isDark;
-            window.localStorage.setItem("darkmode", window.isDark);
-            LoadTheme();
-        });
-        return _btn;
-    };
-    btnTheme.addTo(myMap);
 
     window.myMap = myMap;
 }
@@ -227,10 +229,15 @@ function AddCaseToSidebar(caseNo, lName) {
 }
 
 
+function CleanSidebar() {
+    $("#my-sidebar").html(`<div id="boyte"><a href="https://ncov.moh.gov.vn/" target="_blank">👉 Mời truy cập trang web ncov của Bộ Y tế để nắm bắt các thông tin, thông báo mới nhất cũng như tình hình diễn biến dịch COVID-19 tại Việt Nam. 🔗</a></div>`);
+}
+
 function AddCasesToSidebar() {
     var cases = window.cases;
+
+    CleanSidebar();
     
-    $("#my-sidebar").empty();
     for (const [caseNo, ca] of Object.entries(cases).sort(
                 (a, b) => {
                     var idx1 = NODE_STATE.indexOf(a[1].caseType);
