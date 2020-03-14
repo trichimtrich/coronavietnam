@@ -1,0 +1,26 @@
+{
+    "caseType": "old",
+    "age": 43,
+    "gender": "female",
+    "from": "Ha Noi",
+    "stayed": "Trúc Bạch",
+    "visited": "",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": ["no17"],
+    "confirmDate": "13 March 2020",
+    "nodes": {
+        "nha-125-truc-bach": {
+            "url": "https://www.google.com/maps/place/125+Tr%C3%BAc+B%E1%BA%A1ch,+Ba+%C4%90%C3%ACnh,+H%C3%A0+N%E1%BB%99i,+Vietnam/@21.0451101,105.8416721,21z/data=!4m5!3m4!1s0x3135abb0398f9b59:0x90a8dc59359afe19!8m2!3d21.045082!4d105.841909",
+            "desc": "125 Trúc Bạch, Ba Đình, Hà Nội"
+        },
+        "benh-vien-nhiet-doi-kim-chung": {
+            "url": "https://www.google.com/maps/place/B%E1%BB%87nh+Vi%E1%BB%87n+B%E1%BB%87nh+nhi%E1%BB%87t+%C4%91%E1%BB%9Bi+Trung+%C6%B0%C6%A1ng+c%C6%A1+s%E1%BB%9F+Kim+Chung/@21.0930009,105.7690303,13798m/data=!3m1!1e3!4m8!1m2!2m1!1zYuG7h25oIG5oaeG7h3QgxJHhu5tpIGPGoSBz4bufIDI!3m4!1s0x0:0xbe4ff9d01a1e2e16!8m2!3d21.1314922!4d105.7743931",
+            "desc": "Bệnh viện nhiệt đới Kim Chung, Hà Nội",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://vnexpress.net/suc-khoe/them-hai-nguoi-duong-tinh-ncov-tai-ha-noi-4065745.html"
+    ],
+    "customHTML": ""
+}
