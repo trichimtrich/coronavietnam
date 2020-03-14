@@ -1,13 +1,19 @@
 async function LoadData() {
-    // always load latest list in no-cache mode
-    var resp = await fetch(`./list.json?t=${Math.random()}`);
-    const _cases = await resp.json();
-
     var cases = {};
-    for (var i = 0; i < _cases.length; i++) {
-        var caseNo = _cases[i];
-        var response = await fetch(`./cases/${caseNo}.json`);
-        cases[caseNo] = await response.json();
+
+    if (isProduction) {
+        var resp = await fetch(`./data.json?t=${Math.random()}`);
+        cases = await resp.json();
+    } else {
+        // always load latest list in no-cache mode
+        var resp = await fetch(`./list.json?t=${Math.random()}`);
+        const _cases = await resp.json();
+
+        for (var i = 0; i < _cases.length; i++) {
+            var caseNo = _cases[i];
+            var response = await fetch(`./cases/${caseNo}.json`);
+            cases[caseNo] = await response.json();
+        }
     }
 
     window.cases = cases;
