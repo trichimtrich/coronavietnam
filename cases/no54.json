@@ -1,0 +1,36 @@
+
+{
+    "caseType": "new",
+    "age": 33,
+    "gender": "male",
+    "from": "Spain",
+    "stayed": "40 Bùi Viện, Quận 1, TPHCM",
+    "visited": "Spain, Turkey",
+    "citizenship": "Latvia",
+    "relatedCaseNo": [],
+    "confirmDate": "15 March 2020",
+    "nodes": {
+        "san-bay-tan-son-nhat": {
+            "url": "https://www.google.com/maps/place/S%C3%A2n+bay+T%C3%A2n+S%C6%A1n+Nh%E1%BA%A5t/@10.8154903,106.6617853,17z/data=!3m1!4b1!4m5!3m4!1s0x31752917efe79857:0x641f8f3953dc6a69!8m2!3d10.815485!4d106.663974",
+            "desc": "Cảng hàng không quốc tế Tân Sơn Nhất"
+        },
+        "khach-san-la-nube-residence-phu-quoc": {
+            "url": "https://www.google.com/maps/place/La+Nube+Residence/@10.183418,103.9696406,1530m/data=!3m2!1e3!4b1!4m8!3m7!1s0x31a78db8adcc5b03:0xaa0ebb65f4e87cc4!5m2!4m1!1i2!8m2!3d10.1834127!4d103.9718293",
+            "desc": "Khách sạn La Nube Residence, Phú Quốc"
+        },
+        "hem-40-bui-vien-tphcm": {
+            "url": "https://www.google.com/maps/place/40+B%C3%B9i+Vi%E1%BB%87n,+Ph%C6%B0%E1%BB%9Dng+Ph%E1%BA%A1m+Ng%C5%A9+L%C3%A3o,+Qu%E1%BA%ADn+1,+H%E1%BB%93+Ch%C3%AD+Minh,+Vietnam/@10.767738,106.6923098,1527m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31752f3e0265c917:0xfbafa7b0f78f902f!8m2!3d10.7677327!4d106.6944985",
+            "desc": "Hẻm 40 Bùi Viện, Quận 1, TPHCM"
+        },
+        "benh-vien-nhiet-doi-tphcm": {
+            "url": "https://www.google.com/maps/place/B%E1%BB%87nh+vi%E1%BB%87n+B%E1%BB%87nh+Nhi%E1%BB%87t+%C4%91%E1%BB%9Bi/@10.7529035,106.6763209,1527m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31752f0186de2bb7:0x1392b898bea9c54!8m2!3d10.7529035!4d106.6785096",
+            "desc": "Bệnh viện bệnh nhiệt đới TPHCM",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://vnexpress.net/thoi-su/cach-ly-4-nguoi-tiep-xuc-du-khach-latvia-nhiem-ncov-4069695.html",
+        "https://vnexpress.net/suc-khoe/du-khach-latvia-tai-tp-hcm-nhiem-ncov-4069612.html"
+    ],
+    "customHTML": ""
+}

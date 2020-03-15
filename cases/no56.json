@@ -1,0 +1,38 @@
+{
+    "caseType": "old",
+    "age": 30,
+    "gender": "male",
+    "from": "London",
+    "stayed": "",
+    "visited": "",
+    "citizenship": "English",
+    "relatedCaseNo": [],
+    "confirmDate": "14 March 2020",
+    "nodes": {
+        "san-bay-noi-bai": {
+            "url": "https://www.google.com/maps/place/S%C3%A2n+bay+n%E1%BB%99i+b%C3%A0i/@21.2180967,105.7887342,17z/data=!3m1!4b1!4m5!3m4!1s0x3135036c6bf15007:0x522c01665408ae36!8m2!3d21.2180917!4d105.7909229",
+            "desc": "Sân bay quốc tế Nội Bài"
+        },
+        "khach-san-hanoi-paradise-center-hotel": {
+            "url": "https://www.google.com/maps/place/Hanoi+Paradise+center+Hotel+%26+spa/@21.0303216,105.8541502,1451m/data=!3m2!1e3!4b1!4m8!3m7!1s0x3135ab1f01ab9f47:0x510e7df04bb78868!5m2!4m1!1i2!8m2!3d21.0303166!4d105.8563389",
+            "desc": "Khách sạn Hanoi Paradise Hotel"
+        },
+        "mountain-river-homestay-sapa": {
+            "url": "https://www.google.com/maps/place/Mountain+River+Homestay+Sapa/@22.3022241,103.892294,1438m/data=!3m2!1e3!4b1!4m8!3m7!1s0x36cd40b4d2e34289:0x8951203c223ee4cb!5m2!4m1!1i2!8m2!3d22.3022192!4d103.8944827",
+            "desc": "Mountain River Homestay Sapa"
+        },
+        "khach-san-oriental-suites": {
+            "url": "https://www.google.com/maps/place/Oriental+Suites+Hotel+%26+Spa/@21.033232,105.8488803,1451m/data=!3m2!1e3!4b1!4m8!3m7!1s0x3135abbf9f421ec9:0x6dd2b395443abd06!5m2!4m1!1i2!8m2!3d21.033227!4d105.851069",
+            "desc": "Khách sạn oriental suites"
+        },
+        "benh-vien-nhiet-doi-kim-chung": {
+            "url": "https://www.google.com/maps/place/B%E1%BB%87nh+Vi%E1%BB%87n+B%E1%BB%87nh+nhi%E1%BB%87t+%C4%91%E1%BB%9Bi+Trung+%C6%B0%C6%A1ng+c%C6%A1+s%E1%BB%9F+Kim+Chung/@21.0930009,105.7690303,13798m/data=!3m1!1e3!4m8!1m2!2m1!1zYuG7h25oIG5oaeG7h3QgxJHhu5tpIGPGoSBz4bufIDI!3m4!1s0x0:0xbe4ff9d01a1e2e16!8m2!3d21.1314922!4d105.7743931",
+            "desc": "Bệnh viện nhiệt đới Kim Chung, Hà Nội",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://vnexpress.net/suc-khoe/ba-nguoi-nuoc-ngoai-tai-ha-noi-quang-nam-nhiem-ncov-4069721.html"
+    ],
+    "customHTML": ""
+}
