@@ -1,0 +1,31 @@
+
+{
+    "caseType": "new",
+    "age": 42,
+    "gender": "male",
+    "from": "Malaysia",
+    "stayed": "Thôn Văn Lâm 3, xã Phước Nam, huyện Thuận Nam, tỉnh Ninh Thuận",
+    "visited": "Malaysia",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": [],
+    "confirmDate": "16 March 2020",
+    "nodes": {
+        "san-bay-tan-son-nhat": {
+            "url": "https://www.google.com/maps/place/S%C3%A2n+bay+T%C3%A2n+S%C6%A1n+Nh%E1%BA%A5t/@10.8154903,106.6617853,17z/data=!3m1!4b1!4m5!3m4!1s0x31752917efe79857:0x641f8f3953dc6a69!8m2!3d10.815485!4d106.663974",
+            "desc": "Cảng hàng không quốc tế Tân Sơn Nhất"
+        },
+        "xa-phuoc-nam-thuan-nam-ninh-thuan": {
+            "url": "https://www.google.com/maps/place/trung+t%C3%A2m+y+t%E1%BA%BF+huy%E1%BB%87n+Thu%E1%BA%ADn+Nam/@11.4764234,108.9090209,1523m/data=!3m1!1e3!4m12!1m6!3m5!1s0x3170d3797bf69e55:0x954ace1a3163c532!2z4bumeSBCYW4gTmjDom4gRMOibiBIdXnhu4duIFRodeG6rW4gTmFt!8m2!3d11.4764182!4d108.9112096!3m4!1s0x3170d16052c46dc5:0xfd8574edbfb6a8c8!8m2!3d11.4723209!4d108.9122182",
+            "desc": "Thôn Văn Lâm 3, xã Phước Nam, huyện Thuận Nam, tỉnh Ninh Thuận"
+        },
+        "benh-vien-da-khoa-tinh-ninh-thuan": {
+            "url": "https://www.google.com/maps/place/Ninh+Thuan+Hospital/@11.5798262,109.0026571,1523m/data=!3m2!1e3!4b1!4m5!3m4!1s0x3170cfdc3a3196a9:0x2cf8da1b61686b8a!8m2!3d11.579821!4d109.0048458",
+            "desc": "Bệnh viện đa khoa tỉnh Ninh Thuận",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://vnexpress.net/suc-khoe/covid-19-xuat-hien-o-ninh-thuan-4069504.html"
+    ],
+    "customHTML": ""
+}
