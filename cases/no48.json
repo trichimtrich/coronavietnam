@@ -1,5 +1,5 @@
 {
-    "caseType": "old",
+    "caseType": "update",
     "age": 31,
     "gender": "male",
     "from": "TPHCM",
@@ -21,7 +21,8 @@
     },
     "reference": [
         "https://vnexpress.net/suc-khoe/them-mot-nguoi-o-tp-hcm-nhiem-ncov-4060854.html",
-        "https://video.vnexpress.net/tin-tuc/thoi-su/phong-toa-chung-cu-benh-nhan-48-sinh-song-4069262.html"  
+        "https://video.vnexpress.net/tin-tuc/thoi-su/phong-toa-chung-cu-benh-nhan-48-sinh-song-4069262.html",
+        "https://vnexpress.net/suc-khoe/them-5-ca-nhiem-ncov-4070572.html"
     ],
     "customHTML": ""
 }
