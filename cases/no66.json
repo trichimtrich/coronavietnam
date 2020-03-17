@@ -1,0 +1,27 @@
+
+{
+    "caseType": "new",
+    "age": 21,
+    "gender": "female",
+    "from": "US",
+    "stayed": "107 Nguyễn Đức Cảnh, Phú Mỹ Hưng, quận 7",
+    "visited": "Philadelphia, Toronto, Taiwan",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": [],
+    "confirmDate": "17 March 2020",
+    "nodes": {
+        "san-bay-tan-son-nhat": {
+            "url": "https://www.google.com/maps/place/S%C3%A2n+bay+T%C3%A2n+S%C6%A1n+Nh%E1%BA%A5t/@10.8154903,106.6617853,17z/data=!3m1!4b1!4m5!3m4!1s0x31752917efe79857:0x641f8f3953dc6a69!8m2!3d10.815485!4d106.663974",
+            "desc": "Cảng hàng không quốc tế Tân Sơn Nhất"
+        },
+        "lo-AB-chung-cu-parkview-nguyen-duc-canh-tphcm": {
+            "url": "https://www.google.com/maps/place/Park+View,+Nguy%E1%BB%85n+%C4%90%E1%BB%A9c+C%E1%BA%A3nh,+T%C3%A2n+Phong,+Qu%E1%BA%ADn+7,+H%E1%BB%93+Ch%C3%AD+Minh,+Vietnam/@10.7258411,106.7074282,382m/data=!3m1!1e3!4m5!3m4!1s0x31752f92fedffd4b:0x38663ca7a123a7ef!8m2!3d10.7258661!4d106.7088364",
+            "desc": "Lô A-B chung cư Parkview, Nguyễn Đức Cảnh, Quận 7, TPHCM",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://vnexpress.net/suc-khoe/them-5-ca-nhiem-ncov-4070572.html"
+    ],
+    "customHTML": ""
+}

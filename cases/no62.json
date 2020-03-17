@@ -1,0 +1,26 @@
+{
+    "caseType": "new",
+    "age": 18,
+    "gender": "male",
+    "from": "England",
+    "stayed": "",
+    "visited": "",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": [],
+    "confirmDate": "17 March 2020",
+    "nodes": {
+        "san-bay-van-don": {
+            "url": "https://www.google.com/maps/place/Van+Don+International+Airport/@21.1138681,107.4171777,1450m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314b04c525219efb:0x96b19793093fe160!8m2!3d21.1138631!4d107.4193664",
+            "desc": "Cảng hàng không quốc tế Vân Đồn"
+        },
+        "benh-vien-viet-nam-thuy-dien": {
+            "url": "https://www.google.com/maps/place/Vietnam+-+Sweden+Hospital/@21.0416531,106.7498528,1451m/data=!3m2!1e3!4b1!4m5!3m4!1s0x314a8843ec3a09a1:0x1467e7b16217851b!8m2!3d21.0416481!4d106.7520415",
+            "desc": "Bệnh viện Việt Nam Thụy Điển Uông Bí, Quảng Ninh",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://vnexpress.net/suc-khoe/them-5-ca-nhiem-ncov-4070572.html"
+    ],
+    "customHTML": ""
+}

@@ -1,0 +1,34 @@
+{
+    "caseType": "new",
+    "age": 28,
+    "gender": "female",
+    "from": "TPHCM",
+    "stayed": "hẻm 248 đường Phạm Ngũ Lão, phường 7, quận Gò Vấp, TPHCM",
+    "visited": "",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": ["no45","no48"],
+    "confirmDate": "17 March 2020",
+    "nodes": {
+        "cong-ty-toto-1A-pham-ngoc-thach-tphcm": {
+            "url": "https://www.google.com/maps/place/TOTO+Vi%E1%BB%87t+Nam+showroom/@10.7811136,106.694878,1527m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31752f37ae81746b:0xa3f5d48e89391b1d!8m2!3d10.7811083!4d106.6970667",
+            "desc": "Công ty TNHH TOTO Việt Nam 1A Phạm Ngọc Thạch, Quận 1, TPHCM"
+        },
+        "hem-248-pham-ngu-lao-go-vap-tphcm": {
+            "url": "https://www.google.com/maps/place/248+Ph%E1%BA%A1m+Ng%C5%A9+L%C3%A3o,+Ph%C6%B0%E1%BB%9Dng+4,+G%C3%B2+V%E1%BA%A5p,+H%E1%BB%93+Ch%C3%AD+Minh,+Vietnam/@10.8207262,106.6810806,1527m/data=!3m2!1e3!4b1!4m5!3m4!1s0x317528e48dcf57d7:0xa03b9dc8102458f4!8m2!3d10.8207209!4d106.6832693",
+            "desc": "hẻm 248 đường Phạm Ngũ Lão, phường 7, quận Gò Vấp, TPHCM"
+        },
+        "9-duong-bach-mai-q8-tphcm": {
+            "url": "https://www.google.com/maps/place/9+D%C6%B0%C6%A1ng+B%E1%BA%A1ch+Mai,+Ph%C6%B0%E1%BB%9Dng+5,+Qu%E1%BA%ADn+8,+H%E1%BB%93+Ch%C3%AD+Minh,+Vietnam/@10.7390491,106.6649222,382m/data=!3m1!1e3!4m5!3m4!1s0x31752e506fe5f87f:0x86f5d36c238fd2db!8m2!3d10.73848!4d106.665607",
+            "desc": "Khu cách ly Dương Bạch Mai, Quận 8, TPHCM"
+        },
+        "bv-da-chien-cu-chi": {
+            "url": "https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+Qu%C3%A2n+s%E1%BB%B1+B%E1%BB%99+T%C6%B0+l%E1%BB%87nh+TPHCM/@11.0670504,106.5186029,763m/data=!3m1!1e3!4m5!3m4!1s0x310b32a45e8baac3:0xddd32dddbc65a6f6!8m2!3d11.06904!4d106.5188315",
+            "desc": "Bệnh viện dã chiến Củ Chi, TPHCM",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://vnexpress.net/suc-khoe/them-5-ca-nhiem-ncov-4070572.html"
+    ],
+    "customHTML": ""
+}

@@ -1,0 +1,53 @@
+
+{
+    "caseType": "new",
+    "age": 36,
+    "gender": "female",
+    "from": "Dubai",
+    "stayed": "hẻm 47, đường Nguyễn Thị Tần, phường 2, quận 8, TPHCM",
+    "visited": "Switzerland, Dubai",
+    "citizenship": "Vietnam",
+    "relatedCaseNo": [],
+    "confirmDate": "17 March 2020",
+    "nodes": {
+        "san-bay-tan-son-nhat": {
+            "url": "https://www.google.com/maps/place/S%C3%A2n+bay+T%C3%A2n+S%C6%A1n+Nh%E1%BA%A5t/@10.8154903,106.6617853,17z/data=!3m1!4b1!4m5!3m4!1s0x31752917efe79857:0x641f8f3953dc6a69!8m2!3d10.815485!4d106.663974",
+            "desc": "Cảng hàng không quốc tế Tân Sơn Nhất"
+        },
+        "47-nguyen-thi-tan-quan-8": {
+            "url": "https://www.google.com/maps/place/H%E1%BA%BBm+47+Nguy%E1%BB%85n+Th%E1%BB%8B+T%E1%BA%A7n,+ph%C6%B0%E1%BB%9Dng+2,+Qu%E1%BA%ADn+8,+H%E1%BB%93+Ch%C3%AD+Minh,+Vietnam/@10.7482223,106.6855989,382m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31752f07bcfe680b:0x91f25584c56b73c!8m2!3d10.748221!4d106.6861461",
+            "desc": "hẻm 47, đường Nguyễn Thị Tần, phường 2, quận 8, TPHCM"
+        },
+        "lau-bo-41-da-nam": {
+            "url": "https://www.google.com/maps/place/Qu%C3%A1n+%C4%83n+gia+%C4%91%C3%ACnh+41+D%E1%BA%A1+Nam/@10.7486719,106.6856038,382m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31752fa7e6d82f15:0x70745d013f0d6ca4!8m2!3d10.7486706!4d106.686151",
+            "desc": "Quán ăn gia đình 41 Dạ Nam, Quận 8, TPHCM"
+        },
+        "hsbc-nguyen-van-cu-tphcm": {
+            "url": "https://www.google.com/maps/place/HSBC/@10.7644178,106.6800822,1527m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31752f195711c071:0x7cdee21ee9eaefc2!8m2!3d10.7644125!4d106.6822709",
+            "desc": "HSBC 235 Nguyễn Văn Cừ, Quận 1, TPHCM"
+        },
+        "119-112-nguyen-thi-tan": {
+            "url": "https://www.google.com/maps/place/119%2F112+Nguy%E1%BB%85n+Th%E1%BB%8B+T%E1%BA%A7n,+Ph%C6%B0%E1%BB%9Dng+2,+Qu%E1%BA%ADn+8,+H%E1%BB%93+Ch%C3%AD+Minh,+Vietnam/@10.7463663,106.6833823,1527m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31752fa829e5d261:0xc0845d5a1699c04e!8m2!3d10.746361!4d106.685571",
+            "desc": "Gỏi cuốn chợ Rạch Ông 119/112 Nguyễn Thị Tần, Quận 8, TPHCM"
+        },
+        "gym-tigersport-trung-son-tphcm": {
+            "url": "https://www.google.com/maps/place/TigerSport+Cung+C%E1%BA%A5p+Thi%E1%BA%BFt+b%E1%BB%8B+Gym+v%C3%A0+M%E1%BB%9F+Ph%C3%B2ng+Gym/@10.7328645,106.6890991,227m/data=!3m1!1e3!4m8!1m2!2m1!1sgym+tiger+sport+trung+son!3m4!1s0x0:0x1c49c2c0a6a8d34!8m2!3d10.732816!4d106.6896837",
+            "desc": "Gym Tiger Sport 235-237 đường 9A, Trung Sơn, Bình Chánh, TPHCM"
+        },
+        "9-duong-bach-mai-q8-tphcm": {
+            "url": "https://www.google.com/maps/place/9+D%C6%B0%C6%A1ng+B%E1%BA%A1ch+Mai,+Ph%C6%B0%E1%BB%9Dng+5,+Qu%E1%BA%ADn+8,+H%E1%BB%93+Ch%C3%AD+Minh,+Vietnam/@10.7390491,106.6649222,382m/data=!3m1!1e3!4m5!3m4!1s0x31752e506fe5f87f:0x86f5d36c238fd2db!8m2!3d10.73848!4d106.665607",
+            "desc": "Khu cách ly Dương Bạch Mai, Quận 8, TPHCM"
+        },
+        "bv-da-chien-cu-chi": {
+            "url": "https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+Qu%C3%A2n+s%E1%BB%B1+B%E1%BB%99+T%C6%B0+l%E1%BB%87nh+TPHCM/@11.0670504,106.5186029,763m/data=!3m1!1e3!4m5!3m4!1s0x310b32a45e8baac3:0xddd32dddbc65a6f6!8m2!3d11.06904!4d106.5188315",
+            "desc": "Bệnh viện dã chiến Củ Chi, TPHCM",
+            "last": true
+        }
+    },
+    "reference": [
+        "https://vnexpress.net/suc-khoe/them-5-ca-nhiem-ncov-4070572.html",
+        "https://vnexpress.net/thoi-su/ba-khu-dan-cu-o-sai-gon-bi-phong-toa-4070579.html",
+        "https://plo.vn/dich-covid-19/hanh-trinh-di-chuyen-cua-benh-nhan-so-64-o-quan-8-tphcm-897653.html"
+    ],
+    "customHTML": ""
+}
