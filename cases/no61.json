@@ -1,6 +1,6 @@
 
 {
-    "caseType": "new",
+    "caseType": "update",
     "age": 42,
     "gender": "male",
     "from": "Malaysia",
@@ -14,6 +14,14 @@
             "url": "https://www.google.com/maps/place/S%C3%A2n+bay+T%C3%A2n+S%C6%A1n+Nh%E1%BA%A5t/@10.8154903,106.6617853,17z/data=!3m1!4b1!4m5!3m4!1s0x31752917efe79857:0x641f8f3953dc6a69!8m2!3d10.815485!4d106.663974",
             "desc": "Cảng hàng không quốc tế Tân Sơn Nhất"
         },
+        "thanh-duong-jamiul-muslimin-nguyen-van-troi-tphcm": {
+            "url": "https://www.google.com/maps/place/Jamiul+Muslimin+Mosque/@10.7706467,106.6737625,12217m/data=!3m1!1e3!4m8!1m2!2m1!1sJamiul+Islamic+nguyen+van+troi!3m4!1s0x317529299d34e3f7:0x5147ddf222a3ee7b!8m2!3d10.7941301!4d106.678266",
+            "desc": "Thánh đường Hồi giáo Jamiul Islamic, Nguyễn Văn Trỗi, Quận Phú Nhuận, TPHCM"
+        },
+        "bx-mien-dong": {
+            "url": "https://www.google.com/maps/place/B%E1%BA%BFn+xe+Mi%E1%BB%81n+%C4%90%C3%B4ng/@10.8148291,106.7086283,1527m/data=!3m1!1e3!4m5!3m4!1s0x3175289741790d39:0x95362685e34cec2f!8m2!3d10.8148238!4d106.710817",
+            "desc": "Bến xe Miền Đông, Xô Viết Nghệ Tĩnh, TPHCM"
+        },
         "xa-phuoc-nam-thuan-nam-ninh-thuan": {
             "url": "https://www.google.com/maps/place/trung+t%C3%A2m+y+t%E1%BA%BF+huy%E1%BB%87n+Thu%E1%BA%ADn+Nam/@11.4764234,108.9090209,1523m/data=!3m1!1e3!4m12!1m6!3m5!1s0x3170d3797bf69e55:0x954ace1a3163c532!2z4bumeSBCYW4gTmjDom4gRMOibiBIdXnhu4duIFRodeG6rW4gTmFt!8m2!3d11.4764182!4d108.9112096!3m4!1s0x3170d16052c46dc5:0xfd8574edbfb6a8c8!8m2!3d11.4723209!4d108.9122182",
             "desc": "Thôn Văn Lâm 3, xã Phước Nam, huyện Thuận Nam, tỉnh Ninh Thuận"
@@ -25,7 +33,8 @@
         }
     },
     "reference": [
-        "https://vnexpress.net/suc-khoe/covid-19-xuat-hien-o-ninh-thuan-4069504.html"
+        "https://vnexpress.net/suc-khoe/covid-19-xuat-hien-o-ninh-thuan-4069504.html",
+        "https://vnexpress.net/thoi-su/thanh-duong-o-tp-hcm-bi-dong-cua-4070850.html"
     ],
     "customHTML": ""
 }

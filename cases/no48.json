@@ -9,6 +9,10 @@
     "relatedCaseNo": ["no34"],
     "confirmDate": "14 March 2020",
     "nodes": {
+        "cong-ty-toto-1A-pham-ngoc-thach-tphcm": {
+            "url": "https://www.google.com/maps/place/TOTO+Vi%E1%BB%87t+Nam+showroom/@10.7811136,106.694878,1527m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31752f37ae81746b:0xa3f5d48e89391b1d!8m2!3d10.7811083!4d106.6970667",
+            "desc": "Công ty TNHH TOTO Việt Nam 1A Phạm Ngọc Thạch, Quận 1, TPHCM"
+        },
         "chung-cu-hoa-binh-quan-10-tan-binh": {
             "url": "https://www.google.com/maps/place/H%C3%B2a+B%C3%ACnh,+Ph%C6%B0%E1%BB%9Dng+14,+Qu%E1%BA%ADn+10,+H%E1%BB%93+Ch%C3%AD+Minh,+Vietnam/@10.7667193,106.6592377,1527m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31752ee9006ed7e7:0xec23f2dba714e54c!8m2!3d10.766714!4d106.6614264",
             "desc": "Chung cư Hòa Bình, Phường 14, quận 10, TPHCM",
