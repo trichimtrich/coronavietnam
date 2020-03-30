@@ -58,9 +58,10 @@
 
         window.addEventListener("load", function() {
             if (isProduction) 
-                alert(`Thông tin trên bản đồ này được tổng hợp từ nguồn của các cơ quan báo chí chính thống, nên chỉ mang tính chất tham khảo, KHÔNG có giá trị trích dẫn.
+                /*alert(`Thông tin trên bản đồ này được tổng hợp từ nguồn của các cơ quan báo chí chính thống, nên chỉ mang tính chất tham khảo, KHÔNG có giá trị trích dẫn.
 Trang Web này KHÔNG có liên kết hay được chứng thực bởi bất kỳ cơ quan Chính phủ nào.
-Chúng tôi KHÔNG chịu trách nhiệm nếu người đọc sử dụng thông tin này với mục đích khác, dưới bất cứ hình thức gì.`);
+Chúng tôi KHÔNG chịu trách nhiệm nếu người đọc sử dụng thông tin này với mục đích khác, dưới bất cứ hình thức gì.`);*/
+                alert(`Vì số ca phát sinh quá nhiều và thông tin hạn chế, chúng tôi xin phép dừng cập nhật kết quả từ ngày 18/03/2020. Cảm ơn các bạn :)`);
             window.sidebar = -1;
             window.isDark = window.localStorage.getItem("darkmode") == "true";
             Main();
